@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+     -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+    <title>Geospatially Africa</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <h3>Podcast</h3>
+        <div class="menu-items">
+          <a href="#">Home</a>
+          <a href="#">Episodes</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+        <!-- <a href="#">Donate</a> -->
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="hero">
+        <h1>Geospatially Africa Podcast</h1>
+        <p>The podcast for the African geospatial community</p>
+        <audio controls></audio>
+        <div class="platform">
+          <img class="spotify" src="img/spotify.png" />
+          <img src="img/googlepod.svg" />
+          <img src="img/applepod.svg" />
+        </div>
+      </div>
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+    </div>
+
+    <div class="monthly">
+      <div class="cont">
+        <h3>Don't miss our monthly episodes</h3>
+        <!-- <input type="text" placeholder="enter your email"> -->
+        <button
+          class="waves-effect waves-light btn-large"
+          type="button"
+          name="button">
+          Subscribe
+        </button>
+      </div>
+    </div>
+
+    <div class="containerj">
+      <div class="row">
+        <div class="col s10">
+          <span class="flow-text">
+            <div class="services">
+              <div class="col s10 m22">
+                <h2 class="header">Horizontal Card</h2>
+                {% for episode in episodes %}
+                <div class="card horizontal">
+                  <div class="card-image">
+                    <img src="https://lorempixel.com/100/190/nature/6" />
+                  </div>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                      <p>
+                        SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} | {{ episode.published_date }} | {{ episode.tags }}
+                      </p>
+                      <h4>{{ episode.title }}</h4>
+                      <audio controls src=""></audio>
+
+                      {{ episode.description}}
+                    </div>
+                    <div class="card-action">
+                      <a href="#">Read more</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            5-columns wide pulled to the left by 7-columns.</span
+          >
+        </div>
+        <div class="col s2">
+          <span class="flow-text"
+            >This div is 7-columns wide on pushed to the right by
+            5-columns.</span
+          >
+        </div>
+      </div>
+
+      <div class="patners"></div>
+
+      <div class="contact"></div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">
+              You can use rows and columns here to organize your footer content.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2021 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
