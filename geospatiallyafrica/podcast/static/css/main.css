@@ -3,134 +3,58 @@ html, body {
   box-sizing: border-box;
 }
 
-.name {
-  width: 50%;
-  margin: auto;
+
+
+.btn-primary {
+  background: green;
+  border-color: green;
 }
 
-h1 {
-  font-size: 4em;
-  font-weight: 200;
+.btn-primary:hover {
+  background: grey;
+  border-color: green;
 }
-
-h3 {
-  font-size: 2.3em;
-}
-
-audio {
-  width: 60%;
-}
-
-.head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: auto;
-    background-color: #FFFFFF;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    z-index: 3;
-  }
-
-
-.menu-items {
-    margin: auto;
-  }
-
-  .menu-items a {
-    padding: 12px;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: black;
-    left: 3px;
-  }
-
-  a:hover {
-    text-decoration: underline;
-    color: red;
-  }
-
-  a:active {
-    text-decoration: underline;
-  }
-
-  header {
-    background: blue;
-  }
-
-  .main {
-    background-color: #d5ddd3;
-    height: 100vh;
-    margin: auto;
-  }
 
   .circle-1 {
     background-color: #7795e9;
     border-radius: 50%;
-    position: absolute;
     top: 43%;
     right: 10%;
-    width: 200px;
-    height: 200px;
+    width: 50px;
+    height: 50px;
     z-index: 2;
   }
   .circle-2 {
     background-color: #9ea9c7;
     border-radius: 50%;
-    position: absolute;
     top: 25%;
     right: 40px;
-    width: 500px;
-    height: 500px
+    width: 100px;
+    height: 100px
   }
   .circle-3 {
     background-color: #9ea9c7;
     border-radius: 50%;
-    position: absolute;
     top: 25%;
     right: 40px;
-    width: 500px;
-    height: 500px
+    width: 200px;
+    height: 200px
   }
 
-  h2 {
 
-    font-size: 3em;
+  h2 .epitle {
+    font-size: 4em;
+    text-align: justify;
   }
 
-  .hero {
-    color: black;
-    position: absolute;
-    top: 30%;
-    margin: auto;
-    text-align: center;
-    z-index: 2;
-  }
 
-  h4{
-    padding: 0;
-    margin: 0;
-  }
-
-  button {
-    padding: 13px;
-    background-color: rgb(61, 175, 175);
-    width: 240px;
-    outline: none;
-    border: white solid 2px;
-    font-weight: bold;
-    transition-duration: 0.8s;
-  }
 
   button:hover {
     background-color: burlywood;
   }
 
-  audio {
-    width: 20%;
-    background: none;
-    padding-bottom: 40px;
+  a:focus {
+    text-decoration: underline;
   }
 
   .platform {
@@ -142,19 +66,11 @@ audio {
     margin: auto;
   }
 
-  .spotify {
-    width: 25%;
+
+  audio {
+    width: 100%;
   }
 
-  .controlBar {
-    background-color: red;
-  }
-
-  .card-content {
-    background-color: red;
-    width: 60%;
-    margin-right: 94px;
-  }
 
 
   .services {
@@ -168,22 +84,20 @@ audio {
     display: flex;
   }
 
-  .cont {
-    margin: auto;
-    text-align: center;
-  }
-
-  .projects {
-    background-color: #ffe499;
-    height: 30vh;
-  }
-
   .contact {
-    background-color: #d5ebd1;
-    height: 50vh;
+    background-color: #d1d8ee7e;
   }
 
   /* footer {
     height: 40vh;
     background-color: #5d5f85;
   } */
+
+a {
+  text-decoration: none;
+}
+
+.form textarea,
+.form input {
+  width: 80%
+}

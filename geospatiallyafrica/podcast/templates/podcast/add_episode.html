@@ -1,0 +1,22 @@
+{% extends 'podcast/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <h2>New Episode</h2>
+    <form action="" method="POST" class="form">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-primary" value="Submit">
+
+
+    </form>
+</div>
+
+
+{% endblock %}

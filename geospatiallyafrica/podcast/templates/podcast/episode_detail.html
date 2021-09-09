@@ -1,0 +1,58 @@
+{% extends 'podcast/base.html' %}
+
+{% block content %}
+
+
+<div class="container col-md-6">
+
+
+  {% for episode in episode %}
+  <div class="card horizontalw">
+
+    <div class="card-stackedw">
+      <div class="card-contewnt">
+
+        <h2 style="font-size: 3.2em;">{{ episode.title }}</h2>
+
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'episode_edit' pk=episode.pk %}">Edit
+            </a>
+          {% endif %}
+
+          {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+          {% else %}
+              <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+          {% endif %}
+
+
+        <h6>
+          SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+          <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
+        </h6>
+
+        <p>
+          <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
+        </p>
+        <audio style="width: 100%;" controls src=""></audio>
+
+        <h5>EPISODE SUMMARY</h5>
+        <article>
+          <p>{{ episode.summary}}</p>
+        </article>
+
+        <h5>SHOW NOTES</h5>
+
+        <p class="containjer">{{ episode.description | linebreaksbr}}</p>
+      </div>
+      <div class="card-action">
+        <a href="">Read More: </a>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+{% endblock %}

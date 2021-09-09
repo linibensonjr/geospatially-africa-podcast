@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_u(v1(8!oihwxqxm0q_77$l8wckax%g$u!u@rl%#yxqlj*c#4!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'podcast'
+    'podcast',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +51,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 ROOT_URLCONF = 'geospatiallyafrica.urls'
 
@@ -70,14 +77,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'geospatiallyafrica.wsgi.application'
 
+LOGIN_REDIRECT_URL = '/'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'geospatiallyafrica',
+        'USER': 'admin',
+        'PASSWORD': 'geoadmin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

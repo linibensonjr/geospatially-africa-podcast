@@ -1,0 +1,18 @@
+{% extends 'podcast/base.html' %}
+
+{% block content %}
+{% if episodes %}
+    {% for episode in episodes %}
+        
+        <div class="post">
+            <p class="date">created: {{ episode.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'episode_detail' pk=episode.pk %}">{{ episode.title }}</a></h1>
+            <p>{{ episode.text|truncatechars:200 }}</p>
+        </div>
+       
+           
+    {% endfor %}
+    {% else %}
+    <p>Nothing to see here</p>
+    {% endif %} 
+{% endblock %}
