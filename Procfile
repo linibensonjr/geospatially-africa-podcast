@@ -1,1 +1,1 @@
-web: gunicorn geospatiallyafrica.wsgi --log-file - 
+web: gunicorn geospatiallyafrica\geospatiallyafrica.wsgi --log-file - 
