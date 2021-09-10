@@ -1,1 +1,1 @@
-web: gunicorn geospatiallyafrica.wsgi --log-file - 
+web: gunicorn geospatiallyafrica.wsgi --python geospatiallyafrica --log-file - --log-level debug --preload --workers 1
