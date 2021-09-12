@@ -4,7 +4,7 @@
 {% if episodes %}
     {% for episode in episodes %}
         
-        <div class="post">
+        <div class="container">
             <p class="date">created: {{ episode.created_date|date:'d-m-Y' }}</p>
             <h1><a href="{% url 'episode_detail' pk=episode.pk %}">{{ episode.title }}</a></h1>
             <p>{{ episode.text|truncatechars:200 }}</p>

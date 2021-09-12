@@ -18,16 +18,15 @@
           {% if user.is_authenticated %}
             <a href="{% url 'episode_edit' pk=episode.pk %}">Edit
             </a>
+        
+            {% if episode.published_date %}
+              <div class="date">
+                 Date {{ episode.published_date }}
+              </div>
+            {% else %}
+                <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+            {% endif %}
           {% endif %}
-
-          {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-          {% else %}
-              <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
-          {% endif %}
-
 
         <h6>
           SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
