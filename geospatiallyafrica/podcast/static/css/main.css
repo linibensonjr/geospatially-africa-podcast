@@ -4,17 +4,6 @@ html, body {
 }
 
 
-
-.btn-primary {
-  background: green;
-  border-color: green;
-}
-
-.btn-primary:hover {
-  background: grey;
-  border-color: green;
-}
-
   .circle-1 {
     background-color: #7795e9;
     border-radius: 50%;
@@ -49,9 +38,6 @@ html, body {
 
 
 
-  button:hover {
-    background-color: burlywood;
-  }
 
   a:focus {
     text-decoration: underline;
@@ -108,4 +94,8 @@ a {
   background-color: rgb(20, 19, 19);
   border-radius: 50%;
   display: inline-block;
+}
+
+.embed-podcast-ltr-1p14a75.e1aiy3a112 {
+  display: none;
 }

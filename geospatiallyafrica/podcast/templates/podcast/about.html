@@ -1,0 +1,157 @@
+{% extends 'podcast/base.html' %}
+  {% load static %}
+{% block content %} 
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">About Us</h1>
+      <p class="lead">Join us as we talk to industry experts and professionals about how they are using geospatial technology in different areas. Stay informed about the latest trends and developments in the geospatial world in Africa and across the world.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="/#contact"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" >Contact</button></a>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Listen</button>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+<div class="monthly">
+  <div class="container">
+    
+   
+  </div>
+</div>
+
+
+<div class="container">
+  
+            
+    
+    <!-- {% for episode in episodes %}
+
+
+            <div class="card mb-3" style="max-width: 840px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{% static 'img/icon_podcast.png' %}" class="img-fluid rounded-start" alt="podcast icon">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+                      <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
+                    <h5 class="card-title">{{ episode.title }}</h5>
+                    <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
+                    <audio controls></audio>
+                    <p class="card-text">{{ episode.summary}}</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    {% endfor %}  -->
+
+  
+
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Meet the hosts
+
+        
+      </h3>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        
+          <div class="col">
+            <div class="card"  style="width: 26rem;">
+              <img class="card-img-top" src="{% static 'img/icon_podcast.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Iniobong Benson</h5>
+                <p class="card-text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                
+              </div>
+
+              <ul class="nav" style="text-align: center;">
+                <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
+                      style="font-size: 1.5rem;"></i></a></li>
+                <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                      style="font-size: 1.5rem; color: red;"></i></a></li>
+                <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                      style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+                <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+                <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                      style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+              </ul>
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+
+              <!-- <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div> -->
+
+
+            </div>
+        </div>
+
+        <div class="col">
+          <div class="card"  style="width: 26rem;">
+            <img class="card-img-top" src="{% static 'img/icon_podcast.png' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Opeyemi Kazeem-Jimoh</h5>
+              <p class="card-text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+              
+            </div>
+
+            <ul class="nav" style="text-align: center;">
+              <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
+                    style="font-size: 1.5rem;"></i></a></li>
+              <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                    style="font-size: 1.5rem; color: red;"></i></a></li>
+              <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+              <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+              <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+            </ul>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+
+            
+
+            <!-- <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div> -->
+
+
+          </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

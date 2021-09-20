@@ -13,27 +13,52 @@
       <h1 class="display-5 fw-bold lh-1 mb-3">The podcast for the African geospatial community</h1>
       <p class="lead">Join us as we talk to industry experts and professionals about how they are using geospatial technology in different areas. Stay informed about the latest trends and developments in the geospatial world in Africa and across the world.</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Contact</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Subscribe</button>
+        <a href="/#contact"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" >Contact</button></a>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Listen</button>
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Choose Platform</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC" target="_blank">
+                <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
+              <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+              <a href=""><img src="{%static 'img/spotify.png' %}" style="width: 140px;" /></a>
+              <button type="button" class="btn btn-primary" style="width: 140px;">RSS</button>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        
       </div>
     </div>
   </div>
 </div>
-
+<hr>
 
 
 <div class="monthly">
-  <div class="cont">
+  <div class="container">
+    
+    <div class="row align-items-center g-lg-5 py-5">
     <h3>Don't miss our monthly episodes</h3>
     <!-- <input type="text" placeholder="enter your email"> -->
-    <button
-      class="btn btn-primary"
-      type="button"
-      name="button">
-      Subscribe
-    </button>
+    <span>Heohaxsk</span>
+    <span>kjk</span>
+    </div>
   </div>
 </div>
+
 
 <div class="container">
   
@@ -69,6 +94,8 @@
     <div class="col-md-8">
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
         Latest Episodes
+
+        
       </h3>
 
     
@@ -85,7 +112,7 @@
                       <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
                     <a href="{% url 'episode_detail' pk=episode.pk %}"><h5 class="card-title">{{ episode.title }}</h5></a>
                     <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
-                    <audio style="width: 100%;" src="" controls></audio>
+                    <audio style="width: 100%;" src="{{episode.link}}" controls></audio>
                     <p class="card-text">{{ episode.summary}}</p>
                     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                   </div>
@@ -132,17 +159,6 @@
           {% for episode in episodes %}
           <ol class="list-unstyled mb-0">
             <li><a href="{% url 'episode_list' %}">{{ episode.tags}}</a></li>
-            <!-- <li><a href="#">February 2021</a></li>
-            <li><a href="#">January 2021</a></li>
-            <li><a href="#">December 2020</a></li>
-            <li><a href="#">November 2020</a></li>
-            <li><a href="#">October 2020</a></li>
-            <li><a href="#">September 2020</a></li>
-            <li><a href="#">August 2020</a></li>
-            <li><a href="#">July 2020</a></li>
-            <li><a href="#">June 2020</a></li>
-            <li><a href="#">May 2020</a></li>
-            <li><a href="#">April 2020</a></li> -->
           </ol>
           {% endfor %}
         </div>
@@ -152,7 +168,7 @@
           <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">
             Follow @geospatialy</a><!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
           
-            <div>
+            <!-- <div>
 
               <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
                 {% csrf_token %}
@@ -173,7 +189,7 @@
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Shoot</button>
                 </form>
-            </div>
+            </div> -->
         </div>
       </div>
     </div>

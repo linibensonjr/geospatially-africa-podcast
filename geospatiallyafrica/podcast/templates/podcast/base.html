@@ -1,186 +1,179 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
-      <title>Geospatially Africa</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
-    <div class="container">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-          <h4>Geospatially <br>Africa</h4>
+  <title>Geospatially Africa</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="/" class="align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none navbar-brand">
+          <h4>Geospatially<br>Africa</h4>
         </a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-          <li><a href="{% url 'episode_list' %}" class="nav-link px-2 link-dark">Episode</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">News</a></li>
-          <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
-          <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class=""><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="{% url 'episode_list' %}" class="nav-link px-2 link-dark">Episodes</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">News</a></li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+            <li><a href="{% url 'about_us' %}" class="nav-link px-2 link-dark">About</a></li>
+          </ul>
 
 
-        <ul class="nav col-3 col-md-auto mb-2 justify-content-right mb-md-0 text-end">
-          <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a></li>
-          <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube" style="font-size: 1.5rem; color: red;"></i></a></li>
-          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter" style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-          <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
-          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin" style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-        </ul>
+          <ul class="nav ">
+            <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
+                  style="font-size: 1.5rem;"></i></a></li>
+            <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                  style="font-size: 1.5rem; color: red;"></i></a></li>
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                  style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                  style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+          </ul>
+          {% if user.is_authenticated %}
+          <div class="col-md-4 text-end">
+            
 
-        <div class="col-md-3 text-end">
-
-          
-        {% if user.is_authenticated %}
-          
-          <i class="">Hello, {{ user.username}} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
-          <a href="{% url 'new_episode'  %}">New Episode</a>
-          <a href="{% url 'episode_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit">Drafts</span></a>
-        {% else %}
-          <button type="button" class="btn btn-primary">Support</button>
-          <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-        {% endif %}
+            <i class="">Hello, {{ user.username}} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
+            <a href="{% url 'new_episode'  %}"><button class="btn btn-outline-success btn-sm"><i class="bi bi-plus-circle" style="color: green;"></i>New</button>
+            <a href="{% url 'episode_draft_list' %}" class="top-menu"><button class="btn btn-outline-success btn-sm"><i class="bi bi-pencil" style="color: green;"></i>Draft</button></a>
+            {% else %}
+            <button type="button" class="btn btn-primary">Support</button>
+            {% endif %}
+          </div>
         </div>
-      </header>
+      </div>
+
+    </nav>
+
+  </div>
+  <main>
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    <div class="patners">
+
+  
     </div>
 
-    <!-- <div class="main">
-      <div class="hero">
-        <h1>Geospatially Africa Podcast</h1>
-        <p>The podcast for the African geospatial community</p>
-        <audio controls></audio>
-        <div class="platform">
-          <img class="spotify" src="img/spotify.png" />
-          <img src="img/googlepod.svg" />
-          <img src="img/applepod.svg" />
-        </div>
-      </div>
+    <div class="contact" id="contact">
+      <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-4 py-4">
+          <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3">Want to get in touch?</h1>
+            <p class="col-lg-10 fs-4">Drop a message here, we'd love to hear from you.</p>
+          </div>
+          <div class="col-md-10 mx-auto col-lg-5">
 
-    </div> -->
-
-<main>
-
-
-  {% block content %}
-
-
-  {% endblock %}
-
-
-
-      <!-- <div class="col-md-4">
-           <div class="position-sticky" style="top: 2rem;">
-             <div class="p-4 mb-3 bg-light rounded">
-               <h4 class="fst-italic">About</h4>
-               <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
-             </div>
-
-             <div class="p-4">
-               <h4 class="fst-italic">Archives</h4>
-               <ol class="list-unstyled mb-0">
-                 <li><a href="#">March 2021</a></li>
-                 <li><a href="#">February 2021</a></li>
-                 <li><a href="#">January 2021</a></li>
-                 <li><a href="#">December 2020</a></li>
-                 <li><a href="#">November 2020</a></li>
-                 <li><a href="#">October 2020</a></li>
-                 <li><a href="#">September 2020</a></li>
-                 <li><a href="#">August 2020</a></li>
-                 <li><a href="#">July 2020</a></li>
-                 <li><a href="#">June 2020</a></li>
-                 <li><a href="#">May 2020</a></li>
-                 <li><a href="#">April 2020</a></li>
-               </ol>
-             </div>
-
-             <div class="p-4">
-               <h4 class="fst-italic">Elsewhere</h4>
-               <ol class="list-unstyled">
-                 <li><a href="#">GitHub</a></li>
-                 <li><a href="#">Twitter</a></li>
-                 <li><a href="#">Facebook</a></li>
-               </ol>
-             </div>
-           </div>
-         </div>
-       </div> -->
-
-
-      <div class="patners">
-
-      </div>
-
-      <div class="contact">
-        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-          <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-              <h1 class="display-4 fw-bold lh-1 mb-3">Want to get in touch?</h1>
-              <p class="col-lg-10 fs-4">Drop a message here, we'd love to hear from you.</p> -->
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-
-              <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
-                {% csrf_token %}
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                  <label for="floatingPassword">Password</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Message</label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Shoot</button>
-                <hr class="my-4">
-                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-              </form>
-            </div>
+            <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+              {% csrf_token %}
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Full name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingPassword" placeholder="name@example.com">
+                <label for="floatingPassword">Email <address></address></label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea type="text-area" class="form-control" id="floatingInput" style="height: 160px;"></textarea>
+                <label for="floatingInput">Message</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Shoot</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-</main>
+    </div>
+  </main>
 
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">
-              You can use rows and columns here to organize your footer content.
-            </p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-            </ul>
-          </div>
+  <div class="container">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-2">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-2">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-2">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-4 offset-1">
+          <form>
+            <h5>Subscribe to our newsletter</h5>
+            <p>Monthly digest of whats new and exciting from us.</p>
+            <div class="d-flex w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2021 Geospatially Africa Podcast<span class="dot">&#183;</span>
-          <span>Developed by Iniobong Benson</span>
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+  
+      <div class="d-flex justify-content-between py-4 my-4 border-top">
+        <p>&copy; 2021 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
       </div>
     </footer>
+  </div>
 
-  </body>
+</body>
+
 </html>
