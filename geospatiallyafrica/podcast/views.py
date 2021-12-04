@@ -74,6 +74,9 @@ def listing(request):
     
     return render(request, 'list.html', {'page_obj': page_obj})
 
+def news(request):
+    return render(request, 'podcast/news.html')
+
 
 def about_us(request):
     return render(request, 'podcast/about.html')

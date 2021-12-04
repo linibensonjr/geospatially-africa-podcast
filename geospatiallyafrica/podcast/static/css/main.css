@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   box-sizing: border-box;
+  background-color: #98839F;
 }
 
 
@@ -98,4 +99,8 @@ a {
 
 .embed-podcast-ltr-1p14a75.e1aiy3a112 {
   display: none;
+}
+
+img.logo {
+  width: 32px;
 }
