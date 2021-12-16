@@ -6,6 +6,8 @@
 
 <div class="px-4 py-5 my-5 text-center">
   <h1 class="display-5 fw-bold">Episodes</h1>
+  
+  <input type="text" name="search" id="" placeholder="Search" style="width: 50%;">
 
 </div>
 
@@ -16,7 +18,14 @@
   {% for episode in episodes %}
   <div class="col">
   <div class="card">
-    <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+    {% if episode.episodepic %}
+    <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
+    {% else %}
+
+
+      <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+
+    {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{episode.title }}</h5>
       <p class="card-text">{{ episode.summary}}</p>

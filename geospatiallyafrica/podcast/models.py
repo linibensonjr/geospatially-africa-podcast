@@ -14,6 +14,9 @@ class Episode(models.Model):
     link = models.URLField(max_length=300)
     summary = models.CharField(max_length=300)
     description = models.TextField()
+    #episodeimage = models.CharField(max_length=200, null=True)
+    episodepic = models.CharField(max_length=200, null=True, blank=True)
+    image = models.ImageField(upload_to = 'img/', default='ope_lau.jpg')
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True)
 

@@ -102,22 +102,20 @@
 
       {% for episode in episodes %}
             <div class="card mb-3">
-              <div class="row g-0">
                 <!-- <div class="col-md-4">
                   <img src="{% static 'img/ope_lau.jpg' %}" class="img-fluid rounded-start" alt="podcast icon">
                 </div> -->
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="card-body">
                     <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
                       <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
                     <a href="{% url 'episode_detail' pk=episode.pk %}"><h5 class="card-title">{{ episode.title }}</h5></a>
                     <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
-                    <audio style="width: 100%;" src="{{episode.link}}" controls></audio>
+                    <!-- <audio style="width: 100%;" src="{{episode.link}}" controls></audio> -->
                     <p class="card-text">{{ episode.summary}}</p>
                     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                   </div>
                 </div>
-              </div>
             </div>
      
 

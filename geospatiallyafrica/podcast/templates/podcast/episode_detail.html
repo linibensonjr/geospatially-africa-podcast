@@ -1,5 +1,7 @@
 {% extends 'podcast/base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 
@@ -9,8 +11,14 @@
   {% for episode in episode %}
   <div class="card horizontalw">
 
-    <div class="card-stackedw">
-      <div class="card-contewnt">
+    <div class="card-stacked">
+      <div class="card-content">
+        {% if epsisode.episodepic %}
+          <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
+        {% else %}
+          <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+        {% endif %}
+
 
         <h2 style="font-size: 3.2em;">{{ episode.title }}</h2>
 
@@ -19,11 +27,11 @@
             <a href="{% url 'episode_edit' pk=episode.pk %}">Edit
             </a>
         
-            {% if episode.published_date %}
-              <div class="date">
+            {% if not episode.published_date %}
+              <!-- <div class="date">
                  Date {{ episode.published_date }}
-              </div>
-            {% else %}
+              </div> -->
+            
                 <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
             {% endif %}
           {% endif %}
@@ -52,6 +60,31 @@
       </div>
     </div>
   </div>
-</div>
   {% endfor %}
+
+
+  <h4>Episodes like this</h4>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for episode in episodes %}
+    <div class="col">
+    <div class="card">
+      <!-- {% if episode.episodepic %}
+      <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
+      {% else %}
+  
+  
+        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+  
+      {% endif %} -->
+      <div class="card-body">
+        <h5 class="card-title">{{episode.title }}</h5>
+        <p class="card-text">{{ episode.summary}}</p>
+        <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read more</button></a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+  
+  
 {% endblock %}

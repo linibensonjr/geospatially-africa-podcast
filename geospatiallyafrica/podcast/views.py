@@ -23,12 +23,14 @@ def episode_list(request):
 
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
-    return render(request, 'podcast/episode_detail.html', {'episode': episode})
+    episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:4]
+    context = {'episode': episode, 'episodes':episodes}
+    return render(request, 'podcast/episode_detail.html', context)
 
 @login_required
 def new_episode(request):
      if request.method == "POST":
-        form = EpisodeForm(request.POST)
+        form = EpisodeForm(request.POST, request.FILES)
         if form.is_valid():
             episode = form.save(commit=False)
             episode.author = request.user
