@@ -4,8 +4,12 @@
 
 {% block content %}
 
+{% load social_share %}
+
 
 <div class="container col-md-6">
+  <a href="{% url 'episode_list' %}"> &#60;All Episodes
+  </a>
 
 
   {% for episode in episode %}
@@ -56,26 +60,45 @@
         <p class="containjer">{{ episode.description | linebreaksbr}}</p>
       </div>
       <div class="card-action">
-        <a href="">Read More: </a>
+        
       </div>
     </div>
+    <div class="sharethis-inline-share-buttons"></div>
   </div>
+  <i class="bi bi-twitter"></i>{% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to Twitter" %}
+        {% post_to_linkedin object_or_url %}
+        {% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Share via email" %}
+        {% post_to_reddit "New Episode: {{episode.title}}"  %}
+        {% post_to_telegram "New Episode: {{episode.title}}" ''  %}
+        {% post_to_whatsapp object_or_ur "Share via WhatsApp" %}
+
+        <ul class="nav" style="text-align: center;">
+          <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
+                style="font-size: 1.5rem;"></i></a></li>
+          <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                style="font-size: 1.5rem; color: red;"></i></a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+          <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+        </ul>
   {% endfor %}
 
 
   <h4>Episodes like this</h4>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-3">
     {% for episode in episodes %}
     <div class="col">
     <div class="card">
-      <!-- {% if episode.episodepic %}
+      {% if episode.episodepic %}
       <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
       {% else %}
   
   
         <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
   
-      {% endif %} -->
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{episode.title }}</h5>
         <p class="card-text">{{ episode.summary}}</p>

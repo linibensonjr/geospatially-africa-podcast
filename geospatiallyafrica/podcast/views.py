@@ -23,7 +23,7 @@ def episode_list(request):
 
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
-    episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:4]
+    episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     context = {'episode': episode, 'episodes':episodes}
     return render(request, 'podcast/episode_detail.html', context)
 

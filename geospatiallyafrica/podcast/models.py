@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from datetime import datetime, timezone
+from autoslug import AutoSlugField
 
 # Create your models here.
 
@@ -14,6 +15,7 @@ class Episode(models.Model):
     link = models.URLField(max_length=300)
     summary = models.CharField(max_length=300)
     description = models.TextField()
+    slug = AutoSlugField(populate_from='title', default='slug')
     #episodeimage = models.CharField(max_length=200, null=True)
     episodepic = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(upload_to = 'img/', default='ope_lau.jpg')
