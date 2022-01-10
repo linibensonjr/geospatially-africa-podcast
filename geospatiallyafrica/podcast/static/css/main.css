@@ -36,6 +36,11 @@ html, body {
     text-align: justify;
   }
 
+  .guests {
+    display: flex;
+    flex-direction: row;
+  }
+
 
 
 

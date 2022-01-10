@@ -56,12 +56,12 @@ def episode_edit(request, pk):
        form = EpisodeForm(instance=episode)
     return render(request, 'podcast/add_episode.html', {'form': form})
 
-
+@login_required
 def episode_draft_list(request):
     episodes = Episode.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'podcast/episode_draft_list.html', {'episodes': episodes})
 
-
+@login_required
 def episode_publish(request, pk):
     episode = get_object_or_404(Episode, pk=pk)
     episode.publish()
