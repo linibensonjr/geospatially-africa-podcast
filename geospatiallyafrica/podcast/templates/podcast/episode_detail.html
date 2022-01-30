@@ -8,81 +8,100 @@
 
 
 <div class="container col-md-6">
-  <a href="{% url 'episode_list' %}"> &#60;All Episodes
-  </a>
+  <!-- {% for slug in episode} -->
 
 
   {% for episode in episode %}
-  <div class="card horizontalw">
+  <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
+    <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} > {{episode.title}}
+    </a>
+
+  </div>
+ 
+
+  <!-- <div class="card"> -->
 
     <div class="card-stacked">
       <div class="card-content">
-        {% if episode.episodepic %}
+        <!-- {% if episode.episodepic %}
           <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
         {% else %}
           <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
-        {% endif %}
+        {% endif %} -->
 
 
-        <h2 style="font-size: 3.2em;">{{ episode.title }}</h2>
-
-
-          {% if user.is_authenticated %}
-            <a href="{% url 'episode_edit' pk=episode.pk %}">Edit
-            </a>
-        
-            {% if not episode.published_date %}
-              <!-- <div class="date">
-                 Date {{ episode.published_date }}
-              </div> -->
-            
-                <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
-            {% endif %}
-          {% endif %}
-
-        <h6>
+        <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
+        <!-- <h5>EPISODE SUMMARY</h5> -->
+        <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
           SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
           <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
         </h6>
-
-        <p>
-          <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
-        </p>
-        <audio style="width: 100%;" controls src=""></audio>
-
-        <h5>EPISODE SUMMARY</h5>
         <article>
           <p>{{ episode.summary}}</p>
         </article>
 
+
+        {% if user.is_authenticated %}
+          <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
+
+          {% if not episode.published_date %}
+          <!-- <div class="date">
+                  Date {{ episode.published_date }}
+                </div> -->
+1
+            <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+          {% endif %}
+        {% endif %}
+
+        
+
+        <p>
+          <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
+        </p>
+
+        <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50%; width: 120px;" />
+
+        <h3 style="font-size: 3em; font-weight: bold; padding: 10px;"> Listen</h3>
+          <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1" frameborder="1" width="100%" height="200"></iframe>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+
+            <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
+              target="_blank">
+              <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
+            <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+            <a href=""><img src="{%static 'img/spotify.png' %}" style="width: 140px;" /></a>
+          </div>
         <h5>SHOW NOTES</h5>
 
         <p class="containjer">{{ episode.description | linebreaksbr}}</p>
       </div>
       <div class="card-action">
-        
+
       </div>
     </div>
-    <div class="sharethis-inline-share-buttons"></div>
-  </div>
-  <i class="bi bi-twitter"></i>{% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to Twitter" %}
-        {% post_to_linkedin object_or_url %}
-        {% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Share via email" %}
-        {% post_to_reddit "New Episode: {{episode.title}}"  %}
-        {% post_to_telegram "New Episode: {{episode.title}}" ''  %}
-        {% post_to_whatsapp object_or_ur "Share via WhatsApp" %}
 
-        <ul class="nav" style="text-align: center;">
-          <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
-                style="font-size: 1.5rem;"></i></a></li>
-          <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
-                style="font-size: 1.5rem; color: red;"></i></a></li>
-          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
-                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-          <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
-          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
-                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-        </ul>
+  <!-- </div> -->
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+  {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to
+  Twitter" %}
+  <span>{% post_to_linkedin object_or_url %}</span>
+  <span class="form-control" >{% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email" %}</span>
+  {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
+  {% post_to_telegram "New Episode: {{episode.title}}" 'Telegram' %}
+  {% post_to_whatsapp object_or_ur "WhatsApp" %}
+  </div>
+
+  <ul class="nav" style="text-align: center;">
+    <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a></li>
+    <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+          style="font-size: 1.5rem; color: red;"></i></a></li>
+    <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+          style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+    <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+    <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+          style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+  </ul>
   {% endfor %}
 
 
@@ -90,24 +109,25 @@
   <div class="row row-cols-1 row-cols-md-3 g-3">
     {% for episode in episodes %}
     <div class="col">
-    <div class="card">
-      {% if episode.episodepic %}
-      <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
-      {% else %}
-  
-  
+      <div class="card">
+        {% if episode.episodepic %}
+        <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
+        {% else %}
+
+
         <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
-  
-      {% endif %}
-      <div class="card-body">
-        <h5 class="card-title">{{episode.title }}</h5>
-        <p class="card-text">{{ episode.summary}}</p>
-        <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read more</button></a>
+
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{episode.title }}</h5>
+          <p class="card-text">{{ episode.summary}}</p>
+          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
+              more</button></a>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
-  
-  
-{% endblock %}
+
+
+  {% endblock %}

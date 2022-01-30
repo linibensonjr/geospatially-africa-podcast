@@ -1,6 +1,6 @@
 {% extends 'podcast/base.html' %}
-  {% load static %}
-{% block content %} 
+{% load static %}
+{% block content %}
 
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -11,80 +11,61 @@
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3">The podcast for the African geospatial community</h1>
-      <p class="lead">Join us as we talk to industry experts and professionals about how they are using geospatial technology in different areas. Stay informed about the latest trends and developments in the geospatial world in Africa and across the world.</p>
+      <p class="lead">Join us as we talk to industry experts and professionals about how they are using geospatial
+        technology in different areas. Stay informed about the latest trends and developments in the geospatial world in
+        Africa and across the world.</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <!-- <a href="/#contact"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" >Contact</button></a> -->
-        <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Listen</button>
-
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Choose Platform</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC" target="_blank">
-                <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-              <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
-              <a href=""><img src="{%static 'img/spotify.png' %}" style="width: 140px;" /></a>
-              <button type="button" class="btn btn-primary" style="width: 140px;">RSS</button>
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div> -->
-            <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC" target="_blank">
-              <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-            <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
-            <a href=""><img src="{%static 'img/spotify.png' %}" style="width: 140px;" /></a>
-          </div>
-        </div>
-      </div>
-
-        
+        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
+          target="_blank">
+          <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
+        <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+        <a href=""><img src="{%static 'img/spotify.png' %}" style="width: 140px;" /></a>
       </div>
     </div>
   </div>
+
+
+</div>
+</div>
+</div>
 </div>
 
 
 
 <!-- <div class="monthly">
   <div class="container"> -->
-    
-  
 
-      <div class="card text-center">
-        
-        <div class="card-body">
-          <h4 class="card-title">Some of our guests work at</h5>
-          
-          <div class="guests">
-            <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-            <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-            
-            <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-          </div>
-        
-        </div>
-       
+
+
+<div class="card text-center">
+
+  <div class="card-body">
+    <h4 class="card-title">Some of our guests work at</h5>
+
+      <div class="guests">
+        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
+        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
+
+        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
       </div>
-    
-    </div>
 
-  <!-- </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- </div>
 </div> -->
 
 
 
 
 <div class="container">
-  
-            
-    
-    <!-- {% for episode in episodes %}
+
+
+
+  <!-- {% for episode in episodes %}
 
 
             <div class="card mb-3" style="max-width: 840px;">
@@ -108,56 +89,58 @@
 
     {% endfor %}  -->
 
-  
+
 
   <div class="row g-5">
     <div class="col-md-8">
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
         Latest Episodes
 
-        
+
       </h3>
 
-    
+
 
       {% for episode in episodes %}
-            <div class="card mb-3">
-                <!-- <div class="col-md-4">
+      <div class="card mb-3">
+        <!-- <div class="col-md-4">
                   <img src="{% static 'img/ope_lau.jpg' %}" class="img-fluid rounded-start" alt="podcast icon">
                 </div> -->
-                <div class="col-md-12">
-                  <div class="card-body">
-                    <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                      <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
-                    <a href="{% url 'episode_detail' pk=episode.pk %}"><h5 class="card-title">{{ episode.title }}</h5></a>
-                    <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
-                    <!-- <audio style="width: 100%;" src="{{episode.link}}" controls></audio> -->
-                    <p class="card-text">{{ episode.summary}}</p>
-                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                  </div>
-                </div>
-            </div>
-     
+        <div class="col-md-12">
+          <div class="card-body">
+            <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+                <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
+            <a href="{% url 'episode_detail' pk=episode.pk %}">
+              <h5 class="card-title">{{ episode.title }}</h5>
+            </a>
+            <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
+            <!-- <audio style="width: 100%;" src="{{episode.link}}" controls></audio> -->
+            <p class="card-text">{{ episode.summary}}</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+      </div>
 
-     {% endfor %} 
 
-     <div class="pagination">
-      <span class="step-links">
+      {% endfor %}
+
+      <div class="pagination">
+        <span class="step-links">
           {% if episodes.has_previous %}
-              <a href="?page=1">&laquo; first</a>
-              <a href="?page={{ episodes.previous_page_number }}">previous</a>
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ episodes.previous_page_number }}">previous</a>
           {% endif %}
-  
+
           <span class="current">
-              Page {{ episodes.number }} of {{ episodes.paginator.num_pages }}.
+            Page {{ episodes.number }} of {{ episodes.paginator.num_pages }}.
           </span>
-  
+
           {% if episodes.has_next %}
-              <a href="?page={{ episodes.next_page_number }}">next</a>
-              <a href="?page={{ episodes.paginator.num_pages }}">last &raquo;</a>
+          <a href="?page={{ episodes.next_page_number }}">next</a>
+          <a href="?page={{ episodes.paginator.num_pages }}">last &raquo;</a>
           {% endif %}
-      </span>
-  </div>
+        </span>
+      </div>
 
     </div>
 
@@ -183,10 +166,12 @@
 
         <div class="p-4">
           <h4 class="fst-italic">Tweets</h4>
-          <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">
-            Follow @geospatialy</a><!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-          
-            <!-- <div>
+          <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+            data-show-count="false">
+            Follow @geospatialy</a>
+          <!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+
+          <!-- <div>
 
               <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
                 {% csrf_token %}
@@ -213,5 +198,5 @@
     </div>
   </div>
 </div>
-  
+
 {% endblock %}
