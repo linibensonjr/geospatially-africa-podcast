@@ -1,3 +1,4 @@
+from multiprocessing import context
 import podcast
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -6,6 +7,7 @@ from .forms import EpisodeForm
 from django.utils import timezone
 from django.http import HttpResponse
 from django.core.paginator import Paginator
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -67,6 +69,22 @@ def episode_publish(request, pk):
     episode.publish()
     return redirect('episode_detail', pk=pk)
 
+
+def loginView(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        host = authenticate(request, username=username, password=password)
+        if host is None:
+            context = {'error': 'Invalid username or password'}
+            return render(request, "registration/login.html", context)
+        login(request, host)
+        return redirect('/')
+    return render(request, "registration/login.html")
+
+def logoutView(request):
+    logout(request)
+    return redirect("/")
 
 
 def listing(request):

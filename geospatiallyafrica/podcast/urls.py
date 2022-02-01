@@ -6,6 +6,8 @@ from django.urls import path
 urlpatterns = [
     path('', views.index, name='home'),
     path('episodes', views.episode_list, name='episode_list'),
+    path('login', views.loginView, name='login'),
+    path('logout', views.logoutView, name='logout'),
     path('episode/<int:pk>/', views.episode_detail, name='episode_detail'),
     path('episode/new_episode/', views.new_episode, name='new_episode'),
     path('episode/news/', views.news, name='news'),
