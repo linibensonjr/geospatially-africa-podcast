@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "django_social_share",
     "autoslug",
-    "django.contrib.sitemaps"
+    "django.contrib.sitemaps",
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,8 @@ django_heroku.settings(locals())
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")
+
+TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "path/to/tiny_mce")

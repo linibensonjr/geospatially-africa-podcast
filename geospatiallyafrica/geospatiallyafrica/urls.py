@@ -30,7 +30,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
-    path('accounts/login/', views.LoginView.as_view(), name='login'),
-    path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
+    # path('accounts/login/', views.LoginView.as_view(), name='login'),
+    # path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('podcast.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

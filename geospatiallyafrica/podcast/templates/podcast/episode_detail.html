@@ -73,8 +73,8 @@
             <a href=""><img src="{%static 'img/spotify-podcast.svg' %}"  /></a>
           </div>
         <h5>SHOW NOTES</h5>
-
-        <p class="containjer">{{ episode.description | linebreaksbr}}</p>
+        
+        <p class="containjer">{{ episode.description | safe }}</p>
       </div>
       <div class="card-action">
 

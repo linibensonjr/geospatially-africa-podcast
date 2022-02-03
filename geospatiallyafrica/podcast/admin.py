@@ -7,3 +7,5 @@ class EpisodeList(admin.ModelAdmin):
     list_display = ('title', 'season', 'episode', 'host', 'guest', 'tags', 'published_date')
 
 admin.site.register(Episode, EpisodeList)
+
+
