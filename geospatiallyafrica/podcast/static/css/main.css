@@ -153,3 +153,9 @@ img.logo {
       border-bottom-right-radius: .3rem;
     }
   }
+
+  h3 {
+    font-size: 3em; 
+    font-weight: bold; 
+    padding: 10px 0;
+  }
