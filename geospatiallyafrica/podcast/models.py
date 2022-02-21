@@ -10,7 +10,13 @@ class Episode(models.Model):
     season = models.IntegerField(null=True)
     episode = models.IntegerField(null=True)
     tags = models.CharField(max_length=100)
-    host = models.CharField(max_length=500)
+    hosts = [
+        ('Iniobong Benson', 'Iniobong'),
+        ('Opeyemi Kazeem-Jimoh', 'Opeyemi')
+
+    ]
+
+    host = models.CharField(max_length=500, choices=hosts)
     guest = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     link = models.CharField(max_length=1500)
@@ -22,7 +28,9 @@ class Episode(models.Model):
     image = models.ImageField(upload_to = 'img/', default='ope_lau.jpg')
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)
+    date_published = models.DateTimeField()
 
+    
 
     def publish(self):
         self.published_date = datetime.now()

@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    paginator = Paginator(episode, 3)
+    paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'podcast/index.html', {'episodes': page_obj})
@@ -26,8 +26,37 @@ def episode_list(request):
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    # article = get_object_or_404(Episode, pk=pk)
+    # try:
+    #     next_ep = episode.get_next_by_date_published()
+    # except Episode.DoesNotExist:
+    #     next_ep = None
+
+    # try:
+    #     previous_ep = episode.get_previous_by_date_published()
+    # except Episode.DoesNotExist:
+    #     previous_ep = None
+
     context = {'episode': episode, 'episodes':episodes}
     return render(request, 'podcast/episode_detail.html', context)
+
+# def next_episode(request, pk):
+#     episodes = get_list_or_404(Episode, pk=pk)
+#     # episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+
+#     # try:
+#     #     next_ep = episodes.get_next_by_published_date()
+#     # except Episode.DoesNotExist:
+#     #     next_ep = None
+
+#     # try:
+#     #     previous_ep = episodes.get_previous_by_published_date()
+#     # except Episode.DoesNotExist:
+#     #     previous_ep = None
+
+#     context = {'episodes':episodes, 'next_ep':next_ep, 'previous_ep':previous_ep}
+#     return render(request, 'podcast/episode_detail.html', context)
+
 
 @login_required
 def new_episode(request):

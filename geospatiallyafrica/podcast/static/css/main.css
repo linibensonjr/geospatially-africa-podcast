@@ -159,3 +159,18 @@ img.logo {
     font-weight: bold; 
     padding: 10px 0;
   }
+
+  #revue-embed {
+    background-color: #fcba03;
+    padding: 60px;
+  }
+
+  @media screen and (max-width: 768px) {
+    h3 {
+      font-size: 1em;
+    }
+  }
+
+  .d-md-flex {
+    justify-content: center;
+  }

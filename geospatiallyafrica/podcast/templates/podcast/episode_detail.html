@@ -9,90 +9,93 @@
 {% load social_share %}
 
 
+
 <div class="container col-md-6">
   <!-- {% for slug in episode} -->
 
 
   {% for episode in episode %}
   <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
-    <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} > {{episode.title}}
+    <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
+      {{episode.title}}
     </a>
 
   </div>
- 
+
 
   <!-- <div class="card"> -->
 
-    <div class="card-stacked">
-      <div class="card-content">
-        <!-- {% if episode.episodepic %}
+  <div class="card-stacked">
+    <div class="card-content">
+      <!-- {% if episode.episodepic %}
           <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
         {% else %}
           <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
         {% endif %} -->
 
 
-        <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
-        <!-- <h5>EPISODE SUMMARY</h5> -->
-        <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
-          SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-          <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
-        </h6>
-        <article>
-          <p>{{ episode.summary}}</p>
-        </article>
+      <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
+      <!-- <h5>EPISODE SUMMARY</h5> -->
+      <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
+        SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+        <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
+      </h6>
+      <article>
+        <p>{{ episode.summary}}</p>
+      </article>
 
 
-        {% if user.is_authenticated %}
-          <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
 
-          {% if not episode.published_date %}
-          <!-- <div class="date">
+      {% if not episode.published_date %}
+      <!-- <div class="date">
                   Date {{ episode.published_date }}
                 </div> -->
-1
-            <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
-          {% endif %}
-        {% endif %}
+      <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+      {% endif %}
+      {% endif %}
 
-        
 
-        <p>
-          <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
-        </p>
 
-        <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 60px;" />
+      <p>
+        <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
+      </p>
 
-        <h3> Listen</h3>
-          <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1" frameborder="1" width="100%" height="200"></iframe>
-          <!-- {{episode.link | safe}} -->
-          <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+      <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 60px;" />
 
-            <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
-              target="_blank">
-              <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-            <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
-            <a href=""><img src="{%static 'img/spotify-podcast.svg' %}"  /></a>
-          </div>
-        <h3>Show Notes</h3>
-        
-        <p class="container">{{ episode.description | safe }}</p>
+      <h3> Listen</h3>
+      <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
+        frameborder="1" width="100%" height="200"></iframe>
+      <!-- {{episode.link | safe}} -->
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+
+        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
+          target="_blank">
+          <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
+        <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+        <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
       </div>
-      <div class="card-action">
+      <h3>Show Notes</h3>
 
-      </div>
+      <p class="container">{{ episode.description | safe }}</p>
     </div>
+    <div class="card-action">
+
+    </div>
+  </div>
 
   <!-- </div> -->
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
-  {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to
-  Twitter" %}
-  <span>{% post_to_linkedin object_or_url %}</span>
-  <span class="form-control" >{% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email" %}</span>
-  {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
-  {% post_to_telegram "New Episode: {{episode.title}}" 'Telegram' %}
-  {% post_to_whatsapp object_or_ur "WhatsApp" %}
+    {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to
+    Twitter" %}
+    <span>{% post_to_linkedin object_or_url %}</span>
+    <span class="form-control">{% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email"
+      %}</span>
+    {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
+    {% post_to_telegram "New Episode: {{episode.title}}" 'Telegram' %}
+    {% post_to_whatsapp object_or_ur "WhatsApp" %}
   </div>
 
   <ul class="nav" style="text-align: center;">
@@ -107,6 +110,13 @@
   </ul>
   {% endfor %}
 
+
+
+    {% if next_ep %}
+      <a href="{% url 'episode_detail' next_ep.pk %}">Next dflgnlfnjksnb</a>
+      {% else %}
+      This is the last film!
+    {% endif %} 
 
   <h4>Episodes like this</h4>
   <div class="row row-cols-1 row-cols-md-3 g-3">
