@@ -10,137 +10,184 @@
 
 
 
-<div class="container col-md-6">
+<div class="container">
   <!-- {% for slug in episode} -->
+  <div class="row g-5">
 
 
-  {% for episode in episode %}
-  <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
-    <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
-      {{episode.title}}
-    </a>
+    {% for episode in episode %}
+      <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
+        <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
+          {{episode.title}}
+        </a>
 
-  </div>
-
-
-  <!-- <div class="card"> -->
-
-  <div class="card-stacked">
-    <div class="card-content">
-      <!-- {% if episode.episodepic %}
-          <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
-        {% else %}
-          <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
-        {% endif %} -->
-
-
-      <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
-      <!-- <h5>EPISODE SUMMARY</h5> -->
-      <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
-        SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-        <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
-      </h6>
-      <article>
-        <p>{{ episode.summary}}</p>
-      </article>
-
-
-      {% if user.is_authenticated %}
-      <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
-
-      {% if not episode.published_date %}
-      <!-- <div class="date">
-                  Date {{ episode.published_date }}
-                </div> -->
-      <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
-      {% endif %}
-      {% endif %}
-
-
-
-      <p>
-        <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
-      </p>
-
-      <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 60px;" />
-
-      <h3> Listen</h3>
-      <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
-        frameborder="1" width="100%" height="200"></iframe>
-      <!-- {{episode.link | safe}} -->
-      <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
-
-        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
-          target="_blank">
-          <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-        <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
-        <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
       </div>
-      <h3>Show Notes</h3>
-
-      <p class="container">{{ episode.description | safe }}</p>
-    </div>
-    <div class="card-action">
-
-    </div>
-  </div>
-
-  <!-- </div> -->
-
-  <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
-    {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Post to
-    Twitter" %}
-    <span>{% post_to_linkedin object_or_url %}</span>
-    <span class="form-control">{% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email"
-      %}</span>
-    {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
-    {% post_to_telegram "New Episode: {{episode.title}}" 'Telegram' %}
-    {% post_to_whatsapp object_or_ur "WhatsApp" %}
-  </div>
-
-  <ul class="nav" style="text-align: center;">
-    <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a></li>
-    <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
-          style="font-size: 1.5rem; color: red;"></i></a></li>
-    <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
-          style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-    <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
-    <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
-          style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-  </ul>
-  {% endfor %}
 
 
+      <!-- <div class="card"> -->
+      <div class="col-md-8">
+        <div class="card-stacked">
+          <div class="card-content">
+            <!-- {% if episode.episodepic %}
+            <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
+          {% else %}
+            <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+          {% endif %} -->
 
-    {% if next_ep %}
-      <a href="{% url 'episode_detail' next_ep.pk %}">Next dflgnlfnjksnb</a>
+
+            <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
+            <!-- <h5>EPISODE SUMMARY</h5> -->
+            <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
+              SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+              <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
+            </h6>
+            <article>
+              <p>{{ episode.summary}}</p>
+            </article>
+
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
+
+            {% if not episode.published_date %}
+            <!-- <div class="date">
+                    Date {{ episode.published_date }}
+                  </div> -->
+            <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+            {% endif %}
+            {% endif %}
+
+
+
+            <p>
+              <strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}
+            </p>
+
+           
+
+            <h3> Listen</h3>
+            <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
+              frameborder="1" width="100%" height="200"></iframe>
+            <!-- {{episode.link | safe}} -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+
+              <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
+                target="_blank">
+                <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
+              <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+              <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
+            </div>
+            <h3>Show Notes</h3>
+
+            <p class="container">{{ episode.description | safe }}</p>
+          </div>
+          <div class="card-action">
+
+          </div>
+        </div>
+
+        <!-- </div> -->
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
+          {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Twitter" %}
+          {% post_to_linkedin object_or_url %}</span>
+          {% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email" %}
+          {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
+          {% post_to_telegram "New Episode: {{episode.title}}" "Telegram" %}
+          {% post_to_whatsapp object_or_url "WhatsApp" %}
+        </div>
+
+        <ul class="nav" style="text-align: center;">
+          <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a>
+          </li>
+          <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                style="font-size: 1.5rem; color: red;"></i></a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+          <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+          <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+        </ul>
+    {% endfor %}
+
+
+
+      {% if next_ep %}
+        <a href="{% url 'episode_detail' next_ep.pk %}">Next</a>
       {% else %}
-      This is the last film!
-    {% endif %} 
+        This is the last film!
+      {% endif %}
 
-  <h4>Episodes like this</h4>
-  <div class="row row-cols-1 row-cols-md-3 g-3">
-    {% for episode in episodes %}
-    <div class="col">
-      <div class="card">
-        {% if episode.episodepic %}
-        <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
-        {% else %}
+      <h4>Episodes like this</h4>
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        {% for episode in episodes %}
+          <div class="col">
+            <div class="card">
+              {% if episode.episodepic %}
+                <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
+              {% else %}
+                <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+              {% endif %}
+              
+              <div class="card-body">
+                <h5 class="card-title">{{episode.title }}</h5>
+                <p class="card-text">{{ episode.summary | truncatechars:100}}</p>
+                <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
+                    more</button></a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">Geospatially</h4>
+          <p class="mb-0">Join us as we talk to industry experts and professionals about how they are using geospatial
+            technology in different areas. Stay informed about the latest trends and developments in the geospatial
+            world in Africa and across the world</p>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Guest</h4>
+          {% for episode in episode %}
+          
+          <ol class="list-unstyled mb-0">
+            <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
+            <li><a href="{% url 'episode_list' %}">{{ episode.guest }}</a></li>
+            <p>{{ episode.guest_bio }}</p>
+          </ol>
+          
+          <p>Hosted By</p>
+          <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
+          <p>{{ episode.host }}</p>
+          {% for host in host %}
+         
+            {% if host.name == episode.host %}
 
 
-        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
 
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{episode.title }}</h5>
-          <p class="card-text">{{ episode.summary}}</p>
-          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
-              more</button></a>
+         <p style="text-align: right;">{{ host.bio|safe }}</p>
+         
+            {% endif %}
+          {% endfor %}
+
+          {% endfor %}
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Tweets</h4>
+          <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+            data-show-count="false">
+            Follow @geospatialy</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
 
+  </div>
+</div>
 
   {% endblock %}
