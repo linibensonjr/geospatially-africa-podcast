@@ -26,34 +26,32 @@
 
 
 </div>
-</div>
-</div>
-</div>
 
 
 
-<!-- <div class="monthly">
-  <div class="container"> -->
+
+  <!-- <div class="monthly">
+    <div class="container"> -->
 
 
 
-<!-- <div class="card text-center">
+  <!-- <div class="card text-center">
 
-  <div class="container d-flex justify-content-center">
-    <h4 class="card-title">Some of our guests work at</h5>
+    <div class="container d-flex justify-content-center">
+      <h4 class="card-title">Some of our guests work at</h5>
 
-      <div class="guests d-flex justify-content-center">
-        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
+        <div class="guests d-flex justify-content-center">
+          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
+          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
 
-        <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-      </div>
+          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
+        </div>
 
-  </div>
+    </div>
 
-</div> -->
+  </div> -->
 
-</div>
+<!-- </div> -->
 
 <!-- </div>
 </div> -->
@@ -114,8 +112,9 @@
               <h5 class="card-title">{{ episode.title }}</h5>
             </a>
             <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
-            <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1" frameborder="1" width="100%" height="200"></iframe>
-         
+            <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
+              frameborder="1" width="100%" height="200"></iframe>
+
             <p class="card-text">{{ episode.summary}}</p>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
           </div>
@@ -125,7 +124,8 @@
 
       {% endfor %}
 
-      <div class="pagination">
+      <nav aria-label="Page navigation example">
+      <div class="pagination justify-content-center">
         <span class="step-links">
           {% if episodes.has_previous %}
           <a href="?page=1">&laquo; first</a>
@@ -142,6 +142,23 @@
           {% endif %}
         </span>
       </div>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if episodes.has_previous %}
+          <!-- <a href="?page=1">&laquo; first</a> -->
+          <li class="page-item disabled">
+            <a class="page-link" href="?page=1" tabindex="-1">Previous</a>
+          </li>
+          {% endif %}
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
 

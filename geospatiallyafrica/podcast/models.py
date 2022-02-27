@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 from django.conf import settings
 from datetime import datetime, timezone
@@ -18,6 +19,7 @@ class Episode(models.Model):
 
     host = models.CharField(max_length=500, choices=hosts)
     guest = models.CharField(max_length=200)
+    guest_bio = models.CharField(max_length=1000, default='This is the guest bio')
     title = models.CharField(max_length=200)
     link = models.CharField(max_length=1500)
     summary = models.CharField(max_length=1500)
@@ -38,3 +40,10 @@ class Episode(models.Model):
 
     def __str__(self):
         return self.title
+
+class Hosts(models.Model):
+    name = models.CharField(max_length=255)
+    bio = RichTextField()
+
+    def __str__(self):
+        return self.name

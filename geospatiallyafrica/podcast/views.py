@@ -3,6 +3,7 @@ import podcast
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Episode
+from .models import Hosts
 from .forms import EpisodeForm
 from django.utils import timezone
 from django.http import HttpResponse
@@ -26,6 +27,7 @@ def episode_list(request):
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    host = Hosts.objects.all()
     # article = get_object_or_404(Episode, pk=pk)
     # try:
     #     next_ep = episode.get_next_by_date_published()
@@ -37,7 +39,7 @@ def episode_detail(request, pk):
     # except Episode.DoesNotExist:
     #     previous_ep = None
 
-    context = {'episode': episode, 'episodes':episodes}
+    context = {'episode': episode, 'episodes':episodes, 'host':host}
     return render(request, 'podcast/episode_detail.html', context)
 
 # def next_episode(request, pk):
