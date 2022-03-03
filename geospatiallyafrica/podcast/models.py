@@ -1,7 +1,9 @@
 from pyexpat import model
+from tabnanny import verbose
 from django.db import models
 from django.conf import settings
 from datetime import datetime, timezone
+
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 
@@ -44,6 +46,9 @@ class Episode(models.Model):
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
     bio = RichTextField()
+    
+    class Meta:
+        verbose_name_plural = 'Hosts'
 
     def __str__(self):
         return self.name
