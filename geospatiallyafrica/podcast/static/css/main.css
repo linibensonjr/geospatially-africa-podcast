@@ -41,11 +41,9 @@ html, body {
     flex-direction: row;
   }
 
-
-
-
-  a:focus {
-    text-decoration: underline;
+  .card a {
+    text-decoration: none;
+    
   }
 
   .platform {
@@ -56,12 +54,6 @@ html, body {
     padding: 12px;
     margin: auto;
   }
-
-
-  audio {
-    width: 100%;
-  }
-
 
 
   .services {
@@ -155,7 +147,7 @@ img.logo {
   }
 
   h3 {
-    font-size: 3em; 
+    font-size: 2em; 
     font-weight: bold; 
     padding: 10px 0;
   }
@@ -167,7 +159,7 @@ img.logo {
 
   @media screen and (max-width: 768px) {
     h3 {
-      font-size: 1em;
+      font-size: 0.8em;
     }
   }
 

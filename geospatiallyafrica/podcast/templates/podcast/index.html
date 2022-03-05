@@ -91,25 +91,20 @@
 
   <div class="row g-5">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      <h3 class="pb-2 mb-4 border-bottom">
         Latest Episodes
-
-
       </h3>
 
 
 
       {% for episode in episodes %}
       <div class="card mb-3">
-        <!-- <div class="col-md-4">
-                  <img src="{% static 'img/ope_lau.jpg' %}" class="img-fluid rounded-start" alt="podcast icon">
-                </div> -->
         <div class="col-md-12">
           <div class="card-body">
-            <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
+            <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+                <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</p>
             <a href="{% url 'episode_detail' pk=episode.pk %}">
-              <h5 class="card-title">{{ episode.title }}</h5>
+              <h4 class="card-title">{{ episode.title }}</h4>
             </a>
             <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
             <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
@@ -124,47 +119,12 @@
 
       {% endfor %}
 
-      <nav aria-label="Page navigation example">
-      <div class="pagination justify-content-center">
-        <span class="step-links">
-          {% if episodes.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ episodes.previous_page_number }}">previous</a>
-          {% endif %}
-
-          <span class="current">
-            Page {{ episodes.number }} of {{ episodes.paginator.num_pages }}.
-          </span>
-
-          {% if episodes.has_next %}
-          <a href="?page={{ episodes.next_page_number }}">next</a>
-          <a href="?page={{ episodes.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
-        </span>
-      </div>
-
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          {% if episodes.has_previous %}
-          <!-- <a href="?page=1">&laquo; first</a> -->
-          <li class="page-item disabled">
-            <a class="page-link" href="?page=1" tabindex="-1">Previous</a>
-          </li>
-          {% endif %}
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <ul class="pagination justify-content-center">  
           <li class="page-item">
-            <a class="page-link" href="#">Next</a>
+            <a class="page-link" href="{% url 'episode_list' %}">Load more</a>
           </li>
         </ul>
-      </nav>
-
     </div>
-
-    {% block sidebar %}
-
-    {% endblock %}
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
