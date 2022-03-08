@@ -3,6 +3,7 @@ html, body {
   box-sizing: border-box;
 }
 
+hr {margin: 0;}
 
   .circle-1 {
     background-color: #7795e9;
@@ -36,6 +37,10 @@ html, body {
     text-align: justify;
   }
 
+  .episode-list {
+    margin-top: 20px;
+  }
+
   .guests {
     display: flex;
     flex-direction: row;
@@ -43,7 +48,6 @@ html, body {
 
   .card a {
     text-decoration: none;
-    
   }
 
   .platform {

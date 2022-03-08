@@ -27,6 +27,7 @@ def episode_list(request):
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    sidebar_eps = Episode.objects.all()
     host = Hosts.objects.all()
     # article = get_object_or_404(Episode, pk=pk)
     # try:
@@ -39,7 +40,7 @@ def episode_detail(request, pk):
     # except Episode.DoesNotExist:
     #     previous_ep = None
 
-    context = {'episode': episode, 'episodes':episodes, 'host':host}
+    context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host}
     return render(request, 'podcast/episode_detail.html', context)
 
 # def next_episode(request, pk):
