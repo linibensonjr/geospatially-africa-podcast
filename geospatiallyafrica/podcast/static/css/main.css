@@ -38,7 +38,14 @@ hr {margin: 0;}
   }
 
   .episode-list {
-    margin-top: 20px;
+    margin-top: 15px;
+    /* padding: 30px; */
+  }
+
+  .episode-list a {
+    
+    color: rgb(196, 189, 189);
+    /* padding: 30px; */
   }
 
   .guests {

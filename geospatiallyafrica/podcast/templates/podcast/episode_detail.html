@@ -161,12 +161,12 @@
           </ol>
          
           {% endfor %}
-          <div class="episode-list">
-            {% for ep in sidebar_eps %}
-            <hr>
-            <a href="{% url 'episode_detail' pk=ep.pk %}" style="margin-top: 40px;">>{{ep.title}}</a>
+          {% for ep in sidebar_eps %}
+            <div class="episode-list">
+              <a href="{% url 'episode_detail' pk=ep.pk %}" style="margin-top: 40px;">>{{ep.title}}</a>
+            
+            </div>
             {% endfor %}
-          </div>
         </div>
 
 
