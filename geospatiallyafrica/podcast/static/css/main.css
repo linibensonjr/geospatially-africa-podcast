@@ -31,11 +31,32 @@ hr {margin: 0;}
     height: 200px
   }
 
+  h1 {
+    font-family: 'Hind Madurai';
+  }
+
 
   h2 .epitle {
     font-size: 4em;
     text-align: justify;
   }
+
+
+  .hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image:url("https://cdn.pixabay.com/photo/2018/05/28/12/09/headphones-3435885_960_720.jpg");
+  
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+  }
+
 
   .episode-list {
     margin-top: 15px;
@@ -171,6 +192,10 @@ img.logo {
   @media screen and (max-width: 768px) {
     h3 {
       font-size: 0.8em;
+    }
+
+    .hero-image {
+      min-height: 250px;
     }
   }
 
