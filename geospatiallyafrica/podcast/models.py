@@ -9,16 +9,27 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
+class Tags(models.Model):
+    tags = models.CharField(max_length=30, help_text='Enter a tag')
+
+    class Meta:
+        verbose_name_plural = 'Tags'
+
+    def __str__(self):
+        return self.tags
+
+
 class Episode(models.Model):
     season = models.IntegerField(null=True)
     episode = models.IntegerField(null=True)
     tags = models.CharField(max_length=100)
+    
     hosts = [
         ('Iniobong Benson', 'Iniobong'),
         ('Opeyemi Kazeem-Jimoh', 'Opeyemi')
-
     ]
 
+    tag = models.ManyToManyField(Tags, help_text='select a tag')
     host = models.CharField(max_length=500, choices=hosts)
     guest = models.CharField(max_length=200)
     guest_bio = models.CharField(max_length=1000, default='This is the guest bio')
@@ -52,3 +63,4 @@ class Hosts(models.Model):
 
     def __str__(self):
         return self.name
+

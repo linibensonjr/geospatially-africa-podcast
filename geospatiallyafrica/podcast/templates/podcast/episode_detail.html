@@ -39,7 +39,12 @@
             <!-- <h5>EPISODE SUMMARY</h5> -->
             <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
               SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-              <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}
+              <time class="date">{{ episode.published_date }}</time> | 
+              {% for tag in episode.tag.all %}
+          <!-- <ol class="list-unstyled mb-0"> -->
+            <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
+          <!-- </ol> -->
+          {% endfor %}
             </h6>
             <article>
               <p>{{ episode.summary}}</p>
@@ -147,7 +152,7 @@
           <p>Hosted By</p>
           <ol class="list-unstyled mb-0"></ol>
           <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
-          {{ episode.host }}
+          hgk{{ episode.host }}
           {% for host in host %}
             {% if host.name == episode.host %}
               <p>{{ host.bio|safe }}</p>

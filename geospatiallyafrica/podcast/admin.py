@@ -1,4 +1,4 @@
-from podcast.models import Episode, Hosts
+from podcast.models import Episode, Hosts, Tags
 from django.contrib import admin
 from .models import Episode
 
@@ -9,5 +9,5 @@ class EpisodeList(admin.ModelAdmin):
 admin.site.register(Episode, EpisodeList)
 
 admin.site.register(Hosts)
-
+admin.site.register(Tags)
 

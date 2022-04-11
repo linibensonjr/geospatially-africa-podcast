@@ -2,8 +2,7 @@ from multiprocessing import context
 import podcast
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Episode
-from .models import Hosts
+from .models import Hosts, Tags, Episode
 from .forms import EpisodeForm
 from django.utils import timezone
 from django.http import HttpResponse
@@ -17,7 +16,8 @@ def index(request):
     paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'podcast/index.html', {'episodes': page_obj})
+    tags = Tags.objects.all()
+    return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
 
 def episode_list(request):
     episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -39,8 +39,8 @@ def episode_detail(request, pk):
     #     previous_ep = episode.get_previous_by_date_published()
     # except Episode.DoesNotExist:
     #     previous_ep = None
-
-    context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host}
+    tags = Tags.objects.all()
+    context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
     return render(request, 'podcast/episode_detail.html', context)
 
 # def next_episode(request, pk):
@@ -132,3 +132,6 @@ def news(request):
 
 def about_us(request):
     return render(request, 'podcast/about.html')
+
+def support(request):
+    return render(request, 'podcast/support.html')

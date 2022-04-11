@@ -102,7 +102,11 @@
         <div class="col-md-12">
           <div class="card-body">
             <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</p>
+                <time class="date">{{ episode.published_date }}</time> | 
+                {% for tag in episode.tag.all %}
+                <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
+                {% endfor %}
+              </p>
             <a href="{% url 'episode_detail' pk=episode.pk %}">
               <h4 class="card-title">{{ episode.title }}</h4>
             </a>
@@ -135,10 +139,10 @@
 
         <div class="p-4">
           <h4 class="fst-italic">Tags</h4>
-          {% for episode in episodes %}
-          <ol class="list-unstyled mb-0">
-            <li><a href="{% url 'episode_list' %}">{{ episode.tags}}</a></li>
-          </ol>
+          {% for tag in tags %}
+          <!-- <ol class="list-unstyled mb-0"> -->
+            <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
+          <!-- </ol> -->
           {% endfor %}
         </div>
 

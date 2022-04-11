@@ -71,7 +71,7 @@
                   class="btn btn-outline-success btn-sm"><i class="bi bi-pencil"
                     style="color: green;"></i>Draft</button></a>
               {% else %}
-              <button type="button" class="btn btn-outline-success">Support</button>
+              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support</button></a>
               {% endif %}
           </div>
         </div>
@@ -88,12 +88,6 @@
 
     {% endblock %}
 
-    <!-- <div class="patners">
-
-
-    </div>
-
-
     <div class="contact" id="contact">
 
       <div class="container col-xl-10 col-xxl-8 px-4 py-5">
@@ -104,27 +98,11 @@
           </div>
 
 
-          <div class="col-md-10 mx-auto col-lg-5">
-            
-                  <div class="input-group">
-                    <form>
-                      <label for="newsletter1" class="visually-hidden">Email address</label>
-                      <input id="newsletter1" type="email" placeholder="Email address">
-                      <button class="btn btn-primary" type="button">Subscribe</button>
-    
-                    </form>
-                  </div>
-
-            </div>
-  
-
-          </div>
-
           
         </div>
       </div>
 
-    </div> -->
+    </div>
 
      
   </main>
@@ -133,7 +111,7 @@
       
     <div class="card-body">
       <h3 class="card-title">Don't miss our monthly episodes</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text">We'll get the latest episode right to you mail. No spam!</p>
 
   <!-- Begin Mailchimp Signup Form -->
   <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7_dtp.css" rel="stylesheet" type="text/css">
@@ -176,29 +154,27 @@
           <h5>Section</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Episodes</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">News</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'episode_list' %}" class="nav-link p-0 text-muted">Episodes</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'news' %}" class="nav-link p-0 text-muted">News</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'about_us' %}" class="nav-link p-0 text-muted">About Us</a></li>
           </ul>
         </div>
 
         <div class="col-2">
           <h5>We're Social!</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">LinkedIn</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="https://twitter.com/geospatialy" target="_blank" class="nav-link p-0 text-muted">Twitter</a></li>
+            <li class="nav-item mb-2"><a href="https://linkedin.com/company/geospatially-africa-pocast" target="_blank" class="nav-link p-0 text-muted">LinkedIn</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Wordpress</a></li>
           </ul>
         </div>
 
         <div class="col-2">
           <h5>Support Us</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Support</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Become a guest</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Suggest a theme</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support</a></li>
+            <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" class="nav-link p-0 text-muted">Become a guest</a></li>
+            <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Suggestions</a></li>
           </ul>
         </div>
 
@@ -207,7 +183,7 @@
 
 
         <div class="d-flex justify-content-between py-4 my-4 border-top">
-          <p>&copy; 2022 Geospatially Africa Podcast. All rights reserved.</p>
+          <p>&copy; <script>document.write(new Date().getFullYear())</script> Geospatially Africa Podcast. All rights reserved.</p>
           <ul class="list-unstyled d-flex">
             <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                   <use xlink:href="#twitter" />
