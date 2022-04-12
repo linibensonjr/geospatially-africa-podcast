@@ -1,6 +1,7 @@
 from django import urls
 from . import views
 from django.urls import path
+from django.conf.urls import handler404
 
 
 urlpatterns = [
@@ -17,3 +18,6 @@ urlpatterns = [
     path('about-us/', views.about_us, name='about_us'),
     path('support-us/', views.support, name='support_us'),
 ]
+
+handler404 = 'podcast.views.page_not_found'
+handler500 = 'podcast.views.index'

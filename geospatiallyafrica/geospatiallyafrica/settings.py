@@ -35,6 +35,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-_u(v1(8!oihwxq
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 # export DJANGO_DEBUG=False
 
+# DEBUG = True
+
 ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
 
 

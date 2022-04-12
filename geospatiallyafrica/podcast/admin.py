@@ -4,7 +4,7 @@ from .models import Episode
 
 # Register your models here.
 class EpisodeList(admin.ModelAdmin):
-    list_display = ('title', 'season', 'episode', 'host', 'guest', 'tags', 'published_date')
+    list_display = ('title', 'season', 'episode', 'host', 'guest', 'published_date')
 
 admin.site.register(Episode, EpisodeList)
 

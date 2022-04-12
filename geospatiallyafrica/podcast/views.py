@@ -135,3 +135,7 @@ def about_us(request):
 
 def support(request):
     return render(request, 'podcast/support.html')
+
+def page_not_found(request, exception=None):
+    data = {}
+    return render(request, 'podcast/404.html', data)
