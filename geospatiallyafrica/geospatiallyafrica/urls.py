@@ -34,3 +34,6 @@ urlpatterns = [
     # path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('podcast.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'podcast.views.page_not_found'
+handler500 = 'podcast.views.server_error'

@@ -139,3 +139,7 @@ def support(request):
 def page_not_found(request, exception=None):
     data = {}
     return render(request, 'podcast/404.html', data)
+
+def server_error(request, exception=None):
+    data = {}
+    return render(request, 'podcast/500.html', data)
