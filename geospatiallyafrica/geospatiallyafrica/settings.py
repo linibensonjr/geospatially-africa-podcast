@@ -37,7 +37,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.9.1', 'geospatiallyafrica.herokuapp.com']
 
 
 # Application definition
