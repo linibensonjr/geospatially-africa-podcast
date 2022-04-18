@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} {{ episode }} {% endblock %}
+{% block title %} {% for episode in episode %}{{ episode.title }}{%endfor%} {% endblock %}
 
 {% block content %}
 
@@ -152,7 +152,7 @@
           <p>Hosted By</p>
           <ol class="list-unstyled mb-0"></ol>
           <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
-          hgk{{ episode.host }}
+          {{ episode.host }}
           {% for host in host %}
             {% if host.name == episode.host %}
               <p>{{ host.bio|safe }}</p>
