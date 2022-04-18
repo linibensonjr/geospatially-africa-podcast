@@ -3,7 +3,7 @@ from tabnanny import verbose
 from django.db import models
 from django.conf import settings
 from datetime import datetime, timezone
-
+from django.urls import reverse
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 
@@ -22,7 +22,6 @@ class Tags(models.Model):
 class Episode(models.Model):
     season = models.IntegerField(null=True)
     episode = models.IntegerField(null=True)
-    tags = models.CharField(max_length=100)
     
     hosts = [
         ('Iniobong Benson', 'Iniobong'),
@@ -53,6 +52,10 @@ class Episode(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("episode_detail", kwargs={"slug": self.slug})
+    
 
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
