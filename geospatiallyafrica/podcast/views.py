@@ -16,6 +16,8 @@ def index(request):
     paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    
+    #List all tags on sidebar
     tags = Tags.objects.all()
     return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
 
@@ -120,11 +122,12 @@ def logoutView(request):
 
 
 def listing(request):
-    contact_list = Contact.objects.all()
-     # Show 25 contacts per page.
+    tag_f = Episode.objects.filter(tag = '5')
+    context = {'tags': tag_f}
+    return render(request, 'podcast/tags.html', context)
 
     
-    return render(request, 'list.html', {'page_obj': page_obj})
+    #return render(request, 'list.html', {'page_obj': page_obj})
 
 def news(request):
     return render(request, 'podcast/news.html')
