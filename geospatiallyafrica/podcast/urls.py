@@ -16,4 +16,5 @@ urlpatterns = [
     path('episode/<int:pk>/edit/', views.episode_edit, name='episode_edit'),
     path('about-us/', views.about_us, name='about_us'),
     path('support-us/', views.support, name='support_us'),
+    path('tags/', views.listing, name='tags')
 ]
