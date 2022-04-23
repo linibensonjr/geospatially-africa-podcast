@@ -102,7 +102,7 @@
         <div class="col-md-12">
           <div class="card-body">
             <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                <time class="date">{{ episode.published_date }}</time> | 
+                <time class="date">{{ episode.published_date|date:"M d Y" }}</time> | 
                 {% for tag in episode.tag.all %}
                 <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
                 {% endfor %}
@@ -130,24 +130,38 @@
         </ul>
     </div>
 
-    <div class="col-md-4">
+    <div class="col">
       <div class="position-sticky" style="top: 2rem;">
-        <div class="p-4 mb-3 bg-light rounded">
-          <h4 class="fst-italic">Tags</h4>
-          <p class="mb-0">Filter episodes by tags</p>
+        <div class="p-4 mb-3 bg-red rounded">
+          <h5 class="fst-italic">You can also listen on:</h5>
+          
+          <ol class="list-unstyled mb-0">
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Google &#8594;</a></span>
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Apple &#8594;</a></span>
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Spotify &#8594;</a></span>
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Sticher &#8594;</a></span>
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Anchor &#8594;</a></span>
+            <a href="" style="border-radius: 5px; padding: 0 4px;">Google &#8594;</a></span>
+          </ol>
+   
         </div>
 
-        <div class="p-4">
-          <h4 class="fst-italic">Tags</h4>
+    <div class="col">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h5 class="fst-italic">Tags</h5>
+          <p class="mb-0">Filter episodes by tags</p>
+       
+
           {% for tag in tags %}
           <!-- <ol class="list-unstyled mb-0"> -->
             <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
           <!-- </ol> -->
           {% endfor %}
+   
         </div>
-
         <div class="p-4">
-          <h4 class="fst-italic">Tweets</h4>
+          <h5 class="fst-italic">Tweets</h5>
           <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
             data-show-count="false">
             Follow @geospatialy</a>
