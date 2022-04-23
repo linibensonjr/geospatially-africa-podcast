@@ -9,4 +9,72 @@
 <body>
     <h1>Well this sucks</h1>
 </body>
+
+
+<title>{% block title %} Geospatially Africa - The podcast for Geospatial {% endblock %}</title>
+  
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="/" class="align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none navbar-brand">
+          <img class="logo" src="{% static 'img/gp.png' %}" />
+          <!-- <h4>Geospatially<br>Africa</h4> -->
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class=""><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="{% url 'episode_list' %}" class="nav-link px-2 link-dark">Episodes</a></li>
+            <li><a href="{% url 'news' %}" class="nav-link px-2 link-dark">News</a></li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+            <li><a href="{% url 'about_us' %}" class="nav-link px-2 link-dark">About</a></li>
+          </ul>
+
+
+          <ul class="nav ">
+            <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
+                  style="font-size: 1.5rem;"></i></a></li>
+            <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
+                  style="font-size: 1.5rem; color: red;"></i></a></li>
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
+                  style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
+                  style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
+          </ul>
+          {% if user.is_authenticated %}
+          <div class="col-md-4 text-end">
+
+
+            <i class="">Hello, {{ user.username}} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
+            <a href="{% url 'new_episode'  %}"><button class="btn btn-outline-success btn-sm"><i
+                  class="bi bi-plus-circle" style="color: green;"></i>New</button>
+              <a href="{% url 'episode_draft_list' %}" class="top-menu"><button
+                  class="btn btn-outline-success btn-sm"><i class="bi bi-pencil"
+                    style="color: green;"></i>Draft</button></a>
+              {% else %}
+              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support</button></a>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+  </div>
+
+
+
 </html>

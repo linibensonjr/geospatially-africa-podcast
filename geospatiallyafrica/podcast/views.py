@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic import ListView
 
 # Create your views here.
 
@@ -128,6 +129,20 @@ def listing(request):
 
     
     #return render(request, 'list.html', {'page_obj': page_obj})
+
+class SearchResultView(ListView):
+    model = Episode
+
+    def get_context_data(self, **kwargs):
+        context = super(SearchResultView, self).get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        search_list = Episode.objects.filter(title__icontains=query)
+        return search_list
+
+    template_name = 'podcast/search.html'
 
 def news(request):
     return render(request, 'podcast/news.html')
