@@ -1,0 +1,54 @@
+{% extends 'podcast/base.html' %}
+
+{% load static %}
+
+{% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
+
+
+{% block content %}
+
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold" style="margin: auto;">Search Result</h1>
+
+</div>
+
+<div class="container col-lg-6">
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% if episode_list %}
+    {% for episode in episode_list %}
+    <div class="col">
+      <div class="card">
+        {% if episode.episodepic %}
+        <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
+        {% else %}
+
+
+        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{episode.title }}</h5>
+          <p class="card-text">{{ episode.summary}}</p>
+          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
+              more</button></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+      <p>No matches</p>
+
+    {% endif %}
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
