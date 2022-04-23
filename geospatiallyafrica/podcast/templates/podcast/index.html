@@ -111,8 +111,8 @@
               <h4 class="card-title">{{ episode.title }}</h4>
             </a>
             <p>Hosted by {{ episode.host }} with guest {{ episode.guest }}</p>
-            <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
-              frameborder="1" width="100%" height="200"></iframe>
+            <!-- <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
+              frameborder="1" width="100%" height="200"></iframe> -->
 
             <p class="card-text">{{ episode.summary}}</p>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
@@ -165,30 +165,8 @@
           <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
             data-show-count="false">
             Follow @geospatialy</a>
-          <!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-          <!-- <div>
-
-              <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
-                {% csrf_token %}
-                
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
-                  <label for="floatingPassword">Name</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Email address</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <textarea class="form-control" id="floatingInput" style="height: 160px;" placeholder="name@example.com"></textarea>
-                  <label for="floatingInput">Message</label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Shoot</button>
-                </form>
-            </div> -->
         </div>
       </div>
     </div>
