@@ -48,7 +48,7 @@
     <div class="no-result">
       <img class="card-img-top" src="{% static 'img/no_result.png' %}" alt="Result not found" style="width:30%; padding: 30px;">
       <h3>Well this sucks!</h3>
-      <p style="font-size: 1.2em;">Unfortunately, your search didn't match any episodes.</p>
+      <p style="font-size: 1.2em;">Unfortunately, your search did not match any episodes.</p>
       <div class="container col-lg-6">
         <form action="{% url 'search_results' %}" method="get">
           <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
