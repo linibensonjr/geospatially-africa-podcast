@@ -6,16 +6,23 @@
 
 
 {% block content %}
-
-<div class="px-4 py-5 my-5 text-center">
+{% if episode_list %}
+<div class="px-4 my-5 text-center">
   <h1 class="display-5 fw-bold" style="margin: auto;">Search Result</h1>
 
+  <div class="container col-lg-6">
+    <form action="{% url 'search_results' %}" method="get">
+      <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
+    </form>
+  </div>
 </div>
+
+
 
 <div class="container col-lg-6">
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% if episode_list %}
+
     {% for episode in episode_list %}
     <div class="col">
       <div class="card">
@@ -36,14 +43,26 @@
       </div>
     </div>
     {% endfor %}
-
+      
     {% else %}
-      <p>No matches</p>
+    <div class="no-result">
+      <img class="card-img-top" src="{% static 'img/no_result.png' %}" alt="Result not found" style="width:30%; padding: 30px;">
+      <h3>Well this sucks!</h3>
+      <p style="font-size: 1.2em;">Unfortunately, your search didn't match any episodes.</p>
+      <div class="container col-lg-6">
+        <form action="{% url 'search_results' %}" method="get">
+          <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
+        </form>
+      </div>
+    </div>
 
     {% endif %}
+
   </div>
-
-
+  <div class="no-result">
+   
+    <a href="{% url 'episode_list' %}"><button type="button" class="btn btn-outline-success">All Episodes</button></a>
+  </div>
 </div>
 
 

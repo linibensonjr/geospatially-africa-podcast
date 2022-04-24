@@ -171,7 +171,11 @@ img.logo {
   color: #fff;
   }
 
-
+.no-result {
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
 
 
   
