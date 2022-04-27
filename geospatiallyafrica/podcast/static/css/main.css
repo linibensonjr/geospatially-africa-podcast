@@ -143,6 +143,11 @@ img.logo {
   width: 120px;
 }
 
+.search-img {
+  width: 30%;
+}
+
+
 
 
 .home-newsletter .single {
@@ -218,6 +223,10 @@ img.logo {
 
   .d-md-flex {
     justify-content: center;
+  }
+
+  .search-img {
+    width: 60%;
   }
 
   .button {
