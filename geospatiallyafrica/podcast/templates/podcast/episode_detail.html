@@ -125,6 +125,9 @@
               <div class="card-body">
                 <h5 class="card-title">{{episode.title }}</h5>
                 <p class="card-text">{{ episode.summary | truncatechars:100}}</p>
+                {% for tag in episode.tag.all %}
+                <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
+                {% endfor %}
                 <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
                     more</button></a>
               </div>

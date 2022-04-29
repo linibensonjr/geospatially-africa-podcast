@@ -71,7 +71,7 @@
                   class="btn btn-outline-success btn-sm"><i class="bi bi-pencil"
                     style="color: green;"></i>Draft</button></a>
               {% else %}
-              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support</button></a>
+              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support &#128154;</button></a>
               {% endif %}
           </div>
         </div>
@@ -92,20 +92,25 @@
 
   </div>
     
-  <div class="container d-grid gap-2 d-md-flex justify-content-between">
-      <!-- <div class="col">
-        <div class="card" style="border: none;"> -->
-          <img src="{%static 'img/grmi.png' %}" alt="" style="width: 30%;"> 
-        <!-- </div>
-      </div> -->
+  <div class="flex-container">
+     
+        <div class="item-head" style="border: none;">
+          <h4>Our Guests are from</h4>
+          </div>
+    
+        <section class="flex" style="border: none;">
+          <img src="{%static 'img/grmi.png' %}" alt=""> 
+          <img src="https://www.digitalearthafrica.org/sites/default/files/brand/inline/color/DE_Africa_Logo_Primary_RGB.jpg" alt="">
+          <img src="https://cdn.pixabay.com/photo/2021/01/12/16/48/subscribe-5911958__340.png" />
+        </section>
 
-      <!-- <div class="col">
-        <div class="card" style="border: none;"> -->
-          <img src="https://www.digitalearthafrica.org/sites/default/files/brand/inline/color/DE_Africa_Logo_Primary_RGB.jpg" alt=""  style="width: 30%;">
-        <!-- </div>
-      </div> -->
 
   </div>
+
+
+
+
+  
 
 
  
@@ -175,7 +180,7 @@
         <div class="col-2">
           <h5>Support Us</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support &#x1F499;</a></li>
             <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" class="nav-link p-0 text-muted">Become a guest</a></li>
             <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Suggestions</a></li>
           </ul>
