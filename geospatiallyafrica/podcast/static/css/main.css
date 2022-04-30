@@ -230,6 +230,10 @@ img.logo {
     .gradient-form {
       height: 100vh !important;
     }
+    .col-md-8 {
+      width: 100%;
+    }
+  
   }
   @media (min-width: 769px) {
     .gradient-custom-2 {
@@ -303,6 +307,7 @@ img.logo {
     text-align: center;
     margin: auto;
   }
+
 
 
 }
