@@ -94,7 +94,7 @@
         <!-- </div> -->
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
-          
+          {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Twitter" %}
           {% post_to_linkedin object_or_url %}</span>
           {% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email" %}
           {% post_to_reddit "New Episode: {{episode.title}}" "Reddit" %}
@@ -163,7 +163,8 @@
           {% endfor %}
           
           <ol class="list-unstyled mb-0">
-            <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
+            <!-- <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" /> -->
+            <i class="bi bi-person" style="font-size: 50px"></i>
             {{ episode.guest }}
             <p>{{ episode.guest_bio }}</p>
           </ol>
