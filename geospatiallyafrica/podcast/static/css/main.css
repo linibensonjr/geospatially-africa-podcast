@@ -3,7 +3,10 @@ html, body {
   box-sizing: border-box;
 }
 
-hr {margin: 0;}
+hr {
+  margin: 0;
+  height: 1px;
+}
 
   .circle-1 {
     background-color: #7795e9;
@@ -182,7 +185,13 @@ img.logo {
     padding: 20px;
 }
 
+.pricing-header {
+  max-width: 700px;
+}
 
+.container-support {
+  max-width: 960px;
+}
 
 .support-card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -190,7 +199,7 @@ img.logo {
   width: 40%;
 }
 
-.card:hover {
+.support-card.episode-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -219,6 +228,18 @@ img.logo {
   font-size: 1.2em;
   text-align: center
 
+}
+
+
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+}
+
+hr:not([size]) {
+  height: 1px;
 }
 
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
