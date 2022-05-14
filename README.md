@@ -1,9 +1,7 @@
 # geospatially
 
-This is the repo for the #### geospatially project
+This is the repo for the #### geospatially africa podcast project
 
 
 ## Links
-Check out the podcast [here](https://anchor.fm/geospatially)
-
-Also the blog [here](https://geospatialy.blospot.com)
+Check out the deploment [here](https://geospatiallyafrica.herokuapp.com)
