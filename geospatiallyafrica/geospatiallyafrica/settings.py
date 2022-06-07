@@ -15,6 +15,9 @@ import dj_database_url
 from pathlib import Path
 import os
 from django.conf import settings
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 
@@ -54,7 +57,8 @@ INSTALLED_APPS = [
     "django_social_share",
     "autoslug",
     "django.contrib.sitemaps",
-    'ckeditor'
+    'ckeditor',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -147,6 +151,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+
+cloudinary.config( 
+  cloud_name = "linibenson", 
+  api_key = "884137695834734", 
+  api_secret = "V6NYDPSRa69eEEOGdWb3zFT76So" 
+)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

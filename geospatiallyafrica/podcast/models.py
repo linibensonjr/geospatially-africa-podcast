@@ -1,3 +1,4 @@
+from email.policy import default
 from pyexpat import model
 from tabnanny import verbose
 from django.db import models
@@ -6,6 +7,7 @@ from datetime import datetime, timezone
 from django.urls import reverse
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -43,6 +45,7 @@ class Episode(models.Model):
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)
     date_published = models.DateTimeField()
+    guest_image = CloudinaryField('image', default='')
 
     
 

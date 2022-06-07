@@ -8,11 +8,12 @@
 {% block content %}
 {% if episode_list %}
 <div class="px-4 my-5 text-center">
+  <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
   <h1 class="display-5 fw-bold" style="margin: auto;">Search Result</h1>
 
   <div class="container col-lg-6">
     <form action="{% url 'search_results' %}" method="get">
-      <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
+     
     </form>
   </div>
 </div>

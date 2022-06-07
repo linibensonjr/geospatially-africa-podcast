@@ -2,13 +2,15 @@
 
 {% load static %}
 
+{% load cloudinary %}
+
 {% block content %}
 
 {% load crispy_forms_tags %}
 
 <div class="container">
   <h2>New Episode</h2>
-    <form action="" method="POST" class="form">
+    <form action="{% url 'new_episode' %}" method="POST" class="form">
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}

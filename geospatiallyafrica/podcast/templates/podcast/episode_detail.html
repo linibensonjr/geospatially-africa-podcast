@@ -116,6 +116,9 @@
         {% for episode in episodes %}
           <div class="col">
             <div class="card">
+
+              
+
               <!-- {% if episode.episodepic %}
                 <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
               {% else %}
@@ -151,6 +154,9 @@
         <div class="p-4">
           <h6 class="fst-italic">Featured in this episode</h6>
           {% for episode in episode %}
+
+          {% load cloudinary %}      
+          {% cloudinary episode.guest_image format="jpg" width=120 height=80 crop="fill" %}
 
           <p>Hosted By</p>
           <ol class="list-unstyled mb-0"></ol>

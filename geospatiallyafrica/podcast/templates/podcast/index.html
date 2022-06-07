@@ -105,7 +105,7 @@
             <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
                 <time class="date">{{ episode.published_date|date:"M d Y" }}</time> | 
                 {% for tag in episode.tag.all %}
-                <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
+                <span style="background-color: rgb(225, 236, 236); border-radius: 10px; padding: 3px 5px 5px 3px;">{{tag}}</span>
                 {% endfor %}
               </p>
             <a href="{% url 'episode_detail' pk=episode.pk %}">
