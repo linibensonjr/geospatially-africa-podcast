@@ -45,7 +45,7 @@ class Episode(models.Model):
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)
     date_published = models.DateTimeField()
-    # guest_image = CloudinaryField('image', default='')
+    guest_image = CloudinaryField('image', default='')
 
     
 
