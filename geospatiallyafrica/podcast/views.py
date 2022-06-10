@@ -145,7 +145,7 @@ class SearchResultView(ListView):
 
     template_name = 'podcast/search.html'
 
-def news(request):
+def blog(request):
     return render(request, 'podcast/news.html')
 
 
