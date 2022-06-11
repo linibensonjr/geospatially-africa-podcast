@@ -83,7 +83,7 @@ def new_episode(request):
 def episode_edit(request, pk):
     episode = get_object_or_404(Episode, pk=pk)
     if request.method == "POST":
-       form = EpisodeForm(request.POST, instance=episode)
+       form = EpisodeForm(request.POST, request.FILES, instance=episode,)
        if form.is_valid():
            episode = form.save(commit=False)
            episode.author = request.user

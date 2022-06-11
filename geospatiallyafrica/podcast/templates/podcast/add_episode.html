@@ -10,7 +10,7 @@
 
 <div class="container">
   <h2>New Episode</h2>
-    <form action="{% url 'new_episode' %}" method="POST" class="form">
+    <form action="{% url 'new_episode' %}" method="POST" class="form" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}

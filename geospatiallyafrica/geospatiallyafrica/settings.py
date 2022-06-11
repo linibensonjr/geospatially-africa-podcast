@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import django_heroku
 import dj_database_url
 from pathlib import Path
+import environ
 import os
 from django.conf import settings
 import cloudinary
@@ -24,6 +25,9 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -31,15 +35,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-_u(v1(8!oihwxqxm0q_77$l8wckax%g$u!u@rl%#yxqlj*c#4!'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-_u(v1(8!oihwxqxm0q_77$l8wckax%g$u!u@rl%#yxqlj*c#4!')
+SECRET_KEY = env('DJANGO_SECRET_KEY', 'django-insecure-_u(v1(8!oihwxqxm0q_77$l8wckax%g$u!u@rl%#yxqlj*c#4!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-# export DJANGO_DEBUG=False
+DEBUG = True
 
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
+# DJANGO_DEBUG = env('DJANGO_DEBUG')
+
+ALLOWED_HOSTS = ['*', '127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -58,7 +63,8 @@ INSTALLED_APPS = [
     "autoslug",
     "django.contrib.sitemaps",
     'ckeditor',
-    'cloudinary'
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -153,11 +159,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-cloudinary.config( 
-  cloud_name = "linibenson", 
-  api_key = "884137695834734", 
-  api_secret = "V6NYDPSRa69eEEOGdWb3zFT76So" 
-)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -174,8 +175,18 @@ DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
 
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET')
+}
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/geospatiallyafricapodcast/'
 
 
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")

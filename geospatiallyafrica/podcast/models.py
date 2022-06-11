@@ -24,28 +24,26 @@ class Tags(models.Model):
 class Episode(models.Model):
     season = models.IntegerField(null=True)
     episode = models.IntegerField(null=True)
+    title = models.CharField(max_length=200)
+    link = models.CharField(max_length=1500, help_text='Provide link to episode audio')
+    summary = models.CharField(max_length=1500)
+    description = RichTextField()
+    tag = models.ManyToManyField(Tags, help_text='select a tag')
     
     hosts = [
         ('Iniobong Benson', 'Iniobong'),
         ('Opeyemi Kazeem-Jimoh', 'Opeyemi')
     ]
 
-    tag = models.ManyToManyField(Tags, help_text='select a tag')
     host = models.CharField(max_length=500, choices=hosts)
     guest = models.CharField(max_length=200)
     guest_bio = models.CharField(max_length=1000, default='This is the guest bio')
-    title = models.CharField(max_length=200)
-    link = models.CharField(max_length=1500)
-    summary = models.CharField(max_length=1500)
-    description = RichTextField()
+    guest_image = models.ImageField(upload_to = 'guest_image', default='')
     slug = AutoSlugField(populate_from='title', default='slug')
-    #episodeimage = models.CharField(max_length=200, null=True)
-    episodepic = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(upload_to = 'img/', default='ope_lau.jpg')
+    image = models.ImageField(upload_to = 'podcast_art/', default='ope_lau.jpg')
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)
     date_published = models.DateTimeField()
-    guest_image = CloudinaryField('image', default='')
 
     
 

@@ -170,7 +170,9 @@
           
           <ol class="list-unstyled mb-0">
             <!-- <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" /> -->
-            <i class="bi bi-person" style="font-size: 50px"></i>
+            <div class="guest-image" style="border-radius: 50% 0%; width: 50px;">
+            {% cloudinary episode.guest_image format="jpg" width=120 height=80 crop="fill" %}
+            </div>
             {{ episode.guest }}
             <p>{{ episode.guest_bio }}</p>
           </ol>
