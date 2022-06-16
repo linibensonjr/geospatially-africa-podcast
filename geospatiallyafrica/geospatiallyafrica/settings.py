@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from distutils.debug import DEBUG
 import django_heroku
 import dj_database_url
 from pathlib import Path
@@ -20,30 +21,30 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+# env = environ.Env()
+# environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-env = environ.Env()
-environ.Env.read_env()
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'd^#9jo9_d^lhoe8@b0pdzze_x8dt0&rwt7&*@6(4sh4_j_g@*7'
+# SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = env('DJANGO_DEBUG')
+DEBUG = True
 
 # DJANGO_DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['*', '127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
 
 
 # Application definition
@@ -55,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'podcast',
     "crispy_forms",
     "crispy_bootstrap5",
@@ -62,8 +65,6 @@ INSTALLED_APPS = [
     "autoslug",
     "django.contrib.sitemaps",
     'ckeditor',
-    'cloudinary',
-    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -174,19 +175,31 @@ DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET')
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': env('CLOUD_NAME'),
+#     'API_KEY': env('API_KEY'),
+#     'API_SECRET': env('API_SECRET')
+# }
 
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# cloudinary.config( 
+#   cloud_name = "linibenson", 
+#   api_key = "884137695834734", 
+#   api_secret = "V6NYDPSRa69eEEOGdWb3zFT76So",
+# )
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'linibenson',
+#     'API_KEY': '884137695834734',
+#     'API_SECRET': 'V6NYDPSRa69eEEOGdWb3zFT76So'
+# }
 
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/geospatiallyafricapodcast/'
+MEDIA_URL = '/media/'
 
+# MEDIA_URL = '/geospatiallyafricapodcast/'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")
 

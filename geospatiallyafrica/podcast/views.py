@@ -33,16 +33,6 @@ def episode_detail(request, pk):
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     sidebar_eps = Episode.objects.all()
     host = Hosts.objects.all()
-    # article = get_object_or_404(Episode, pk=pk)
-    # try:
-    #     next_ep = episode.get_next_by_date_published()
-    # except Episode.DoesNotExist:
-    #     next_ep = None
-
-    # try:
-    #     previous_ep = episode.get_previous_by_date_published()
-    # except Episode.DoesNotExist:
-    #     previous_ep = None
     tags = Tags.objects.all()
     context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
     return render(request, 'podcast/episode_detail.html', context)
@@ -74,6 +64,7 @@ def new_episode(request):
             episode.author = request.user
             # episode.published_date = timezone.now()
             episode.save()
+            form.save_m2m()
             return redirect('episode_detail', pk=episode.pk)
      else:
         form = EpisodeForm()
@@ -83,12 +74,13 @@ def new_episode(request):
 def episode_edit(request, pk):
     episode = get_object_or_404(Episode, pk=pk)
     if request.method == "POST":
-       form = EpisodeForm(request.POST, request.FILES, instance=episode,)
+       form = EpisodeForm(request.POST, request.FILES, instance=episode)
        if form.is_valid():
            episode = form.save(commit=False)
            episode.author = request.user
         #    episode.published_date = timezone.now()
            episode.save()
+           form.save_m2m()
            return redirect('episode_detail', pk=episode.pk)
     else:
        form = EpisodeForm(instance=episode)

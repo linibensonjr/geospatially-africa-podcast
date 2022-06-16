@@ -28,23 +28,16 @@
       <div class="col-md-8">
         <div class="card-stacked">
           <div class="card-content">
-            <!-- {% if episode.episodepic %}
-            <img class="card-img-top" src="{{episode.episodepic}}" alt="Episode Image Cover">
-          {% else %}
-            <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
-          {% endif %} -->
-
-
             <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
             <!-- <h5>EPISODE SUMMARY</h5> -->
             <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
               SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-              <time class="date">{{ episode.published_date }}</time> | 
+              <!-- <time class="date">{{ episode.published_date }}</time> |  -->
               {% for tag in episode.tag.all %}
           <!-- <ol class="list-unstyled mb-0"> -->
-            <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
+                <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
           <!-- </ol> -->
-          {% endfor %}
+              {% endfor %}
             </h6>
             <article>
               <p>{{ episode.summary}}</p>
@@ -52,14 +45,14 @@
 
 
             {% if user.is_authenticated %}
-            <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
+              <a href="{% url 'episode_edit' pk=episode.pk %}">Edit</a>
 
-            {% if not episode.published_date %}
-            <!-- <div class="date">
-                    Date {{ episode.published_date }}
-                  </div> -->
-            <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
-            {% endif %}
+              <!-- {% if not episode.published_date %} -->
+              <!-- <div class="date">
+                      Date {{ episode.published_date }}
+                    </div> -->
+              <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+              {% endif %}
             {% endif %}
 
 
@@ -103,22 +96,11 @@
         </div>
     {% endfor %}
 
-
-<!-- 
-      {% if next_ep %}
-        <a href="{% url 'episode_detail' next_ep.pk %}">Next</a>
-      {% else %}
-        This is the last film!
-      {% endif %} -->
-
       <h4>Episodes like this</h4>
       <div class="row row-cols-1 row-cols-md-3 g-3">
         {% for episode in episodes %}
           <div class="col">
             <div class="card">
-
-              
-
               <!-- {% if episode.episodepic %}
                 <img class="card-img-top" src="{{episode.episodepic}}" alt="Card image cap">
               {% else %}
@@ -127,9 +109,9 @@
               
               <div class="card-body">
                 <h5 class="card-title">{{episode.title }}</h5>
-                <p class="card-text">{{ episode.summary | truncatechars:100}}</p>
+                <p class="card-text">{{ episode.summary | truncatechars:150}}</p>
                 {% for tag in episode.tag.all %}
-                <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
+                <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{ tag }}</span>
                 {% endfor %}
                 <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
                     more</button></a>
@@ -154,10 +136,7 @@
         <div class="p-4">
           <h6 class="fst-italic">Featured in this episode</h6>
           {% for episode in episode %}
-
-          {% load cloudinary %}      
-          {% cloudinary episode.guest_image format="jpg" width=120 height=80 crop="fill" %}
-
+         
           <p>Hosted By</p>
           <ol class="list-unstyled mb-0"></ol>
           <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" />
@@ -169,10 +148,12 @@
           {% endfor %}
           
           <ol class="list-unstyled mb-0">
-            <!-- <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50% 0%; width: 50px;" /> -->
+            {% if episode.guest_image %}
+            <img src="{{ episode.guest_image.url }}" style="border-radius: 50% 0%; width: 50px;" />
             <div class="guest-image" style="border-radius: 50% 0%; width: 50px;">
-            {% cloudinary episode.guest_image format="jpg" width=120 height=80 crop="fill" %}
+
             </div>
+            {% endif %}
             {{ episode.guest }}
             <p>{{ episode.guest_bio }}</p>
           </ol>
