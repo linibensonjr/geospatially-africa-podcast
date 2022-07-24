@@ -10,22 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from distutils.debug import DEBUG
+import os
 import django_heroku
 import dj_database_url
 from pathlib import Path
-import environ
-import os
 from django.conf import settings
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import environ
 
-# env = environ.Env(
 
-#     DEBUG=(bool, False)
-# )
-# environ.Env.read_env()
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env()
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,18 +37,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd^#9jo9_d^lhoe8@b0pdzze_x8dt0&rwt7&*@6(4sh4_j_g@*7'
-# SECRET_KEY = env('SECRET_KEY')
+
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-# DEBUG = env('DEBUG')
-# DEBUG = True
-
-# DJANGO_DEBUG = env('DJANGO_DEBUG')
-
-ALLOWED_HOSTS = ['127.0.9.1', '.herokuapp.com']
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -178,31 +174,18 @@ DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
 
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': env('CLOUD_NAME'),
-#     'API_KEY': env('API_KEY'),
-#     'API_SECRET': env('API_SECRET')
-# }
-
-
-# cloudinary.config( 
-#   cloud_name = "linibenson", 
-#   api_key = "884137695834734", 
-#   api_secret = "V6NYDPSRa69eEEOGdWb3zFT76So",
-# )
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'linibenson',
-#     'API_KEY': '884137695834734',
-#     'API_SECRET': 'V6NYDPSRa69eEEOGdWb3zFT76So'
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET')
+}
 
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 
-# MEDIA_URL = '/geospatiallyafricapodcast/'
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/geospatiallyafricapodcast/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")
 
