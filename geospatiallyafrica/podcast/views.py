@@ -87,6 +87,16 @@ def episode_edit(request, pk):
     return render(request, 'podcast/add_episode.html', {'form': form})
 
 @login_required
+def episode_delete(request, pk):
+    episode = Episode.objects.filter(pk=pk)
+    # if request.method == "POST":
+    episode.delete()
+    #    episode = form.save(commit=False)
+    #    episode.author = request.user
+
+    return redirect('episode_list')
+
+@login_required
 def episode_draft_list(request):
     episodes = Episode.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'podcast/episode_draft_list.html', {'episodes': episodes})

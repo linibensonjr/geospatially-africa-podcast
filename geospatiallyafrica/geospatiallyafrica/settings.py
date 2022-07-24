@@ -21,7 +21,10 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# env = environ.Env()
+# env = environ.Env(
+
+#     DEBUG=(bool, False)
+# )
 # environ.Env.read_env()
 
 
@@ -37,10 +40,10 @@ SECRET_KEY = 'd^#9jo9_d^lhoe8@b0pdzze_x8dt0&rwt7&*@6(4sh4_j_g@*7'
 # SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# DEBUG = env('DJANGO_DEBUG')
 DEBUG = True
+
+# DEBUG = env('DEBUG')
+# DEBUG = True
 
 # DJANGO_DEBUG = env('DJANGO_DEBUG')
 

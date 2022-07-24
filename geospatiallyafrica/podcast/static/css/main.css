@@ -242,6 +242,13 @@ hr:not([size]) {
   height: 1px;
 }
 
+.partnership {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  margin: auto;
+
+}
+
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
 
 

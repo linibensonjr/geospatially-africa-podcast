@@ -11,15 +11,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Hind+Madurai:wght@300;500&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Hind+Madurai:wght@300;500&family=Roboto&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
-   
+
 
   <title>{% block title %} Geospatially Africa - The podcast for Geospatial {% endblock %}</title>
-  
+
 </head>
 
 <body>
@@ -72,7 +74,8 @@
                   class="btn btn-outline-success btn-sm"><i class="bi bi-pencil"
                     style="color: green;"></i>Draft</button></a>
               {% else %}
-              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support &#128154;</button></a>
+              <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support
+                  &#128154;</button></a>
               {% endif %}
           </div>
         </div>
@@ -88,117 +91,217 @@
     {% endblock %}
 
   </main>
-  
-  <div class="contact">
 
-  </div>
-<!--     
-  <div class="flex-container">
+      
+  <div class="partnership">
      
-        <div class="item-head" style="border: none;">
-          <h4>Our Guests are from</h4>
-          </div>
-    
-        <section class="flex" style="border: none;">
-          <img src="{%static 'img/grmi.png' %}" alt=""> 
-          <img src="https://www.digitalearthafrica.org/sites/default/files/brand/inline/color/DE_Africa_Logo_Primary_RGB.jpg" alt="">
-          <img src="https://cdn.pixabay.com/photo/2021/01/12/16/48/subscribe-5911958__340.png" />
-        </section>
-
-
-  </div> -->
-
-
-  <div class="card text-center">
-      
-    <div class="card-body">
-      <h3 class="card-title">Don't miss our monthly episodes</h5>
-      <p class="card-text">We'll get the latest episode right to you mail. No spam!</p>
-
-  <!-- Begin Mailchimp Signup Form -->
-  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7_dtp.css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-  </style>
-  <div id="mc_embed_signup">
-  <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <div id="mc_embed_signup_scroll">
-    <!-- <label for="mce-EMAIL">Don't Miss out monthly episodes. Subscribe</label> -->
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
-      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value=""></div>
-          <div class="clear foot">
-             <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-          </div>
-   
-      </div>
-  </form>
+        <div class="item">
+          <img src="{%static 'img/grmi_logo.png' %}" alt=""></div>
+        <div class="item">
+          <img src="{%static 'img/grmi_logo.png' %}" alt="">
+        </div>
+        <div class="item">
+          <img src="{%static 'img/grmi_logo.png' %}" />
+        </div>
+          
   </div>
-  
-  <!--End mc_embed_signup-->
 
-      <!-- <a href="#" class="btn btn-primary">Subscribe</a> -->
-
-      
+  <div class="container text-center">    
+    <h3>Our Partners</h3>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 1</p>
+      </div>
+      <div class="col-sm-2"> 
+        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 2</p>    
+      </div>
+      <div class="col-sm-2"> 
+        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 3</p>
+      </div>
+      <div class="col-sm-2"> 
+        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 4</p>
+      </div> 
+      <div class="col-sm-2"> 
+        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 5</p>
+      </div>     
+      <div class="col-sm-2"> 
+        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+        <p>Partner 6</p>
+      </div> 
     </div>
   </div>
 
-  
 
+  <div class="card text-center">
 
+    <div class="card-body">
+      <h3 class="card-title">Don't miss our monthly episodes</h5>
+        <p class="card-text">We'll get the latest episode right to you mail. No spam!</p>
 
-  <div class="container">
-    <footer class="py-5 d-flex">
-      <div class="row">
-        <div class="col-2">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'episode_list' %}" class="nav-link p-0 text-muted">Episodes</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'blog' %}" class="nav-link p-0 text-muted">Blog</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'about_us' %}" class="nav-link p-0 text-muted">About Us</a></li>
-          </ul>
+        <!-- Begin Mailchimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7_dtp.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+          #mc_embed_signup {
+            background: #fff;
+            clear: left;
+            font: 14px Helvetica, Arial, sans-serif;
+            width: 100%;
+          }
+
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        </style>
+        <div id="mc_embed_signup">
+          <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2"
+            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+            target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <!-- <label for="mce-EMAIL">Don't Miss out monthly episodes. Subscribe</label> -->
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address"
+                required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                  name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value=""></div>
+              <div class="clear foot">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+
+            </div>
+          </form>
         </div>
 
-        <div class="col-2">
-          <h5>We're Social!</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="https://twitter.com/geospatialy" target="_blank" class="nav-link p-0 text-muted">Twitter</a></li>
-            <li class="nav-item mb-2"><a href="https://linkedin.com/company/geospatially-africa-pocast" target="_blank" class="nav-link p-0 text-muted">LinkedIn</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Wordpress</a></li>
-          </ul>
+        <!--End mc_embed_signup-->
+
+        <!-- <a href="#" class="btn btn-primary">Subscribe</a> -->
+
+
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="container d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>We're Social:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="#facebook" class="me-4 text-reset">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-youtube"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              geospatially africa podcast
+            </h6>
+            <p>
+              The podcast about everything geospatial
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Site Map
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'episode_list' %}" class="nav-link p-0 text-muted">Episodes</a>
+              </li>
+              <li class="nav-item mb-2"><a href="{% url 'blog' %}" class="nav-link p-0 text-muted">Blog</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'about_us' %}" class="nav-link p-0 text-muted">About Us</a></li>
+            </ul>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Support Us
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support
+                  &#x1F499;</a></li>
+              <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank"
+                  class="nav-link p-0 text-muted">Become a guest</a></li>
+              <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Suggestions</a></li>
+            </ul>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Nigeria. Africa. World</p>
+            <p>
+              <i class="bi bi-envelope"></i>
+              gsaptially@gmail.com
+            </p>
+          </div>
+          <!-- Grid column -->
         </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
 
-        <div class="col-2">
-          <h5>Support Us</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support &#x1F499;</a></li>
-            <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" class="nav-link p-0 text-muted">Become a guest</a></li>
-            <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Suggestions</a></li>
-          </ul>
-        </div>
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      <p>&copy;
+        <script>document.write(new Date().getFullYear())</script>
+        Geospatially Africa Podcast. All rights reserved.
+      </p>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 
-       
 
-
-
-        <div class="d-flex justify-content-between py-4 my-4 border-top">
-          <p>&copy; <script>document.write(new Date().getFullYear())</script> Geospatially Africa Podcast. All rights reserved.</p>
-          <ul class="list-unstyled d-flex">
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter" />
-                </svg></a></li>
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram" />
-                </svg></a></li>
-            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook" />
-                </svg></a></li>
-          </ul>
-        </div>
-    </footer>
+  </footer>
   </div>
 
 </body>
