@@ -13,12 +13,9 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Hind+Madurai:wght@300;500&family=Roboto&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Hind+Madurai:wght@300;500&family=Roboto&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-
-
 
   <title>{% block title %} Geospatially Africa - The podcast for Geospatial {% endblock %}</title>
 
@@ -47,11 +44,8 @@
             <li class=""><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
             <li><a href="{% url 'episode_list' %}" class="nav-link px-2 link-dark">Episodes</a></li>
             <li><a href="{% url 'blog' %}" class="nav-link px-2 link-dark">Blog</a></li>
-            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
             <li><a href="{% url 'about_us' %}" class="nav-link px-2 link-dark">About</a></li>
           </ul>
-
-
           <ul class="nav ">
             <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
                   style="font-size: 1.5rem;"></i></a></li>
@@ -59,15 +53,12 @@
                   style="font-size: 1.5rem; color: red;"></i></a></li>
             <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
                   style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-            <!-- <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li> -->
             <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
                   style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
           </ul>
           {% if user.is_authenticated %}
           <div class="col-md-4 text-end">
-
-
-            <i class="">Hello, {{ user.username}} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
+            <i class="">Hi, {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
             <a href="{% url 'new_episode'  %}"><button class="btn btn-outline-success btn-sm"><i
                   class="bi bi-plus-circle" style="color: green;"></i>New</button>
               <a href="{% url 'episode_draft_list' %}" class="top-menu"><button
@@ -80,9 +71,7 @@
           </div>
         </div>
       </div>
-
     </nav>
-
   </div>
   <main>
 
@@ -92,54 +81,13 @@
 
   </main>
 
-      
-  <div class="partnership">
-     
-        <div class="item">
-          <img src="{%static 'img/grmi_logo.png' %}" alt=""></div>
-        <div class="item">
-          <img src="{%static 'img/grmi_logo.png' %}" alt="">
-        </div>
-        <div class="item">
-          <img src="{%static 'img/grmi_logo.png' %}" />
-        </div>
-          
+  <div class="container text-center">
+    <h3>Our Sponsors</h3><br>
+    <p style="font-size:2em">Your Logo goes here</p>
   </div>
-
-  <div class="container text-center">    
-    <h3>Our Partners</h3>
-    <br>
-    <div class="row">
-      <div class="col-sm-2">
-        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 1</p>
-      </div>
-      <div class="col-sm-2"> 
-        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 2</p>    
-      </div>
-      <div class="col-sm-2"> 
-        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 3</p>
-      </div>
-      <div class="col-sm-2"> 
-        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 4</p>
-      </div> 
-      <div class="col-sm-2"> 
-        <img src="{%static 'img/grmi_logo.png' %}" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 5</p>
-      </div>     
-      <div class="col-sm-2"> 
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <p>Partner 6</p>
-      </div> 
-    </div>
   </div>
-
 
   <div class="card text-center">
-
     <div class="card-body">
       <h3 class="card-title">Don't miss our monthly episodes</h5>
         <p class="card-text">We'll get the latest episode right to you mail. No spam!</p>
@@ -178,7 +126,7 @@
 
         <!--End mc_embed_signup-->
 
-        <!-- <a href="#" class="btn btn-primary">Subscribe</a> -->
+        <a href="#" class="btn btn-primary">Subscribe</a>
 
 
     </div>
@@ -201,10 +149,10 @@
         <a href="#facebook" class="me-4 text-reset">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="" class="me-4 text-reset">
+        <a href="https://twitter.com/geospatialy" class="me-4 text-reset">
           <i class="bi bi-twitter"></i>
         </a>
-        <a href="" class="me-4 text-reset">
+        <a href="https://www.linkedin.com/company/79795848/admin/" class="me-4 text-reset">
           <i class="bi bi-linkedin"></i>
         </a>
         <a href="" class="me-4 text-reset">
@@ -303,7 +251,7 @@
 
   </footer>
   </div>
-
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 </body>
 
 </html>
