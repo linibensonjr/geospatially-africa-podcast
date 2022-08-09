@@ -4,39 +4,38 @@
 
 {% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
 
-
 {% block content %}
 
 <div class="px-4 py-5 my-5 text-center hero-image">
-  <h1 class="display-5 fw-bold" style="margin: auto;">#GIS</h1> 
-  
+  <h1 class="display-5 fw-bold" style="margin: auto;">#GIS</h1>
+
 </div>
 
 <p>
-    {% for episode in tags %}
-    <div class="card mb-3">
-      <div class="col-md-12">
-        <div class="card-body">
-          <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-              <time class="date">{{ episode.published_date }}</time> | 
-              {% for tag in episode.tag.all %}
-              <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
-              {% endfor %}
-            </p>
-          <a href="{% url 'episode_detail' pk=episode.pk %}">
-            <h4 class="card-title">{{ episode.title }}</h4>
-          </a>
-          <p>Hosted by {{ episode.host }} with guest {{ episode.guest }}</p>
-          <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
-            frameborder="1" width="100%" height="200"></iframe>
+  {% for episode in tags %}
+<div class="card mb-3">
+  <div class="col-md-12">
+    <div class="card-body">
+      <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
+        <time class="date">{{ episode.published_date }}</time> |
+        {% for tag in episode.tag.all %}
+        <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
+        {% endfor %}
+      </p>
+      <a href="{% url 'episode_detail' pk=episode.pk %}">
+        <h4 class="card-title">{{ episode.title }}</h4>
+      </a>
+      <p>Hosted by {{ episode.host }} with guest {{ episode.guest }}</p>
+      <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
+        frameborder="1" width="100%" height="200"></iframe>
 
-          <p class="card-text">{{ episode.summary}}</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-        </div>
-      </div>
+      <p class="card-text">{{ episode.summary}}</p>
+      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
     </div>
+  </div>
+</div>
 
-    {% endfor %}
+{% endfor %}
 </p>
 
 {% endblock %}
