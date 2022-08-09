@@ -19,7 +19,7 @@
         <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
           target="_blank">
           <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-        <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
+        <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113"><img src="{%static 'img/applepod.svg' %}" /></a>
         <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
       </div>
     </div>
@@ -27,15 +27,8 @@
 
 
 </div>
-
-
-
-
   <!-- <div class="monthly">
     <div class="container"> -->
-
-
-
   <!-- <div class="card text-center">
 
     <div class="container d-flex justify-content-center">
@@ -57,13 +50,7 @@
 <!-- </div>
 </div> -->
 
-
-
-
 <div class="container">
-
-
-
   <!-- {% for episode in episodes %}
 
 
@@ -95,9 +82,6 @@
       <h3 class="pb-2 mb-4 border-bottom">
         Latest Episodes
       </h3>
-
-
-
       {% for episode in episodes %}
       <div class="card mb-3">
         <div class="col-md-12">
@@ -120,10 +104,6 @@
           </div>
         </div>
       </div>
-
-      
-
-
       {% endfor %}
 
         <ul class="pagination justify-content-center">  
@@ -139,12 +119,12 @@
           <h5 class="fst-italic">You can also listen on:</h5>
           
           <ol class="list-unstyled mb-0">
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Google &#8594;</a></span>
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Apple &#8594;</a></span>
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Spotify &#8594;</a></span>
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Sticher &#8594;</a></span>
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Anchor &#8594;</a></span>
-            <a href="" style="border-radius: 5px; padding: 0 4px;">Google &#8594;</a></span>
+            <a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw==" target="_blank" style="border-radius: 5px; padding: 0 4px;">Google &#8594;</a></span>
+            <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank" style="border-radius: 5px; padding: 0 4px;">Apple &#8594;</a></span>
+            <a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank" style="border-radius: 5px; padding: 0 4px;">Spotify &#8594;</a></span>
+            <a href="https://www.stitcher.com/podcast/geospatially-africa-podcast-the-podcast-for-the-geospatial-community" target="_blank" style="border-radius: 5px; padding: 0 4px;">Sticher &#8594;</a></span>
+            <a href="https://anchor.fm/geospatiallyafrica" target="_blank" style="border-radius: 5px; padding: 0 4px;">Anchor &#8594;</a></span>
+            <a href="https://castbox.fm/channel/Geospatially-Africa-Podcast-%7CThe-Podcast-for-the-Geospatial-Community.-GIS%2C-RS%2C-Drones%2C-Technology-id4009803" target="_blank" style="border-radius: 5px; padding: 0 4px;">Castbox &#8594;</a></span>
           </ol>
    
         </div>
@@ -158,7 +138,7 @@
 
           {% for tag in tags %}
           <!-- <ol class="list-unstyled mb-0"> -->
-            <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
+            <a href="{% url 'episode_list' %}" style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px; color: black;">{{tag}}</a></span>
           <!-- </ol> -->
           {% endfor %}
    

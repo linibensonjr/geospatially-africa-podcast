@@ -116,6 +116,10 @@ hr {
     height: 100%;
   }
 
+  .tags {
+    color: black;
+  }
+
   /* footer {
     height: 40vh;
     background-color: #5d5f85;
