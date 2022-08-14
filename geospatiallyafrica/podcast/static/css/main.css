@@ -3,6 +3,18 @@ html, body {
   box-sizing: border-box;
 }
 
+.nav-section {
+  background-color: rgba(248,249,250);
+}
+
+.hero-section {
+  background-color: #f1e4e4;
+  /* background-image: linear-gradient(
+    to right,
+    #f7bab8, #fbbbba
+  ); */
+}
+
 hr {
   margin: 0;
   height: 1px;
@@ -53,10 +65,8 @@ hr {
     min-height: 500px;
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     text-align: center;
   }
 
@@ -159,33 +169,41 @@ img.logo {
   width: 30%;
 }
 
-
-
-
+/* Newsletter */
 .home-newsletter .single {
   max-width: 650px;
   margin: 0 auto;
   text-align: center;
   position: relative;
-  z-index: 2; }
+  z-index: 2; 
+}
   .home-newsletter .single h2 {
   font-size: 22px;
   color: white;
   text-transform: uppercase;
-  margin-bottom: 40px; }
+  margin-bottom: 40px; 
+}
+
   .home-newsletter .single .form-control {
   height: 50px;
   background: rgba(255, 255, 255, 0.6);
   border-color: transparent;
-  border-radius: 20px 0 0 20px; }
+  border-radius: 20px 0 0 20px; 
+}
+  
   .home-newsletter .single .form-control:focus {
-  box-shadow: none;
-  border-color: #243c4f; }
-  .home-newsletter .single .btn {
-  min-height: 50px; 
-  border-radius: 0 20px 20px 0;
-  background: #243c4f;
-  color: #fff;
+    box-shadow: none;
+    border-color: #243c4f; }
+    .home-newsletter .single .btn {
+    min-height: 50px; 
+    border-radius: 0 20px 20px 0;
+    background: #243c4f;
+    color: #fff;
+  }
+
+
+  .circles {
+    text-align: center;
   }
 
 .no-result {
@@ -258,12 +276,9 @@ hr:not([size]) {
 
 }
 
+
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
-
-
-  
-  
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     .gradient-form {
       height: 100vh !important;
     }
@@ -285,12 +300,17 @@ hr:not([size]) {
   #revue-embed {
     background-color: #fcba03;
     padding: 60px;
-  }
+  } */
 
 
 /** Mobile screen **/
 
   @media screen and (max-width: 768px) {
+
+    .display-5 h1 {
+      font-size: 3.4em;
+    }
+
     h3 {
       font-size: 0.8em;
     }
@@ -298,7 +318,6 @@ hr:not([size]) {
     .col-md-8 {
       width: 100%;
     }
-  
 
     .hero-image {
       min-height: 250px;
@@ -347,6 +366,9 @@ hr:not([size]) {
     margin: auto;
   }
 
+  .circles {
+    display: none;
+  }
 
 
 }

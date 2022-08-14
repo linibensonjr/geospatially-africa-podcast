@@ -2,9 +2,10 @@
 {% load static %}
 {% block content %}
 
+<section class="hero-section">
 <div class="container px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
+    <div class="col-10 col-sm-8 col-lg-6 circles">
       <div class="circle-1"></div>
       <div class="circle-2"></div>
       <div class="circle-3"></div>
@@ -24,59 +25,10 @@
       </div>
     </div>
   </div>
-
-
 </div>
-  <!-- <div class="monthly">
-    <div class="container"> -->
-  <!-- <div class="card text-center">
-
-    <div class="container d-flex justify-content-center">
-      <h4 class="card-title">Some of our guests work at</h5>
-
-        <div class="guests d-flex justify-content-center">
-          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-
-          <img src="https://geospatiallypodcast.files.wordpress.com/2021/04/dea.png" class="mx-auto d-block">
-        </div>
-
-    </div>
-
-  </div> -->
-
-<!-- </div> -->
-
-<!-- </div>
-</div> -->
+</section>
 
 <div class="container">
-  <!-- {% for episode in episodes %}
-
-
-            <div class="card mb-3" style="max-width: 840px;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="{% static 'img/icon_podcast.png' %}" class="img-fluid rounded-start" alt="podcast icon">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <p class="card-text"><small class="text-muted"> SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                      <time class="date">{{ episode.published_date }}</time> | {{ episode.tags}}</small></p>
-                    <h5 class="card-title">{{ episode.title }}</h5>
-                    <p><strong>Host:</strong> {{ episode.host }} | Guest: {{ episode.guest }}</p>
-                    <audio controls></audio>
-                    <p class="card-text">{{ episode.summary}}</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-    {% endfor %}  -->
-
-
-
   <div class="row g-5" style="justify-content: center;">
     <div class="col-md-8">
       <h3 class="pb-2 mb-4 border-bottom">
@@ -87,7 +39,7 @@
         <div class="col-md-12">
           <div class="card-body">
             <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-                <time class="date">{{ episode.published_date|date:"M d Y" }}</time> | 
+                <time class="date">{{ episode.published_date|date:"M Y" }}</time> | 
                 {% for tag in episode.tag.all %}
                 <span style="background-color: rgb(225, 236, 236); border-radius: 10px; padding: 3px 5px 5px 3px;">{{tag}}</span>
                 {% endfor %}
