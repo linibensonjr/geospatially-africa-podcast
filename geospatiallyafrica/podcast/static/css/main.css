@@ -1,3 +1,4 @@
+/* Base Template */
 html, body {
   margin: 0;
   box-sizing: border-box;
@@ -5,6 +6,10 @@ html, body {
 
 .nav-section {
   background-color: rgba(248,249,250);
+}
+
+nav ul {
+  font-size: 1.2em;
 }
 
 .hero-section {
@@ -70,6 +75,7 @@ hr {
     text-align: center;
   }
 
+/* Episode Template */
 
   .episode-list {
     margin-top: 15px;
@@ -80,6 +86,19 @@ hr {
     
     color: rgb(196, 189, 189);
     /* padding: 30px; */
+  }
+
+  .episode-tags {
+    background-color: #e1ecec; 
+    color: black;
+    border-radius: 20px; 
+    padding: 3px 8px 3px 8px;
+  }
+
+  .episode-tags:hover {
+    background-color: black;
+    color: #ffffff;
+    transition: 0.5s;
   }
 
   .guests {

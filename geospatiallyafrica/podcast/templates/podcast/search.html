@@ -7,32 +7,30 @@
 
 {% block content %}
 {% if episode_list %}
-<div class="px-4 my-5 text-center">
+
+<section class="hero-section">
+  <div class="container px-4 py-5">
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold">Search Results {{ query }}</h1>
+    </div>
+  </div>
+</section>
+
+
   <div class="container col-lg-6">
     <form action="{% url 'search_results' %}" method="get">
       <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
-     
     </form>
   </div>
-  
-  <h1 class="display-5 fw-bold" style="margin: auto;"> Search Result </h1>
-
-  
-</div>
-
-
 
 <div class="container col-lg-6">
-
   <div class="row row-cols-1 row-cols-md-2 g-4">
-
     {% for episode in episode_list %}
     <div class="col">
       <div class="card">
         {% if episode.episode_image %}
         <img class="card-img-top" src="{{episode.episode_image.url}}" alt="Card image cap">
         {% else %}
-
 
         <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
 
@@ -68,9 +66,5 @@
   </div>
 </div>
 
-
-{% endblock %}
-
-{% block sidebar %}
 
 {% endblock %}
