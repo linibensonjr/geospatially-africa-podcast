@@ -1,3 +1,4 @@
+/* Base Template */
 html, body {
   margin: 0;
   box-sizing: border-box;
@@ -74,6 +75,7 @@ hr {
     text-align: center;
   }
 
+/* Episode Template */
 
   .episode-list {
     margin-top: 15px;

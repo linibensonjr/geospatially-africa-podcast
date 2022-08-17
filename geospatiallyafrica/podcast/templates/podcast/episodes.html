@@ -7,10 +7,13 @@
 
 {% block content %}
 
-<div class="px-4 py-5 my-5 text-center hero-image">
-  <h1 class="display-5 fw-bold" style="margin: auto;">Episodes</h1>
-
-</div>
+<section class="hero-section">
+  <div class="container px-4 py-5">
+    <div class="px-4 py-5 my-5 text-center hero-episode">
+      <h1 class="display-5 fw-bold">Episodes</h1>
+    </div>
+  </div>
+</section>
 
 <div class="container col-lg-6">
   <form action="{% url 'search_results' %}" method="get">

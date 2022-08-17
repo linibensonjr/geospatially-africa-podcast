@@ -130,19 +130,14 @@ def listing(request):
     context = {'tags': tag_f}
     return render(request, 'podcast/tags.html', context)
 
-    
-    #return render(request, 'list.html', {'page_obj': page_obj})
-
 class SearchResultView(ListView):
     model = Episode
-
-    def get_context_data(self, **kwargs):
-        context = super(SearchResultView, self).get_context_data(**kwargs)
-        return context
-
+    
     def get_queryset(self):
         query = self.request.GET.get("q")
+        print(query)
         search_list = Episode.objects.filter(title__icontains=query)
+        context = {'search_list':search_list, 'query':query}
         return search_list
 
     template_name = 'podcast/search.html'
