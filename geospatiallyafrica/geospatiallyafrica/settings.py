@@ -115,8 +115,8 @@ DATABASES = {
         'NAME': env('DATABASE_NAME'),
         'USER': env('USER'),
         'PASSWORD': env('PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
     }
 }
 
