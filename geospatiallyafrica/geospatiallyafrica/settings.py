@@ -112,9 +112,9 @@ LOGIN_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'geospatiallyafrica',
-        'USER': 'admin',
-        'PASSWORD': 'geoadmin',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
