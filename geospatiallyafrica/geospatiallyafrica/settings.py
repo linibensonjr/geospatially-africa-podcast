@@ -113,10 +113,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'geospatiallyafrica',
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'USER': 'admin',
+        'PASSWORD': 'geoadmin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
