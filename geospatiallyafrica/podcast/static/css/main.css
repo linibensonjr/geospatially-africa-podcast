@@ -177,6 +177,16 @@ a {
   width: 80%
 }
 
+.col ul {
+  list-style: none;
+}
+
+.col ul li:before {
+  content: '✓';
+  color: green;
+  font-size: 1.5em
+}
+
 
 .dot {
   font-size: 23rem;
@@ -251,7 +261,7 @@ img.logo {
 .support-card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  width: 50%;
 }
 
 .support-card.episode-card:hover {
