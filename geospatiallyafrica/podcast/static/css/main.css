@@ -177,7 +177,7 @@ a {
   list-style: none;
 }
 
-.col ul li:before {
+.support ul li:before {
   content: "✓";
   color: green;
   font-size: 1.5em;
