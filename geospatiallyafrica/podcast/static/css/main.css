@@ -1,11 +1,12 @@
 /* Base Template */
-html, body {
+html,
+body {
   margin: 0;
   box-sizing: border-box;
 }
 
 .nav-section {
-  background-color: rgba(248,249,250);
+  background-color: rgba(248, 249, 250);
 }
 
 nav ul {
@@ -25,145 +26,140 @@ hr {
   height: 1px;
 }
 
-  .circle-1 {
-    background-color: #7795e9;
-    border-radius: 50%;
-    top: 43%;
-    right: 10%;
-    width: 50px;
-    height: 50px;
-    z-index: 2;
-  }
-  .circle-2 {
-    background-color: #9ea9c7;
-    border-radius: 50%;
-    top: 25%;
-    right: 40px;
-    width: 100px;
-    height: 100px
-  }
-  .circle-3 {
-    background-color: #9ea9c7;
-    border-radius: 50%;
-    top: 25%;
-    right: 40px;
-    width: 200px;
-    height: 200px
-  }
+.circle-1 {
+  background-color: #7795e9;
+  border-radius: 50%;
+  top: 43%;
+  right: 10%;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+}
+.circle-2 {
+  background-color: #9ea9c7;
+  border-radius: 50%;
+  top: 25%;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+}
+.circle-3 {
+  background-color: #9ea9c7;
+  border-radius: 50%;
+  top: 25%;
+  right: 40px;
+  width: 200px;
+  height: 200px;
+}
 
-  h1 {
-    font-family: 'Hind Madurai';
-  }
+h1 {
+  font-family: "Hind Madurai";
+}
 
+h2 .epitle {
+  font-size: 4em;
+  text-align: justify;
+}
 
-  h2 .epitle {
-    font-size: 4em;
-    text-align: justify;
-  }
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: url("https://cdn.pixabay.com/photo/2018/05/28/12/09/headphones-3435885_960_720.jpg");
 
+  /* Set a specific height */
+  min-height: 500px;
 
-  .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image:url("https://cdn.pixabay.com/photo/2018/05/28/12/09/headphones-3435885_960_720.jpg");
-  
-    /* Set a specific height */
-    min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
 
-    /* Create the parallax scrolling effect */
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-  }
-
-
-  .sponsors {
-    display: flex;
-    flex-direction: column;
-    margin: 50px 0px 50px 0px;
-    text-align: center;
-  }
+.sponsors {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0px 50px 0px;
+  text-align: center;
+}
 
 /* Episode Template */
 
-  .episode-list {
-    margin-top: 15px;
-    /* padding: 30px; */
-  }
+.episode-list {
+  margin-top: 15px;
+  /* padding: 30px; */
+}
 
-  .episode-list a {
-    
-    color: rgb(196, 189, 189);
-    /* padding: 30px; */
-  }
+.episode-list a {
+  color: rgb(196, 189, 189);
+  /* padding: 30px; */
+}
 
-  .episode-tags {
-    background-color: #e1ecec; 
-    color: black;
-    border-radius: 20px; 
-    padding: 3px 8px 3px 8px;
-  }
+.episode-tags {
+  background-color: #e1ecec;
+  color: black;
+  border-radius: 20px;
+  padding: 3px 8px 3px 8px;
+}
 
-  .episode-tags:hover {
-    background-color: black;
-    color: #ffffff;
-    transition: 0.5s;
-  }
+.episode-tags:hover {
+  background-color: black;
+  color: #ffffff;
+  transition: 0.5s;
+}
 
-  .guests {
-    display: flex;
-    flex-direction: row;
-  }
+.guests {
+  display: flex;
+  flex-direction: row;
+}
 
-  .card a {
-    text-decoration: none;
-    color:rgb(20, 19, 19)
-  }
+.card a {
+  text-decoration: none;
+  color: rgb(20, 19, 19);
+}
 
-  .platform {
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    justify-content: space-between;
-    padding: 12px;
-    margin: auto;
-  }
+.platform {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+  padding: 12px;
+  margin: auto;
+}
 
+.services {
+  background-color: #fcba03;
+}
 
-  .services {
-    background-color: #fcba03;
-  }
+.monthly {
+  background-color: rgb(61, 175, 175);
+  height: 25vh;
+  margin: auto;
+  display: flex;
+}
 
-  .monthly {
-    background-color: rgb(61, 175, 175);
-    height: 25vh;
-    margin: auto;
-    display: flex;
-  }
+.contact {
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+}
 
-  .contact {
-    height: 20vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 60%;
-    margin: auto;
-  }
+.contact img {
+  width: 50%;
+  height: 100%;
+}
 
-  .contact img {
-    width: 50%;
-    height: 100%;
-  }
+.tags {
+  color: black;
+}
 
-  .tags {
-    color: black;
-  }
+.episode:hover {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
 
-  .episode:hover {
-    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-  }
-
-  /* footer {
+/* footer {
     height: 40vh;
     background-color: #5d5f85;
   } */
@@ -174,19 +170,18 @@ a {
 
 .form textarea,
 .form input {
-  width: 80%
+  width: 80%;
 }
 
 .col ul {
   list-style: none;
 }
 
-.col ul li:before {
-  content: '✓';
+.support ul li:before {
+  content: "✓";
   color: green;
-  font-size: 1.5em
+  font-size: 1.5em;
 }
-
 
 .dot {
   font-size: 23rem;
@@ -213,41 +208,41 @@ img.logo {
   margin: 0 auto;
   text-align: center;
   position: relative;
-  z-index: 2; 
+  z-index: 2;
 }
-  .home-newsletter .single h2 {
+.home-newsletter .single h2 {
   font-size: 22px;
   color: white;
   text-transform: uppercase;
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
 }
 
-  .home-newsletter .single .form-control {
+.home-newsletter .single .form-control {
   height: 50px;
   background: rgba(255, 255, 255, 0.6);
   border-color: transparent;
-  border-radius: 20px 0 0 20px; 
+  border-radius: 20px 0 0 20px;
 }
-  
-  .home-newsletter .single .form-control:focus {
-    box-shadow: none;
-    border-color: #243c4f; }
-    .home-newsletter .single .btn {
-    min-height: 50px; 
-    border-radius: 0 20px 20px 0;
-    background: #243c4f;
-    color: #fff;
-  }
 
+.home-newsletter .single .form-control:focus {
+  box-shadow: none;
+  border-color: #243c4f;
+}
+.home-newsletter .single .btn {
+  min-height: 50px;
+  border-radius: 0 20px 20px 0;
+  background: #243c4f;
+  color: #fff;
+}
 
-  .circles {
-    text-align: center;
-  }
+.circles {
+  text-align: center;
+}
 
 .no-result {
-    margin: auto;
-    text-align: center;
-    padding: 20px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
 }
 
 .pricing-header {
@@ -259,19 +254,18 @@ img.logo {
 }
 
 .support-card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 50%;
 }
 
 .support-card.episode-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
   padding: 2px 16px;
 }
-
 
 .flex-container {
   flex-wrap: wrap;
@@ -291,11 +285,8 @@ img.logo {
 
 .item-head {
   font-size: 1.2em;
-  text-align: center
-
+  text-align: center;
 }
-
-
 
 .featurette-heading {
   font-weight: 300;
@@ -311,12 +302,20 @@ hr:not([size]) {
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
   margin: auto;
-
 }
 
 
+.countries {
+  background-image:url("https://res.cloudinary.com/linibenson/image/upload/v1661774071/geospatiallyafricapodcast/static/worldmap_podcast_gdj_rp5soa.png");
+  height: 50vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
-  /* @media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .gradient-form {
       height: 100vh !important;
     }
@@ -340,30 +339,27 @@ hr:not([size]) {
     padding: 60px;
   } */
 
-
 /** Mobile screen **/
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .display-5 h1 {
+    font-size: 3.4em;
+  }
 
-    .display-5 h1 {
-      font-size: 3.4em;
-    }
+  h3 {
+    font-size: 0.8em;
+  }
 
-    h3 {
-      font-size: 0.8em;
-    }
+  .col-md-8 {
+    width: 100%;
+  }
 
-    .col-md-8 {
-      width: 100%;
-    }
-
-    .hero-image {
-      min-height: 250px;
-    }
-    .justify-content-center {
-      justify-content:center
-    }
-    
+  .hero-image {
+    min-height: 250px;
+  }
+  .justify-content-center {
+    justify-content: center;
+  }
 
   .d-md-flex {
     justify-content: center;
@@ -374,7 +370,7 @@ hr:not([size]) {
   }
 
   .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4caf50; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -407,6 +403,4 @@ hr:not([size]) {
   .circles {
     display: none;
   }
-
-
 }

@@ -11,8 +11,7 @@
 
 
 <div class="container">
-  <!-- {% for slug in episode} -->
-  <div class="row g-5" style="background-color: blue;">
+  <div class="row g-5">
     {% for episode in episode %}
     <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
       <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
@@ -20,18 +19,15 @@
       </a>
     </div>
 
-
-    <!-- <div class="card"> -->
     <div class="col-md-8">
       <div class="card-stacked">
-        <div class="card-content" style="background-color:red">
+        <div class="card-content">
           <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
           <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
             SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
             <time class="date">{{ episode.published_date }}</time> |
             {% for tag in episode.tag.all %}
-            <a href="{% url 'episode_list' %}"
-              style="background-color: rgb(225, 236, 236); border-radius: 5px; padding: 0 4px;">{{tag}}</a></span>
+            <a href="{% url 'episode_list' %}"><span class="episode-tags">{{tag}}</span></a>
             {% endfor %}
           </h6>
 
@@ -67,27 +63,19 @@
                 </div>
               </div>
             </div>
+            <!-- End Popup Edit/Delete Modal -->
           </div>
-          <!-- {% if not episode.published_date %} -->
-          <!-- <div class="date">
-                        Date {{ episode.published_date }}
-                      </div> -->
+          <!-- End Episode Actions -->
+          
           <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
           {% endif %}
-          {% endif %}
+
         </div>
-
-
-
         <p>
           <strong>Host:</strong> {{ episode.host }} | <strong>Guest:</strong> {{ episode.guest }}
         </p>
 
-
-
         <h3>Listen</h3>
-        <!-- <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
-              frameborder="1" width="100%" height="200"></iframe> -->
         {{episode.link | safe}}
         <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
 
@@ -101,9 +89,8 @@
 
         <p class="container">{{ episode.description | safe }}</p>
       </div>
-    </div>
 
-    <!-- </div> -->
+
     <!-- Social Share -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
       {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Twitter" %}
@@ -139,8 +126,8 @@
       {% endfor %}
     </div>
     <!-- Other Episodes ends here -->
-
   </div>
+
 
   <!-- Sidebar content -->
   <div class="col-md-4">
@@ -195,7 +182,7 @@
     </div>
   </div>
   <!-- Sidebar content ends here -->
-
+</div>
 </div>
 <!-- Container ends here -->
 
