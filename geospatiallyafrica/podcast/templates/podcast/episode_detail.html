@@ -14,7 +14,7 @@
   <div class="row g-5">
     {% for episode in episode %}
     <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
-      <a href="{% url 'episode_list' %}" style="color: brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
+      <a href="{% url 'episode_list' %}" style="brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
         {{episode.title}}
       </a>
     </div>
@@ -22,7 +22,7 @@
     <div class="col-md-8">
       <div class="card-stacked">
         <div class="card-content">
-          <h2 style="font-size: 3em; text-align: center; color: brown;">{{ episode.title }}</h2>
+          <h2 style="font-size: 3em; text-align: center;">{{ episode.title }}</h2>
           <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
             SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
             <time class="date">{{ episode.published_date }}</time> |
@@ -169,7 +169,7 @@
         <h5>Other Episodes</h5>
         {% for ep in sidebar_eps %}
         <div class="episode-list">
-          <a href="{% url 'episode_detail' pk=ep.pk %}" style="margin-top: 40px; color: brown;">>{{ep.title}}</a>
+          <a href="{% url 'episode_detail' pk=ep.pk %}" style="margin-top: 40px; color: black;">>{{ep.title}}</a>
         </div>
         {% endfor %}
       </div>

@@ -143,7 +143,7 @@ class SearchResultView(ListView):
     template_name = 'podcast/search.html'
 
 def blog(request):
-    return render(request, 'podcast/blog.html')
+    return render(request, 'podcast/blog/blog.html')
 
 
 def about_us(request):
