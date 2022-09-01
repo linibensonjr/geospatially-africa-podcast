@@ -154,19 +154,8 @@ def support(request):
 
 def page_not_found(request, exception=None):
     data = {}
-    return render(request, 'podcast/404.html', data)
+    return render(request, 'podcast/error/404.html', data)
 
 def server_error(request, exception=None):
     data = {}
-    return render(request, 'podcast/500.html', data)
-
-# def upload(request):
-#   context = dict( backend_form = EpisodeForm())
-
-#   if request.method == 'POST':
-#     form = EpisodeForm(request.POST, request.FILES)
-#     context['posted'] = form.instance
-#     if form.is_valid():
-#         form.save()
-
-#   return render(request, 'upload.html', context)
+    return render(request, 'podcast/error/500.html', data)

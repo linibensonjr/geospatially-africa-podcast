@@ -143,7 +143,11 @@
         <h5 class="fst-italic">Featured in this episode</h5>
         {% for episode in episode %}
         <p>Hosted By</p>
+        {% if episode.host == "Iniobong Benson" %}
+        <img src="{% static 'img/iniobong.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" />
+        {% else %}
         <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" />
+        {% endif %}
         {{ episode.host }}
         {% for host in host %}
         {% if host.name == episode.host %}
