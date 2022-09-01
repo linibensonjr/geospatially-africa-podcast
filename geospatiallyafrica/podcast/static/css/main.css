@@ -5,6 +5,15 @@ body {
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #801625;
+  --secondary: #98839F;
+}
+
+h2, h3, h4, h5 {
+  color: var(--primary);
+}
+
 .nav-section {
   background-color: rgba(248, 249, 250);
 }
@@ -14,11 +23,11 @@ nav ul {
 }
 
 .hero-section {
-  background-color: #f1e4e4;
-  /* background-image: linear-gradient(
+  background-color: #98839F;
+  background-image: linear-gradient(
     to right,
-    #f7bab8, #fbbbba
-  ); */
+    #98839F, #f2e9f5
+  );
 }
 
 hr {
@@ -27,7 +36,7 @@ hr {
 }
 
 .circle-1 {
-  background-color: #7795e9;
+  background-color: #801625;
   border-radius: 50%;
   top: 43%;
   right: 10%;
@@ -36,7 +45,7 @@ hr {
   z-index: 2;
 }
 .circle-2 {
-  background-color: #9ea9c7;
+  background-color: #98839F;
   border-radius: 50%;
   top: 25%;
   right: 40px;
@@ -44,7 +53,7 @@ hr {
   height: 100px;
 }
 .circle-3 {
-  background-color: #9ea9c7;
+  background-color: #801625;
   border-radius: 50%;
   top: 25%;
   right: 40px;
@@ -54,6 +63,7 @@ hr {
 
 h1 {
   font-family: "Hind Madurai";
+  color: var(--primary);
 }
 
 h2 .epitle {
