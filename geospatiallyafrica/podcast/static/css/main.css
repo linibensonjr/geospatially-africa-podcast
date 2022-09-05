@@ -166,7 +166,13 @@ h2 .epitle {
 
 .episode:hover {
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  transition: 0.3s;font-family: 'Cabin', sans-serif;
+}
+
+p .description {
+  
+  font-size: 3em;
+
 }
 
 /* footer {
