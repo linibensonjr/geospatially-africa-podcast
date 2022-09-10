@@ -147,7 +147,8 @@ def blog(request):
 
 
 def about_us(request):
-    return render(request, 'podcast/about.html')
+    epi_count = len(Episode.objects.all())
+    return render(request, 'podcast/about.html', {'count': epi_count})
 
 def support(request):
     return render(request, 'podcast/support.html')
