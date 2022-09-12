@@ -8,6 +8,7 @@ body {
 :root {
   --primary: #801625;
   --secondary: #98839F;
+  --base: rgb(240, 234, 234);
 }
 
 h2, h3, h4, h5 {
@@ -84,11 +85,21 @@ h2 .epitle {
   text-align: center;
 }
 
+.podcast-countries img {
+  width: 100%;
+  background-color: red;
+
+}
+
 .sponsors {
   display: flex;
   flex-direction: column;
   margin: 50px 0px 50px 0px;
   text-align: center;
+}
+
+.copyright {
+  background-color: var(--base);
 }
 
 /* Episode Template */
@@ -99,7 +110,7 @@ h2 .epitle {
 }
 
 .episode-list a {
-  color: rgb(196, 189, 189);
+  color: rgb(189, 196, 189);
   /* padding: 30px; */
 }
 
@@ -182,6 +193,7 @@ p .description {
 
 a {
   text-decoration: none;
+  color: var(--primary)
 }
 
 .form textarea,
@@ -216,6 +228,12 @@ img.logo {
 
 .search-img {
   width: 30%;
+}
+
+.mic {
+  text-align:center;
+  font-size: 2.5em;
+  padding: 20px;
 }
 
 /* Newsletter */
@@ -314,6 +332,34 @@ hr:not([size]) {
   height: 1px;
 }
 
+.statistics {
+  /* background-color: #243c4f; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 3em;
+  margin: auto;
+  font-weight: bold;
+}
+
+.statistics .bi {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.statistics h3 {
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+.statistics p {
+  font-size: 0.5em;
+  line-height: 0.5;
+  font-weight: normal;
+}
+
 .partnership {
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
@@ -363,7 +409,7 @@ hr:not([size]) {
   }
 
   h3 {
-    font-size: 0.8em;
+
   }
 
   .col-md-8 {
@@ -419,4 +465,21 @@ hr:not([size]) {
   .circles {
     display: none;
   }
+
+  .statistics {
+    /* background-color: #243c4f; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+  }
+
+  .statistics p {
+    font-size: 0.5em;
+    line-height: 0.5;
+  }
+
 }
+
