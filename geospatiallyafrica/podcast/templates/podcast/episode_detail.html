@@ -20,14 +20,14 @@
     </div>
 
     <div class="col-md-8">
-      <div class="card-stacked">
+      <div class="card-stacked details">
         <div class="card-content">
           <h2 style="font-size: 3em; text-align: center;">{{ episode.title }}</h2>
           <h6 style="text-align: center; padding: 10px; font-size: 1.1em;">
             SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
             <time class="date">{{ episode.published_date }}</time> |
             {% for tag in episode.tag.all %}
-            <a href="{% url 'episode_list' %}"><span class="episode-tags">{{tag}}</span></a>
+            <a href="{% url 'tags' %}?tag={{tag}}"><span class="episode-tags">{{tag}}</span></a>
             {% endfor %}
           </h6>
 
@@ -72,8 +72,8 @@
           {% endif %}
 
         </div>
-        <p>
-          <strong>With</strong> {{ episode.host }} <strong>and</strong> {{ episode.guest }}
+        <p style="text-align: center;">
+          With {{ episode.host }} and {{ episode.guest }}
         </p>
 
         <h3>Listen</h3>

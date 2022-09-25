@@ -2,44 +2,43 @@
 
 {% load static %}
 
-{% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
+{% block title %} Geospatially Africa Podcast - Tags {% endblock %}
 
 {% block content %}
 
-<div class="px-4 py-5 my-5 text-center hero-image">
-  <h1 class="display-5 fw-bold" style="margin: auto;">{{ request.GET.tag }}</h1>
+{% if episode_list %}
 
-</div>
-
-<p>
-  {% for episode in episode_list %}
-<div class="card mb-3">
-  <div class="col-md-12">
-    <div class="card-body">
-      <p class="card-text">SEASON: {{ episode.season}} | EPISODE: {{episode.episode}} |
-        <time class="date">{{ episode.published_date }}</time> |
-        {% for tag in episode.tag.all %}
-        <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{tag}}</span>
-        {% endfor %}
-      </p>
-      <a href="{% url 'episode_detail' pk=episode.pk %}">
-        <h4 class="card-title">{{ episode.title }}</h4>
-      </a>
-      <p>Hosted by {{ episode.host }} with guest {{ episode.guest }}</p>
-      <iframe src="https://castbox.fm/app/castbox/player/id4009803/id370936819?v=8.22.11&autoplay=0&hide_list=1"
-        frameborder="1" width="100%" height="200"></iframe>
-
-      <p class="card-text">{{ episode.summary}}</p>
-      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+<section class="hero-section">
+  <div class="container px-4 py-5">
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold">Episodes Tagged "{{ request.GET.tag }}"</h1>
     </div>
   </div>
-</div>
+</section>
 
-{% endfor %}
-</p>
 
-{% for t in tag_list %}
-{{t.tags}}
-{% endfor %}
+<div class="container col-lg-6" style="margin: 30px auto;">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for episode in episode_list %}
+    <div class="col">
+      <div class="card">
+        {% if episode.episode_image %}
+        <img class="card-img-top" src="{{episode.episode_image.url}}" alt="Card image cap">
+        {% else %}
+
+        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{episode.title }}</h5>
+          <p class="card-text">{{ episode.summary}}</p>
+          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
+              more</button></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% endif %}
 
 {% endblock %}

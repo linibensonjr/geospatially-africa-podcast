@@ -18,5 +18,6 @@ urlpatterns = [
     path('episode/<int:pk>/delete/', views.episode_delete, name='episode_delete'),
     path('about-us/', views.about_us, name='about_us'),
     path('support-us/', views.support, name='support_us'),
+    path('tags', views.tags, name='tags'),
     path('search', SearchResultView.as_view(), name='search_results')
 ]

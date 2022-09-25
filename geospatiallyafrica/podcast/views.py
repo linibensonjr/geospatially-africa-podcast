@@ -131,6 +131,19 @@ def logoutView(request):
 #     return render(request, 'podcast/tags.html', context)
 
 
+def tags(request):
+    template_name = 'podcast/tags.html'
+    tag = request.GET.get("tag")
+    tag_list = Tags.objects.filter(tags__icontains=tag)
+    tag_id = tag_list[0]
+    print(tag_list, tag_id)
+    episode_list = Episode.objects.filter(tag=tag_id)
+    print(episode_list)
+    context = {'tag_list':tag_list, 'tag':tag, 'episode_list':episode_list}
+    return render(request, template_name, context)
+
+    
+
 class SearchResultView(ListView):
     model = Episode
     
