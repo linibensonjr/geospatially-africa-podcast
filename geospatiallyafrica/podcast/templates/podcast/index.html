@@ -90,7 +90,7 @@
 
           {% for tag in tags %}
           <!-- <ol class="list-unstyled mb-0"> -->
-            <a class="episode-tags" href="{% url 'episode_list' %}">{{tag}}</a></span>
+            <a class="episode-tags" href="{% url 'tags' %}?tag={{tag}}">{{tag}}</a></span>
           <!-- </ol> -->
           {% endfor %}
    

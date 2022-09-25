@@ -11,7 +11,10 @@ body {
   --base: rgb(240, 234, 234);
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   color: var(--primary);
 }
 
@@ -25,10 +28,8 @@ nav ul {
 
 .hero-section {
   background-color: #98839F;
-  background-image: linear-gradient(
-    to right,
-    #98839F, #f2e9f5
-  );
+  background-image: linear-gradient(to right,
+      #98839F, #f2e9f5);
 }
 
 hr {
@@ -45,6 +46,7 @@ hr {
   height: 50px;
   z-index: 2;
 }
+
 .circle-2 {
   background-color: #98839F;
   border-radius: 50%;
@@ -53,6 +55,7 @@ hr {
   width: 100px;
   height: 100px;
 }
+
 .circle-3 {
   background-color: #801625;
   border-radius: 50%;
@@ -65,6 +68,11 @@ hr {
 h1 {
   font-family: "Hind Madurai";
   color: var(--primary);
+}
+
+.details p {
+  font-size: 1.2em;
+  font-family: "Hind Madurai";
 }
 
 h2 .epitle {
@@ -177,11 +185,12 @@ h2 .epitle {
 
 .episode:hover {
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;font-family: 'Cabin', sans-serif;
+  transition: 0.3s;
+  font-family: 'Cabin', sans-serif;
 }
 
 p .description {
-  
+
   font-size: 3em;
 
 }
@@ -231,7 +240,7 @@ img.logo {
 }
 
 .mic {
-  text-align:center;
+  text-align: center;
   font-size: 2.5em;
   padding: 20px;
 }
@@ -244,6 +253,7 @@ img.logo {
   position: relative;
   z-index: 2;
 }
+
 .home-newsletter .single h2 {
   font-size: 22px;
   color: white;
@@ -262,6 +272,7 @@ img.logo {
   box-shadow: none;
   border-color: #243c4f;
 }
+
 .home-newsletter .single .btn {
   min-height: 50px;
   border-radius: 0 20px 20px 0;
@@ -368,7 +379,7 @@ hr:not([size]) {
 
 
 .countries {
-  background-image:url("https://res.cloudinary.com/linibenson/image/upload/v1661774071/geospatiallyafricapodcast/static/worldmap_podcast_gdj_rp5soa.png");
+  background-image: url("https://res.cloudinary.com/linibenson/image/upload/v1661774071/geospatiallyafricapodcast/static/worldmap_podcast_gdj_rp5soa.png");
   height: 50vh;
   width: 100%;
   background-position: center;
@@ -408,9 +419,7 @@ hr:not([size]) {
     font-size: 3.4em;
   }
 
-  h3 {
-
-  }
+  h3 {}
 
   .col-md-8 {
     width: 100%;
@@ -419,6 +428,7 @@ hr:not([size]) {
   .hero-image {
     min-height: 250px;
   }
+
   .justify-content-center {
     justify-content: center;
   }
@@ -432,7 +442,8 @@ hr:not([size]) {
   }
 
   .button {
-    background-color: #4caf50; /* Green */
+    background-color: #4caf50;
+    /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -482,4 +493,3 @@ hr:not([size]) {
   }
 
 }
-
