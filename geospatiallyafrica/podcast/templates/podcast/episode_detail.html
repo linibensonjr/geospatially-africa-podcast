@@ -14,7 +14,7 @@
   <div class="row g-5">
     {% for episode in episode %}
     <div class="cla" style="padding-bottom:60px; padding-top: 20px;">
-      <a href="{% url 'episode_list' %}" style="brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
+      <a href="{% url 'episode_list' %}" style="color:brown;"> &#60;All Episodes | Episode: {{episode.episode}} >
         {{episode.title}}
       </a>
     </div>
@@ -66,13 +66,14 @@
             <!-- End Popup Edit/Delete Modal -->
           </div>
           <!-- End Episode Actions -->
-          
+          {% if not episode.published_date %}
           <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+          {% endif %}
           {% endif %}
 
         </div>
         <p>
-          <strong>Host:</strong> {{ episode.host }} | <strong>Guest:</strong> {{ episode.guest }}
+          <strong>With</strong> {{ episode.host }} <strong>and</strong> {{ episode.guest }}
         </p>
 
         <h3>Listen</h3>

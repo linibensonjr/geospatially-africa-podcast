@@ -125,17 +125,17 @@ def logoutView(request):
     return redirect("/")
 
 
-def listing(request):
-    tag_f = Episode.objects.filter(tag = '5')
-    context = {'tags': tag_f}
-    return render(request, 'podcast/tags.html', context)
+# def listing(request):
+#     tag_f = Episode.objects.filter(tag = '5')
+#     context = {'tags': tag_f}
+#     return render(request, 'podcast/tags.html', context)
+
 
 class SearchResultView(ListView):
     model = Episode
     
     def get_queryset(self):
         query = self.request.GET.get("q")
-        print(query)
         search_list = Episode.objects.filter(title__icontains=query)
         context = {'search_list':search_list, 'query':query}
         return search_list

@@ -7,12 +7,12 @@
 {% block content %}
 
 <div class="px-4 py-5 my-5 text-center hero-image">
-  <h1 class="display-5 fw-bold" style="margin: auto;">#GIS</h1>
+  <h1 class="display-5 fw-bold" style="margin: auto;">{{ request.GET.tag }}</h1>
 
 </div>
 
 <p>
-  {% for episode in tags %}
+  {% for episode in episode_list %}
 <div class="card mb-3">
   <div class="col-md-12">
     <div class="card-body">
@@ -37,5 +37,9 @@
 
 {% endfor %}
 </p>
+
+{% for t in tag_list %}
+{{t.tags}}
+{% endfor %}
 
 {% endblock %}
