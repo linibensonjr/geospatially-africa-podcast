@@ -17,9 +17,8 @@ def index(request):
     episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    
-    #List all tags on sidebar
+    page_obj = paginator.get_page(page_number)   
+    # List all tags on sidebar
     tags = Tags.objects.all()
     return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
 
@@ -31,7 +30,8 @@ def episode_list(request):
 def episode_detail(request, pk):
     episode = get_list_or_404(Episode, pk=pk)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
-    sidebar_eps = Episode.objects.all()
+    sidebar_eps = Episode.objects.all()[:6]
+    print(sidebar_eps)
     host = Hosts.objects.all()
     tags = Tags.objects.all()
     context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
@@ -89,11 +89,7 @@ def episode_edit(request, pk):
 @login_required
 def episode_delete(request, pk):
     episode = Episode.objects.filter(pk=pk)
-    # if request.method == "POST":
     episode.delete()
-    #    episode = form.save(commit=False)
-    #    episode.author = request.user
-
     return redirect('episode_list')
 
 @login_required
@@ -124,19 +120,11 @@ def logoutView(request):
     logout(request)
     return redirect("/")
 
-
-# def listing(request):
-#     tag_f = Episode.objects.filter(tag = '5')
-#     context = {'tags': tag_f}
-#     return render(request, 'podcast/tags.html', context)
-
-
 def tags(request):
     template_name = 'podcast/tags.html'
     tag = request.GET.get("tag")
     tag_list = Tags.objects.filter(tags__icontains=tag)
     tag_id = tag_list[0]
-    print(tag_list, tag_id)
     episode_list = Episode.objects.filter(tag=tag_id)
     print(episode_list)
     context = {'tag_list':tag_list, 'tag':tag, 'episode_list':episode_list}
