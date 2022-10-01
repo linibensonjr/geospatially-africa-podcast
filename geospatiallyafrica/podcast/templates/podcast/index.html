@@ -19,9 +19,9 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
           target="_blank">
-          <img src="{%static '/img/googlepod.svg' %}" alt="google podcast" /></a>
+          <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
         <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113"><img src="{%static '/img/applepod.svg' %}" /></a>
-        <a href=""><img src="{%static '/img/spotify-podcast.svg' %}" /></a>
+        <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
       </div>
     </div>
   </div>
@@ -48,8 +48,7 @@
               <h4 class="card-title">{{ episode.title }}</h4>
             </a>
             <p>{{ episode.host }} and {{ episode.guest }}</p>
-            
-            <p class="card-text">{{ episode.summary}}</p>
+            <p class="card-text">{{ episode.summary }}</p>
           </div>
         </div>
       </div>
