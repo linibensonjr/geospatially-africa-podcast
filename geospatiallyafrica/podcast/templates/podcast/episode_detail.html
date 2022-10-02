@@ -82,9 +82,9 @@
 
           <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwj2ssjoqvvyAhUKpBoKHRbBCkoQ9sEGegQIARAC"
             target="_blank">
-            <img src="{%static 'img/googlepod.svg' %}" alt="google podcast" /></a>
-          <a href=""><img src="{%static 'img/applepod.svg' %}" /></a>
-          <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" /></a>
+            <img src="{%static 'img/googlepod.svg' %}" alt="google podcast logo" /></a>
+          <a href=""><img src="{%static 'img/applepod.svg' %}" alt="apple podcast logo"/></a>
+          <a href=""><img src="{%static 'img/spotify-podcast.svg' %}" alt="spotify podcast logo"/></a>
         </div>
         <h3>Show Notes</h3>
 
@@ -145,9 +145,9 @@
         {% for episode in episode %}
         <p>Hosted By</p>
         {% if episode.host == "Iniobong Benson" %}
-        <img src="{% static 'img/iniobong.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" />
+        <img src="{% static 'img/iniobong.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="Iniobong" />
         {% else %}
-        <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" />
+        <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="Opeyemi" />
         {% endif %}
         {{ episode.host }}
         {% for host in host %}
@@ -158,9 +158,9 @@
 
         <ol class="list-unstyled mb-0">
           {% if episode.guest_image %}
-          <img src="{{ episode.guest_image.url }}" style="border-radius: 50%; width: 70px; height: 70px" />
+          <img src="{{ episode.guest_image.url }}" style="border-radius: 50%; width: 70px; height: 70px" alt="{{episode.guest}}" />
           {% else %}
-          <img src="{% static 'img/guest-icon.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" />
+          <img src="{% static 'img/guest-icon.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="guest icon" />
           {% endif %}
           {{ episode.guest }}
           <p>{{ episode.guest_bio }}</p>
