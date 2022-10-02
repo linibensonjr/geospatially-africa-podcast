@@ -55,7 +55,7 @@ class Episode(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("episode_detail", kwargs={"slug": self.slug})
+        return reverse("episode_detail", kwargs={"pk": self.id})
     
 
 class Hosts(models.Model):
