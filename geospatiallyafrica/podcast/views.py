@@ -123,12 +123,18 @@ def logoutView(request):
 def tags(request):
     template_name = 'podcast/tags.html'
     tag = request.GET.get("tag")
-    tag_list = Tags.objects.filter(tags__icontains=tag)
-    tag_id = tag_list[0]
-    episode_list = Episode.objects.filter(tag=tag_id)
-    print(episode_list)
-    context = {'tag_list':tag_list, 'tag':tag, 'episode_list':episode_list}
-    return render(request, template_name, context)
+    try:
+        print('Request Tag:', tag)
+        tag_list = Tags.objects.filter(tags__icontains=tag)
+        print('Tag list', tag_list)
+        tag_id = tag_list[0]
+        print('Tag ID:', tag_id)
+        episode_list = Episode.objects.filter(tag=tag_id)
+        print(episode_list)
+        context = {'tag_list':tag_list, 'tag':tag, 'episode_list':episode_list}
+        return render(request, template_name, context)
+    except IndexError as e:
+        return redirect('/episodes')
 
     
 
