@@ -27,11 +27,11 @@
         
         {% if episode.episode_image %}
         {% load cloudinary %}  
-        <img class="card-img-top" src="{{ episode.episode_image.url }}" alt="Episode Art">
+        <img class="card-img-top" src="{{ episode.episode_image.url }}" alt="geospatially africa podcast episode cover Art">
         {% else %}
 
 
-        <img class="card-img-top" src="{% static 'img/podcast_art.jpg' %}" alt="Card image cap">
+        <img class="card-img-top" src="{% static 'img/podcast_art.jpg' %}" alt="geospatially africa podcast Art">
 
         {% endif %}
         <div class="card-body">

@@ -29,10 +29,10 @@
     <div class="col">
       <div class="card">
         {% if episode.episode_image %}
-        <img class="card-img-top" src="{{episode.episode_image.url}}" alt="Card image cap">
+        <img class="card-img-top" src="{{episode.episode_image.url}}" alt="geospatially africa podcast episode cover">
         {% else %}
 
-        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Card image cap">
+        <img class="card-img-top" src="{% static 'img/ope_lau.jpg' %}" alt="Opeyemi">
 
         {% endif %}
         <div class="card-body">
@@ -47,7 +47,7 @@
       
     {% else %}
     <div class="no-result">
-      <img class="search-img" src="{% static 'img/no_result.png' %}" alt="Result not found" style="padding: 30px;">
+      <img class="search-img" src="{% static 'img/no_result.png' %}" alt="geospatially africa podcast episode Result not found" style="padding: 30px;">
       <h3>Well this sucks!</h3>
       <p style="font-size: 1.2em;">Unfortunately, your search did not match any episodes. Try again!</p>
       <div class="container col-lg-6">
