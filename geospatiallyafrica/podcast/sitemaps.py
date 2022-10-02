@@ -1,11 +1,14 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
+from .models import Episode
 
-class StaticViewSitemap(Sitemap):
+class EpisodeSitemap(Sitemap):
+
+    changefreq = "weekly"
+    priority = 0.5
 
     def items(self):
-        return ['home', 'episode_list', 'about_us']
+        return Episode.objects.all()
 
-    def location(self, item):
-        return reverse(item)
-
+    def lastmod(self, obj):
+        return obj.published_date

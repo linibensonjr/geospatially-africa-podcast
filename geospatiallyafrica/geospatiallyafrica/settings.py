@@ -59,10 +59,11 @@ INSTALLED_APPS = [
     'cloudinary',
     'podcast',
     "crispy_forms",
-    "crispy_bootstrap5",
-    "django_social_share",
-    "autoslug",
-    "django.contrib.sitemaps",
+    'crispy_bootstrap5',
+    'django_social_share',
+    'autoslug',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'ckeditor',
 ]
 
@@ -77,8 +78,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -181,6 +182,8 @@ CLOUDINARY_STORAGE = {
     'API_KEY': env('API_KEY'),
     'API_SECRET': env('API_SECRET')
 }
+
+SITE_ID=1
 
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
