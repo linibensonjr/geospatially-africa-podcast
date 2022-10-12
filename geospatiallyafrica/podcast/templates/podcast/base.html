@@ -2,15 +2,14 @@
 {% load cloudinary %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Geospatially Africa Podcast - The podcast for Africa geospatial community">
-  <meta name="keywords" content="podcast, africa, geospatially, geospatial community">
+  <meta name="keywords" content="podcast, africa, geospatially, geospatial community, drone, mapping, GIS, geospatial">
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Home - geospatiallyafrica.com" />
+  <meta property="og:title" content="Geospatially Africa {% block title %} {% endblock %}" />
   <meta property="og:description"
     content="The Geospatially Africa Podcast - The podcast for Africa geospatial community. " />
   <meta property="og:url" content="https://geospatiallyafrica.com/" />
@@ -38,13 +37,8 @@
     .button:hover {
       background: green
     }
-
-    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
   </style>
-
-  <title>{% block title %} Geospatially Africa - The podcast for Geospatial {% endblock %}</title>
-
+  <title>{% block title %} Geospatially Africa - The podcast for the Geospatial community {% endblock %}</title>
 </head>
 
 <body>
