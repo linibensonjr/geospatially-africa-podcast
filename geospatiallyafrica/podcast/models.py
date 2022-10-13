@@ -36,6 +36,7 @@ class Episode(models.Model):
     ]
 
     host = models.CharField(max_length=500, choices=hosts)
+    cohost = models.CharField(max_length=500, choices=hosts, null=True, blank=True)
     guest = models.CharField(max_length=200)
     guest_bio = models.CharField(max_length=1000, default='This is the guest bio')
     guest_image = models.ImageField(upload_to = 'guest_image', blank=True)
