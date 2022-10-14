@@ -73,7 +73,7 @@
 
         </div>
         <p style="text-align: center;">
-          With {{ episode.host }} and {{ episode.guest }}
+          With {{ episode.host }}{% if episode.cohost %}, {{ episode.cohost }} {% endif %} and {{ episode.guest }}
         </p>
 
         <h3>Listen</h3>
@@ -143,7 +143,7 @@
       <div class="p-4">
         <h5 class="fst-italic">Featured in this episode</h5>
         {% for episode in episode %}
-        <p>Hosted By</p>
+        <p><strong>Hosted By</strong></p>
         {% if episode.host == "Iniobong Benson" %}
         <img src="{% static 'img/iniobong.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="Iniobong" />
         {% else %}
@@ -156,7 +156,24 @@
         {% endif %}
         {% endfor %}
 
+
+        {% if episode.cohost %}
+        <p><strong>And</strong></p>
+        {% if episode.cohost == "Iniobong Benson" %}
+        <img src="{% static 'img/iniobong.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="Iniobong" />
+        {% else %}
+        <img src="{% static 'img/ope.jpg' %}" style="border-radius: 50%; width: 70px; height: 70px" alt="Opeyemi" />
+        {% endif %}
+        {{ episode.cohost }}
+        {% for host in host %}
+        {% if host.name == episode.cohost %}
+        <p>{{ host.bio|safe }}</p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
         <ol class="list-unstyled mb-0">
+          <p><strong>Guest</strong></p>
           {% if episode.guest_image %}
           <img src="{{ episode.guest_image.url }}" style="border-radius: 50%; width: 70px; height: 70px" alt="{{episode.guest}}" />
           {% else %}
