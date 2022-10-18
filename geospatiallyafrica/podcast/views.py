@@ -2,6 +2,7 @@ from multiprocessing import context
 import podcast
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Hosts, Tags, Episode
 from .forms import EpisodeForm
 from django.utils import timezone
@@ -13,11 +14,12 @@ from cloudinary.forms import cl_init_js_callbacks
 
 # Create your views here.
 
+
 def index(request):
     episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)   
+    page_obj = paginator.get_page(page_number)
     # List all tags on sidebar
     tags = Tags.objects.all()
     return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
@@ -143,7 +145,7 @@ class SearchResultView(ListView):
     
     def get_queryset(self):
         query = self.request.GET.get("q")
-        search_list = Episode.objects.filter(title__icontains=query)
+        search_list = Episode.objects.filter(Q(title__icontains=query) & Q(published_date__isnull=False) | Q(description__icontains=query) & Q(published_date__isnull=False))
         context = {'search_list':search_list, 'query':query}
         return search_list
 
