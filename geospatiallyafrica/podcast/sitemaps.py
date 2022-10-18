@@ -2,6 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
 from .models import Episode
 
+
 class EpisodeSitemap(Sitemap):
 
     changefreq = "weekly"
