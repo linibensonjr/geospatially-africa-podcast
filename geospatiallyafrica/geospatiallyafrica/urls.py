@@ -30,7 +30,8 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, 
+    name='django.contrib.sitemaps.views.sitemap'),
     # path('accounts/login/', views.LoginView.as_view(), name='login'),
     # path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('podcast.urls')),

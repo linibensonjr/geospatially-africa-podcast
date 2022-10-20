@@ -46,7 +46,6 @@ class Episode(models.Model):
     published_date = models.DateTimeField(blank=True, null=True,)
     # date_published = models.DateTimeField(blank=True)
 
-    
 
     def publish(self):
         self.published_date = datetime.now()
