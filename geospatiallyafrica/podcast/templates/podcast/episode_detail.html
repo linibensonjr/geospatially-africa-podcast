@@ -95,7 +95,7 @@
     <!-- Social Share -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 30px;">
       {% post_to_twitter "New Episode: {{episode.title}}. Check it out!" object_or_url "Twitter" %}
-      {% post_to_linkedin object_or_url %}</span>
+      {% post_to_linkedin object_or_url "New Episode: {{episode.title}}"  %}
       {% post_to_telegram "New Episode: {{episode.title}}" '&#xF5B3;' %}
       {% post_to_whatsapp object_or_url "WhatsApp" %}
       {% send_email episode.title "New Episode: {{episode.title}}. Check it out!" '' "Email" %}
