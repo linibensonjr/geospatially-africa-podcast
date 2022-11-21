@@ -162,6 +162,9 @@ def about_us(request):
 def support(request):
     return render(request, 'podcast/support.html')
 
+def guests(request):
+    return render(request, 'podcast/forms.html')
+
 def page_not_found(request, exception=None):
     data = {}
     return render(request, 'podcast/error/404.html', data)

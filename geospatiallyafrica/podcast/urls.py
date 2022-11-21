@@ -19,5 +19,6 @@ urlpatterns = [
     path('about-us/', views.about_us, name='about_us'),
     path('support-us/', views.support, name='support_us'),
     path('tags', views.tags, name='tags'),
+    path('guests', views.guests, name='guests'),
     path('search', SearchResultView.as_view(), name='search_results')
 ]
