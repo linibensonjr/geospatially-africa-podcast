@@ -1,0 +1,43 @@
+{% extends 'podcast/base.html' %}
+
+{% load static %}
+
+{% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
+
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="container px-4 py-5">
+        <div class="px-4 py-5 my-5 text-center hero-episode">
+            <h1 class="display-5 fw-bold">Nominate a Guest</h1>
+        </div>
+    </div>
+</section>
+
+    <div class="row g-2 container">
+        <div class="col-md">
+            <form action="https://send.pageclip.co/lU7Q4qMBmw2ash6xfrCNghkdNvskoCK0/GeospatiallyAfricaPodcast" class="pageclip-form"
+    method="post">
+            <div class="form-floating">
+                <input type="email" name="email" class="form-control" id="floatingInputGrid">
+                <label for="floatingInputGrid">Email address</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelectGrid" name="category">
+                    <option selected>Open this select menu</option>
+                    <option value="Dominate a Guest">Dominate a Guest</option>
+                    <option value="Suggestion">Suggestion</option>
+                    <option value="Others">Others</option>
+                </select>
+                <label for="floatingSelectGrid">Works with selects</label>
+            </div>
+        </div>
+        <button type="submit" class="pageclip-form__submit">Send</button>
+        <input type="button" value="submit">
+    </div>
+</form>
+
+{% endblock %}
