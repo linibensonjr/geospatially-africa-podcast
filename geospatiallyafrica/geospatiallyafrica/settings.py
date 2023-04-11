@@ -21,9 +21,9 @@ import cloudinary.api
 import environ
 
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+# env = environ.Env(
+#     DEBUG=(bool, True)
+# )
 
 environ.Env.read_env()
 
@@ -38,11 +38,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'tr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = env('DEBUG')
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
@@ -78,8 +78,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -177,11 +177,11 @@ DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET')
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': env('CLOUD_NAME'),
+#     'API_KEY': env('API_KEY'),
+#     'API_SECRET': env('API_SECRET')
+# }
 
 SITE_ID=1
 
