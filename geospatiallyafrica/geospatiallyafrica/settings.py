@@ -65,6 +65,10 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'ckeditor',
+    'blog',
+    'tailwind',
+    'django_browser_reload'
+
 ]
 
 MIDDLEWARE = [
@@ -75,7 +79,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
 ]
 
 
@@ -194,3 +200,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")
 
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "path/to/tiny_mce")
+
+TAILWIND_APP_NAME = 'blog'
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
