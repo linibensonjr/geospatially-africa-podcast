@@ -35,7 +35,10 @@ urlpatterns = [
     # path('accounts/login/', views.LoginView.as_view(), name='login'),
     # path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('podcast.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('blog/', include('blog.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'podcast.views.page_not_found'
 handler500 = 'podcast.views.server_error'

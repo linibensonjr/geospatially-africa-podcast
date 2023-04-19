@@ -1,7 +1,5 @@
-from pyexpat import model
-from podcast.models import Episode, Hosts, Tags
+from .models import Episode, Hosts, Tags
 from django.contrib import admin
-from .models import Episode
 
 class TagInline(admin.TabularInline):
     model = Tags
@@ -19,6 +17,9 @@ class EpisodeInline(admin.TabularInline):
 class HostList(admin.ModelAdmin):
     list_display = ('name', 'bio')
     #inlines = [EpisodeInline]
+
+class BlogList(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'author', 'is_draft',)
 
 admin.site.register(Hosts, HostList)
 
