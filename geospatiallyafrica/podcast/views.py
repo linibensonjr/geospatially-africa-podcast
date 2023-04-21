@@ -28,8 +28,8 @@ def episode_list(request):
     return render(request, 'podcast/episodes.html', {'episodes': episode})
 
 
-def episode_detail(request, pk):
-    episode = get_list_or_404(Episode, pk=pk)
+def episode_detail(request, slug):
+    episode = get_list_or_404(Episode, slug=slug)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     sidebar_eps = Episode.objects.all()[:6]
     print(sidebar_eps)
@@ -38,8 +38,8 @@ def episode_detail(request, pk):
     context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
     return render(request, 'podcast/episode_detail.html', context)
 
-# def next_episode(request, pk):
-#     episodes = get_list_or_404(Episode, pk=pk)
+# def next_episode(request, slug):
+#     episodes = get_list_or_404(Episode, slug=slug)
 #     # episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
 
 #     # try:
@@ -66,14 +66,14 @@ def new_episode(request):
             # episode.published_date = timezone.now()
             episode.save()
             form.save_m2m()
-            return redirect('episode_detail', pk=episode.pk)
+            return redirect('episode_detail', slug=episode.slug)
      else:
         form = EpisodeForm()
      return render(request, 'podcast/add_episode.html', {'form': form})
 
 @login_required
-def episode_edit(request, pk):
-    episode = get_object_or_404(Episode, pk=pk)
+def episode_edit(request, slug):
+    episode = get_object_or_404(Episode, slug=slug)
     if request.method == "POST":
        form = EpisodeForm(request.POST, request.FILES, instance=episode)
        if form.is_valid():
@@ -82,14 +82,14 @@ def episode_edit(request, pk):
         #    episode.published_date = timezone.now()
            episode.save()
            form.save_m2m()
-           return redirect('episode_detail', pk=episode.pk)
+           return redirect('episode_detail', slug=episode.slug)
     else:
        form = EpisodeForm(instance=episode)
     return render(request, 'podcast/add_episode.html', {'form': form})
 
 @login_required
-def episode_delete(request, pk):
-    episode = Episode.objects.filter(pk=pk)
+def episode_delete(request, slug):
+    episode = Episode.objects.filter(slug=slug)
     episode.delete()
     return redirect('episode_list')
 
@@ -99,10 +99,10 @@ def episode_draft_list(request):
     return render(request, 'podcast/episode_draft_list.html', {'episodes': episodes})
 
 @login_required
-def episode_publish(request, pk):
-    episode = get_object_or_404(Episode, pk=pk)
+def episode_publish(request, slug):
+    episode = get_object_or_404(Episode, slug=slug)
     episode.publish()
-    return redirect('episode_detail', pk=pk)
+    return redirect('episode_detail', slug=slug)
 
 
 def loginView(request):
