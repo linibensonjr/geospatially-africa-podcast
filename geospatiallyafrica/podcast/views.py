@@ -1,5 +1,3 @@
-from multiprocessing import context
-import podcast
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -11,6 +9,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView
 from cloudinary.forms import cl_init_js_callbacks
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -29,8 +28,8 @@ def episode_list(request):
     return render(request, 'podcast/episodes.html', {'episodes': episode})
 
 
-def episode_detail(request, pk):
-    episode = get_list_or_404(Episode, pk=pk)
+def episode_detail(request, slug):
+    episode = get_list_or_404(Episode, slug=slug)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     sidebar_eps = Episode.objects.all()[:6]
     print(sidebar_eps)
@@ -39,23 +38,13 @@ def episode_detail(request, pk):
     context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
     return render(request, 'podcast/episode_detail.html', context)
 
-# def next_episode(request, pk):
-#     episodes = get_list_or_404(Episode, pk=pk)
-#     # episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+def redirect_id(request, pk):
+    try:
+        obj = Episode.objects.get(id=pk)
 
-#     # try:
-#     #     next_ep = episodes.get_next_by_published_date()
-#     # except Episode.DoesNotExist:
-#     #     next_ep = None
-
-#     # try:
-#     #     previous_ep = episodes.get_previous_by_published_date()
-#     # except Episode.DoesNotExist:
-#     #     previous_ep = None
-
-#     context = {'episodes':episodes, 'next_ep':next_ep, 'previous_ep':previous_ep}
-#     return render(request, 'podcast/episode_detail.html', context)
-
+        return redirect('episode_detail', slug=obj.slug, permanent=True)
+    except:
+        return redirect ('episode_list')
 
 @login_required
 def new_episode(request):
@@ -67,14 +56,14 @@ def new_episode(request):
             # episode.published_date = timezone.now()
             episode.save()
             form.save_m2m()
-            return redirect('episode_detail', pk=episode.pk)
+            return redirect('episode_detail', slug=episode.slug)
      else:
         form = EpisodeForm()
      return render(request, 'podcast/add_episode.html', {'form': form})
 
 @login_required
-def episode_edit(request, pk):
-    episode = get_object_or_404(Episode, pk=pk)
+def episode_edit(request, slug):
+    episode = get_object_or_404(Episode, slug=slug)
     if request.method == "POST":
        form = EpisodeForm(request.POST, request.FILES, instance=episode)
        if form.is_valid():
@@ -83,14 +72,14 @@ def episode_edit(request, pk):
         #    episode.published_date = timezone.now()
            episode.save()
            form.save_m2m()
-           return redirect('episode_detail', pk=episode.pk)
+           return redirect('episode_detail', slug=episode.slug)
     else:
        form = EpisodeForm(instance=episode)
     return render(request, 'podcast/add_episode.html', {'form': form})
 
 @login_required
-def episode_delete(request, pk):
-    episode = Episode.objects.filter(pk=pk)
+def episode_delete(request, slug):
+    episode = Episode.objects.filter(slug=slug)
     episode.delete()
     return redirect('episode_list')
 
@@ -100,10 +89,10 @@ def episode_draft_list(request):
     return render(request, 'podcast/episode_draft_list.html', {'episodes': episodes})
 
 @login_required
-def episode_publish(request, pk):
-    episode = get_object_or_404(Episode, pk=pk)
+def episode_publish(request, slug):
+    episode = get_object_or_404(Episode, slug=slug)
     episode.publish()
-    return redirect('episode_detail', pk=pk)
+    return redirect('episode_detail', slug=slug)
 
 
 def loginView(request):
