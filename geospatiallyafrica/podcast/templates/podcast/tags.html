@@ -32,7 +32,7 @@
         <div class="card-body">
           <h5 class="card-title">{{episode.title }}</h5>
           <p class="card-text">{{ episode.summary}}</p>
-          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
+          <a href="{% url 'episode_detail' slug=episode.slug %}"><button class="btn btn-outline-secondary">Read
               more</button></a>
         </div>
       </div>

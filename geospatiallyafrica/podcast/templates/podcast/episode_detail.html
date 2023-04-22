@@ -39,7 +39,7 @@
           <!-- Episode Actions -->
           {% if user.is_authenticated %}
           <div class="episode-actions" style="display:flex; justify-content: center;">
-            <a href="{% url 'episode_edit' pk=episode.pk %}"><button type="button"
+            <a href="{% url 'episode_edit' slug=episode.slug %}"><button type="button"
                 class="btn btn-success">Edit</button></a>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
               Delete
@@ -57,7 +57,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
-                    <a href="{% url 'episode_delete' pk=episode.pk %}"><button type="button"
+                    <a href="{% url 'episode_delete' slug=episode.slug %}"><button type="button"
                         class="btn btn-danger">Delete</button></a>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
           </div>
           <!-- End Episode Actions -->
           {% if not episode.published_date %}
-          <a class="btn btn-default" href="{% url 'episode_publish' pk=episode.pk %}">Publish</a>
+          <a class="btn btn-default" href="{% url 'episode_publish' slug=episode.slug %}">Publish</a>
           {% endif %}
           {% endif %}
 
@@ -118,7 +118,7 @@
               <span style="background-color: rgb(225, 236, 236); border-radius: 23px; padding: 0 2px 1px 3px;">{{ tag }}</span>
               {% endfor %}
             </div>
-            <p><a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary"
+            <p><a href="{% url 'episode_detail' slug=episode.slug %}"><button class="btn btn-outline-secondary"
                   style="width:100%">Readmore</button></a>
             </p>
           </div>
@@ -187,7 +187,7 @@
         <h5>Other Episodes</h5>
         {% for ep in sidebar_eps %}
         <div class="episode-list">
-          <a href="{% url 'episode_detail' pk=ep.pk %}" style="margin-top: 40px; color: black;">>{{ep.title}}</a>
+          <a href="{% url 'episode_detail' slug=ep.slug %}" style="margin-top: 40px; color: black;">>{{ep.title}}</a>
         </div>
         {% endfor %}
       </div>
