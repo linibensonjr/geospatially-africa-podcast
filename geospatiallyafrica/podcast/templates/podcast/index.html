@@ -45,7 +45,7 @@
                 <span class="episode-tags">{{tag}}</span>
                 {% endfor %}
               </p>
-            <a href="{% url 'episode_detail' pk=episode.pk %}">
+            <a href="{% url 'episode_detail' slug=episode.slug %}">
               <h4 class="card-title">{{ episode.title }}</h4>
             </a>
             <p>{{ episode.host }} and {{ episode.guest }}</p>
