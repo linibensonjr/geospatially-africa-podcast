@@ -10,9 +10,9 @@
   <meta name="description" content="Geospatially Africa Podcast - The podcast for Africa geospatial community">
   <meta name="keywords" content="podcast, africa, geospatially, geospatial community, drone, mapping, GIS, geospatial">
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Geospatiallyafrica.com {{ title }}" />
+  <meta property="og:title" content="{% block og_title %}{% endblock %}" />
   <meta property="og:description"
-    content="The Geospatially Africa Podcast - The podcast for Africa geospatial community. " />
+    content="{% block og_description %}{% endblock %}" />
   <meta property="og:url" content="https://geospatiallyafrica.com/" />
   <meta property="og:site_name" content="geospatiallyafrica.com" />
   <link rel="icon" type="image/icon" href="{% static 'img/favicon.ico' %}">

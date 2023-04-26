@@ -2,6 +2,9 @@
 
 {% load static %}
 
+{% block og_title %} {% for episode in episode %}{{ episode.title }}{%endfor%} {% endblock %}
+{% block og_description %} {% for episode in episode %}{{ episode.summary|truncatechars:100 }}{%endfor%} {% endblock %}
+
 {% block title %} {% for episode in episode %}{{ episode.title }}{%endfor%} {% endblock %}
 
 {% block content %}
