@@ -6,7 +6,6 @@ from django.conf import settings
 from datetime import datetime, timezone
 from django.urls import reverse
 from autoslug import AutoSlugField
-from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -30,7 +29,7 @@ class Episode(models.Model):
     applepodcast = models.CharField(max_length=1500, default='https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113', help_text='Provide link to episode on Apple Podcasts')
     spotify = models.CharField(max_length=1500, default='https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v?si=9779d6cefca74f82', help_text='Provide link to episode on Spotify')
     summary = models.CharField(max_length=1500)
-    description = RichTextField()
+    description = models.TextField()
     tag = models.ManyToManyField(Tags, help_text='select a tag')
     
     hosts = [
@@ -63,7 +62,7 @@ class Episode(models.Model):
 
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
-    bio = RichTextField()
+    bio = models.TextField()
     
     class Meta:
         verbose_name_plural = 'Hosts'
