@@ -1,19 +1,243 @@
 {% extends 'podcast/base.html' %}
-
 {% load static %}
+{% block title %}Blog — Geospatially Africa Podcast{% endblock %}
 
 {% block content %}
 
-{% load crispy_forms_tags %}
+<!-- ===== BLOG HERO ===== -->
+<div class="blog-hero">
+  <span class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Insights & Stories</span>
+  <h1>The Geospatially Blog</h1>
+  <p>Deep dives, industry insights, and stories from Africa's geospatial community.</p>
+</div>
 
+<!-- ===== FEATURED POST ===== -->
+<section style="padding:64px 0; background:var(--white);">
+  <div class="container">
+    <span class="section-eyebrow">Featured</span>
+    <h2 class="blog-section-title">Latest Post</h2>
 
-<section class="hero-section">
-  <div class="container px-4 py-5">
-    <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Blog - Coming Soon</h1>
+    <div class="blog-featured-card mb-5">
+      <div class="blog-featured-img">
+        <!-- Placeholder — replace with {{ post.image.url }} when model is set up -->
+        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--crimson-dark), var(--crimson));">
+          <i class="bi bi-map" style="font-size:6rem; color:rgba(255,255,255,0.15);"></i>
+        </div>
+      </div>
+      <div class="blog-featured-content">
+        <span class="blog-category">GIS & Technology</span>
+        <h2>How African Geospatial Startups Are Reshaping Urban Planning</h2>
+        <p>From informal settlement mapping in Lagos to drone-based land surveys in Nairobi, African innovators are solving uniquely African challenges with cutting-edge geospatial tech.</p>
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <a href="#" class="btn-primary-custom" style="font-size:0.88rem; padding:10px 22px;">
+            Read Article <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <span style="font-size:0.8rem; color:var(--warm-gray);">
+            <i class="bi bi-clock me-1"></i>8 min read &nbsp;·&nbsp; March 2024
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== BLOG GRID + SIDEBAR ===== -->
+<section style="background:var(--light-gray); padding:64px 0;">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Blog Posts Grid -->
+      <div class="col-lg-8">
+        <h2 class="blog-section-title">All Articles</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <!-- Post Card 1 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-drone"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Drones</span>
+                <h4>The Rise of Drone Mapping in Sub-Saharan Africa</h4>
+                <p>How UAV technology is transforming agriculture, disaster response, and infrastructure monitoring across the continent.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Iniobong Benson</span>
+                <span><i class="bi bi-clock me-1"></i>5 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Card 2 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Machine Learning</span>
+                <h4>Remote Sensing + AI: What's Happening in Africa?</h4>
+                <p>Exploring how machine learning is being applied to satellite imagery analysis for land use, crop monitoring, and climate research.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Opeyemi K-J</span>
+                <span><i class="bi bi-clock me-1"></i>7 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Card 3 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-map-fill"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Open Data</span>
+                <h4>Open Street Map's Impact on African Communities</h4>
+                <p>A look at community-driven mapping projects that are putting under-mapped African communities on the global map.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Guest Writer</span>
+                <span><i class="bi bi-clock me-1"></i>6 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Card 4 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-briefcase-fill"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Careers</span>
+                <h4>Building a Geospatial Career in Africa: A Roadmap</h4>
+                <p>From getting your first GIS certificate to landing a role at a top geospatial firm — advice from African practitioners.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Iniobong Benson</span>
+                <span><i class="bi bi-clock me-1"></i>10 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Card 5 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-water"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Climate</span>
+                <h4>Geospatial Tools in Africa's Climate Adaptation Efforts</h4>
+                <p>How GIS and remote sensing are being deployed to track deforestation, monitor water resources, and plan climate-resilient cities.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Guest Writer</span>
+                <span><i class="bi bi-clock me-1"></i>9 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Card 6 -->
+          <div class="col">
+            <div class="blog-card" style="background:var(--white);">
+              <div class="blog-card-img-placeholder">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-category">Community</span>
+                <h4>5 African Geospatial Communities You Should Join</h4>
+                <p>From Slack channels to in-person meetups — the networks, conferences, and online spaces shaping Africa's geo-community.</p>
+                <a href="#" class="episode-card-link mt-auto" style="margin-top:auto;">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="blog-card-footer">
+                <span><i class="bi bi-person me-1"></i>Opeyemi K-J</span>
+                <span><i class="bi bi-clock me-1"></i>4 min read</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Coming Soon Notice -->
+        <div style="margin-top:40px; padding:24px; background:var(--white); border:1px dashed var(--border); border-radius:var(--radius-lg); text-align:center;">
+          <i class="bi bi-pencil-square" style="font-size:2rem; color:var(--crimson); opacity:0.4;"></i>
+          <p style="margin-top:12px; font-size:0.9rem;">
+            <strong style="color:var(--charcoal);">Want to contribute?</strong> We welcome guest posts from the African geospatial community. 
+            <a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" style="color:var(--crimson); font-weight:600;">Get in touch →</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div style="position:sticky; top:88px;">
+
+          <!-- Listen Prompt -->
+          <div class="sidebar-widget" style="background:var(--crimson); color:white;">
+            <h5 style="color:white; border-color:rgba(255,255,255,0.3);">
+              <i class="bi bi-headphones me-2"></i>Listen to the Podcast
+            </h5>
+            <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:16px;">Prefer audio? Tune in to the Geospatially Africa Podcast on your favourite platform.</p>
+            <a href="{% url 'episode_list' %}" class="btn-primary-custom" style="background:white; color:var(--crimson); font-size:0.88rem;">
+              Browse Episodes <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-widget">
+            <h5>Categories</h5>
+            <div class="tags-cloud">
+              <span class="episode-tag">GIS</span>
+              <span class="episode-tag">Drones</span>
+              <span class="episode-tag">Remote Sensing</span>
+              <span class="episode-tag">Machine Learning</span>
+              <span class="episode-tag">Open Data</span>
+              <span class="episode-tag">Careers</span>
+              <span class="episode-tag">Climate</span>
+              <span class="episode-tag">Community</span>
+              <span class="episode-tag">Mapping</span>
+              <span class="episode-tag">Satellite</span>
+            </div>
+          </div>
+
+          <!-- Follow -->
+          <div class="sidebar-widget">
+            <h5>Follow Us</h5>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <a href="https://twitter.com/geospatialy" target="_blank" class="sidebar-platform-link">
+                <span><i class="bi bi-twitter me-2" style="color:#1da1f2;"></i>Twitter / X</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" target="_blank" class="sidebar-platform-link">
+                <span><i class="bi bi-linkedin me-2" style="color:#0a66c2;"></i>LinkedIn</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Write for Us -->
+          <div class="sidebar-widget" style="background:var(--sand); border:1px solid var(--border);">
+            <h5 style="color:var(--crimson);">Write for Us</h5>
+            <p style="font-size:0.88rem; margin-bottom:16px;">Share your insights with our growing community of African geospatial professionals.</p>
+            <a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" class="btn-outline-crimson" style="font-size:0.85rem;">
+              Submit a Post
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 {% endblock %}

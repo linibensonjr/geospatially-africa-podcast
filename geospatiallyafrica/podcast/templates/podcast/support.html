@@ -1,82 +1,88 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
+{% block title %}Support Us — Geospatially Africa Podcast{% endblock %}
 
 {% block content %}
 
-<section class="hero-section">
-  <div class="container px-4 py-5">
-    <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Support Us</h1>
+<!-- ===== HERO ===== -->
+<div class="page-hero">
+  <span class="section-eyebrow">Help us grow</span>
+  <h1>Support Us</h1>
+  <p>We're promoting the African geospatial space and we'd love your support to keep doing it well.</p>
+</div>
+
+<!-- ===== MISSION BLURB ===== -->
+<section style="padding:64px 0; background:var(--white);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div style="background:var(--sand); border-radius:var(--radius-xl); padding:40px; border-left:4px solid var(--crimson);">
+          <p style="font-size:1.05rem; line-height:1.9; color:#3a3333;">
+            We are constantly working to promote the African geospatial space, by showcasing talents and innovations to enable the world see the capabilities and potential they didn't know existed. Support us today if you like what you hear, or just want to see us grow. We are also open to corporate sponsorships.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="container py-4">
-  <div class="p-5 mb-4 bg-light rounded-3">
-      <p class="fs-4">We are constantly working to promote the African geospatial space, by showcasing talents and
-        innovation in the African geospatial space, to enable the world see the capabilities and potential they didn't know
-        existed within this space. We also strive to be a source of valid information about the African geospatial industry
-        to listeners both within and outside Africa, thus the need to maintain a high quality of information service.
-        Support us today if you like what you hear, or just want to see us grow in terms of our offerings and podcast
-        quality. We are also open to cooperate sponsorships.</p>
-    </div>
-  </div>
-
+<!-- ===== SUPPORT CARDS ===== -->
+<section style="padding:0 0 80px; background:var(--white);">
   <div class="container">
-    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      <div class="col support">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-          style="background-image: url('');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-brown text-shadow-1">
-            <h2 class="mb-4 display-6 lh-1 fw-bold">Buy us a Coffee</h2>
-            <p class="card-text">This would go a long way in helping us get better audio recording kits which would
-              improve the listensing experience and to also cater for hosting the podcast on Podbean.</p>
-            <ul>
-              <li>Microphone</li>
-              <li>Podcast Hosting & production</li>
-            </ul>
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-              data-name="bmc-button" data-slug="geospatiallypod" data-color="#FFDD00" data-emoji="" data-font="Lato"
-              data-text="Buy us a coffee" data-outline-color="#000000" data-font-color="#000000"
-              data-coffee-color="#ffffff"></script>
-          </div>
+    <div class="row row-cols-1 row-cols-lg-3 g-4">
+
+      <div class="col">
+        <div class="support-card">
+          <div style="font-size:2.5rem; color:var(--crimson); margin-bottom:16px;">☕</div>
+          <h2>Buy Us a Coffee</h2>
+          <p>This goes a long way in helping us get better audio recording equipment, which improves the listening experience and podcast production quality.</p>
+          <ul>
+            <li>Quality microphones</li>
+            <li>Podcast hosting & production</li>
+            <li>Audio editing tools</li>
+          </ul>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+            data-name="bmc-button" data-slug="geospatiallypod" data-color="#FFDD00" data-emoji="" data-font="Lato"
+            data-text="Buy us a coffee" data-outline-color="#000000" data-font-color="#000000"
+            data-coffee-color="#ffffff"></script>
         </div>
       </div>
 
-      <div class="col support">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-          style="background-image: url('');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-brown text-shadow-1">
-            <h2 class="mb-4 display-6 lh-1 fw-bold">Sponsor An Episode</h2>
-            <p class="card-text">If you'd like to sponsor an episode or get a shout out from us, we're happy to talk to
-              you about this.</p>
-            <ul>
-              <li>Get a shout out</li>
-              <li>Showcase your logo</li>
-            </ul>
-            <button onclick="location.href='mailto:gspatially@gmail.com'" class="btn btn-outline-success btn-lg">
-              Get in Touch</button>
-          </div>
+      <div class="col">
+        <div class="support-card">
+          <div style="font-size:2.5rem; color:var(--crimson); margin-bottom:16px;">📢</div>
+          <h2>Sponsor an Episode</h2>
+          <p>If you'd like to sponsor an episode or get a shoutout, we're happy to talk. Great for organizations in the geospatial space.</p>
+          <ul>
+            <li>Get a dedicated shoutout</li>
+            <li>Showcase your logo & brand</li>
+            <li>Reach our growing audience</li>
+          </ul>
+          <button onclick="location.href='mailto:gspatially@gmail.com'" class="btn-crimson" style="margin-top:auto;">
+            Get in Touch <i class="bi bi-envelope ms-2"></i>
+          </button>
         </div>
       </div>
 
-      <div class="col support">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-          style="background-image: url('unsplash-photo-1.jpg');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-brown text-shadow-1">
-            <h2 class="mb-4 display-6 lh-1 fw-bold">General Support</h2>
-            <p class="card-text">You can support us in other ways. These include:</p>
-            <ul>
-              <li>Nominating a Guest</li>
-              <li>Suggesting a topic</li>
-              <li>Giving general feedback</li>
-            </ul>
-            <button onclick="location.href='https://forms.gle/wXRUosFco9mWvcsZ9'"
-              class="btn btn-outline-primary btn-lg">Contribute</button>
-          </div>
+      <div class="col">
+        <div class="support-card">
+          <div style="font-size:2.5rem; color:var(--crimson); margin-bottom:16px;">🤝</div>
+          <h2>General Support</h2>
+          <p>There are many ways to support us beyond financially. Every contribution counts.</p>
+          <ul>
+            <li>Nominate a guest speaker</li>
+            <li>Suggest a topic you'd love</li>
+            <li>Give us feedback</li>
+            <li>Share us with your network</li>
+          </ul>
+          <button onclick="location.href='https://forms.gle/wXRUosFco9mWvcsZ9'" class="btn-outline-crimson" style="margin-top:auto;">
+            Contribute <i class="bi bi-arrow-right ms-2"></i>
+          </button>
         </div>
       </div>
+
     </div>
   </div>
+</section>
 
-  {% endblock %}
+{% endblock %}

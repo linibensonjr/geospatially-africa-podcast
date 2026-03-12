@@ -34,7 +34,8 @@ class Episode(models.Model):
     
     hosts = [
         ('Iniobong Benson', 'Iniobong'),
-        ('Opeyemi Kazeem-Jimoh', 'Opeyemi')
+        ('Opeyemi Kazeem-Jimoh', 'Opeyemi'),
+        ('David Udoh', 'David')
     ]
 
     host = models.CharField(max_length=500, choices=hosts)
@@ -42,7 +43,7 @@ class Episode(models.Model):
     guest = models.CharField(max_length=200)
     guest_bio = models.CharField(max_length=1000, default='This is the guest bio')
     guest_image = models.ImageField(upload_to = 'guest_image', blank=True)
-    slug = AutoSlugField(populate_from='title', default='slug', unique=True)
+    slug = AutoSlugField(populate_from='title', unique=True)
     episode_image = models.ImageField(upload_to = 'podcast_art/', blank=True)
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)

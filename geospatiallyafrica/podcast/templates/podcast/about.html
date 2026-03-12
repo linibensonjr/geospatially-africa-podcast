@@ -1,126 +1,126 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
+{% block title %}About Us — Geospatially Africa Podcast{% endblock %}
+
 {% block content %}
 
-<main>
+<!-- ===== ABOUT HERO ===== -->
+<div class="about-hero">
+  <span class="section-eyebrow" style="color:rgba(255,255,255,0.5); margin-bottom:12px; display:block;">Who we are</span>
+  <h1>About Geospatially Africa</h1>
+  <p>Africa's premier platform for geospatial conversations — from GIS and drones to machine learning and beyond.</p>
+</div>
 
-  <section class="hero-section">
-    <div class="container px-4 py-5">
-      <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">About Us</h1>
-      </div>
-    </div>
-  </section>
-
-  <div class="container py-4">
-    <div class="p-5 mb-4 bg-light rounded-3">        
-        <p class="fs-4">Geospatial Africa podcast started in April 2021 and was originally called Geospatially
-          Podcast, we decided to change the name to Geospatially Africa podcast to make it more African centric in the sense that
-          it is a podcast that holds interesting conversation about the industry in Africa and around the world. Currently
-          one of the very few media outlets showcasing Afro-centric geospatial talents, expertise and innovations
-          globally, we strive to drive the narrative of the immense potential within the African geospatial industry,
-          while exploring how it is contributing to Africa's individual and collective development, across all
-          indicators
-        </p>
-      </div>
-    </div>
-
+<!-- ===== MISSION ===== -->
+<section style="padding:72px 0; background:var(--white);">
   <div class="container">
-    <h3 class="mic" style="text-align:center; padding: 20px">Our Reach in numbers</h3>
-    <div class="statistics">
-      <div class="stats">
-        <div class="stat-episode">
-          <i class="bi bi-mic"></i><br>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <span class="section-eyebrow">Our Mission</span>
+        <h2 style="color:var(--charcoal); margin-bottom:24px;">Driving the African Geospatial Narrative</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="col-lg-8 mt-4">
+        <div style="background:var(--sand); border-radius:var(--radius-xl); padding:40px; border-left:4px solid var(--crimson);">
+          <p style="font-size:1.1rem; line-height:1.9; color:#3a3333;">
+            Geospatially Africa podcast started in April 2021 and was originally called Geospatially Podcast. We changed the name to Geospatially Africa podcast to make it more African-centric — a podcast that holds interesting conversations about the industry in Africa and around the world.
+          </p>
+          <p style="font-size:1.1rem; line-height:1.9; color:#3a3333; margin-top:16px;">
+            Currently one of the very few media outlets showcasing Afro-centric geospatial talents, expertise, and innovations globally, we strive to drive the narrative of the immense potential within the African geospatial industry, while exploring how it is contributing to Africa's individual and collective development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section style="padding:40px 0 72px; background:var(--white);">
+  <div class="container">
+    <div class="row g-3 justify-content-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <i class="bi bi-mic"></i>
           <h3>{{ count }}+</h3>
           <p>Episodes</p>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat-subscribers">
-          <i class="bi bi-people"></i><br>
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <i class="bi bi-people"></i>
           <h3>400+</h3>
           <p>Subscribers</p>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat-listens">
-          <i class="bi bi-headset"></i><br>
-          <h3>2000+</h3>
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <i class="bi bi-headphones"></i>
+          <h3>2,000+</h3>
           <p>Listens</p>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat-country">
-          <i class="bi bi-globe"></i><br>
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <i class="bi bi-globe-africa"></i>
           <h3>67+</h3>
           <p>Countries</p>
         </div>
       </div>
     </div>
   </div>
+</section>
 
+<!-- ===== HOSTS ===== -->
+<section style="padding:72px 0; background:var(--light-gray);">
   <div class="container">
-    <h3 class="mic">
-      Behind the mic <i class="bi bi-mic-fill"></i>
-    </h3>
-  
-    <div class="container col-lg-8">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/linibenson/image/upload/v1735949854/geospatiallyafricapodcast/guest_image/iniobong_mketmx.jpg"
-              alt="Iniobong">
-            <div class="card-body">
-              <h5 class="card-title" style="text-align: center;">Iniobong Benson</h5>
-              <p class="card-text">Iniobong is a Geospatial Developer and Analyst with who is interested contributing to the geospatial industrial through research and software development
-              </p>
-            </div>
-  
-            <ul class="nav" style="text-align: center; margin: auto;">
-              <!-- <li><a href="https://www.youtube.com/channel/UC3WhmcpM7yaRm1JOFUvUCNw/" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
-                            style="font-size: 1.5rem; color: red;"></i></a></li> -->
-              <li><a href="https://twitter.com/linibenson" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
-                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-              <li><a href="https://github.com/linibensonjr" class="nav-link px-2 link-secondary"><i class="bi bi-github"
-                      style="font-size: 1.5rem;"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/linibenson/" class="nav-link px-2 link-dark"><i
-                    class="bi bi-linkedin" style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-            </ul>
+    <div class="text-center mb-5">
+      <span class="section-eyebrow">The people behind the mic</span>
+      <h2 style="color:var(--charcoal);">Meet the Hosts</h2>
+      <div class="divider mx-auto"></div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center" style="max-width:760px; margin:0 auto;">
+      <div class="col">
+        <div class="host-card">
+          <img src="https://res.cloudinary.com/linibenson/image/upload/v1735949854/geospatiallyafricapodcast/guest_image/iniobong_mketmx.jpg" alt="Iniobong Benson">
+          <div class="host-card-body">
+            <h5>Iniobong Benson</h5>
+            <p>Geospatial Developer and Analyst interested in contributing to the geospatial industry through research and software development.</p>
+          </div>
+          <div class="host-social">
+            <a href="https://twitter.com/linibenson"><i class="bi bi-twitter"></i></a>
+            <a href="https://github.com/linibensonjr"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/linibenson/"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-  
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'img/ope.jpg' %}" alt="Opeyemi">
-            <div class="card-body">
-              <h5 class="card-title" style="text-align: center;">Opeyemi Kazeem-Jimoh</h5>
-              <p class="card-text">Opeyemi is a Geospatial Data Analyst and Cartographer with interests in DRR through geo-hazard mapping, GIS for business and sales process optimization, and promoting sustainable futures.</p>
-            </div>
-  
-            <ul class="nav" style="text-align: center; margin: auto;">
-              <!-- <li><a href="" class="nav-link px-2 link-secondary"><i class="bi bi-github"
-                            style="font-size: 1.5rem;"></i></a></li> -->
-              <!-- <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
-                            style="font-size: 1.5rem; color: red;"></i></a></li> -->
-              <li><a href="https://twitter.com/oluremi_opeyemi" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
-                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-              <li><a href="#" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
-                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-            </ul>
+      </div>
+      <div class="col">
+        <div class="host-card">
+          <img src="{% static 'img/ope.jpg' %}" alt="Opeyemi Kazeem-Jimoh">
+          <div class="host-card-body">
+            <h5>Opeyemi Kazeem-Jimoh</h5>
+            <p>Geospatial Data Analyst and Cartographer with interests in DRR through geo-hazard mapping, GIS for business, and promoting sustainable futures.</p>
+          </div>
+          <div class="host-social">
+            <a href="https://twitter.com/oluremi_opeyemi"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="podcast-countries">
-      <h3 class="mic" style="text-align:center; padding: 20px">Our Reach with map</h3>
-      <img src="https://res.cloudinary.com/linibenson/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662934329/geospatiallyafricapodcast/static/geospatiallyafrica_countries_e1spac.png" alt="geospatially africa podcast countries with listeners">
-    </div>
-  
-    <!-- <div class="countries"></div> -->
-    
   </div>
-</main>
+</section>
+
+<!-- ===== REACH MAP ===== -->
+<section style="padding:72px 0; background:var(--white);">
+  <div class="container text-center">
+    <span class="section-eyebrow">Our Reach</span>
+    <h2 style="color:var(--charcoal); margin-bottom:8px;">Listeners Across the Globe</h2>
+    <div class="divider mx-auto mb-4"></div>
+    <p style="max-width:520px; margin:0 auto 40px;">From Lagos to London, Nairobi to New York — our community of geospatial enthusiasts spans 67+ countries.</p>
+    <div class="podcast-countries">
+      <img src="https://res.cloudinary.com/linibenson/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662934329/geospatiallyafricapodcast/static/geospatiallyafrica_countries_e1spac.png" alt="Geospatially Africa Podcast listener map">
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -1,70 +1,57 @@
 {% extends 'podcast/base.html' %}
-
 {% load static %}
-
-{% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
-
+{% block title %}Search Results — Geospatially Africa{% endblock %}
 
 {% block content %}
-{% if episode_list %}
 
-<section class="hero-section">
-  <div class="container px-4 py-5">
-    <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Search Results for "{{ request.GET.q }}"</h1>
-    </div>
-  </div>
-</section>
-
-
-  <div class="container col-lg-6">
+<div class="page-hero" style="padding:48px 0 36px;">
+  <span class="section-eyebrow">Results</span>
+  <h1 style="font-size:2.2rem;">Search Results</h1>
+  {% if query %}<p>Showing results for "<strong>{{ query }}</strong>"</p>{% endif %}
+  <div class="search-bar-container">
     <form action="{% url 'search_results' %}" method="get">
-      <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
+      <input name="q" type="search" placeholder="Search again…" value="{{ query|default:'' }}">
+      <i class="bi bi-search search-icon"></i>
     </form>
-  </div>
-
-<div class="container col-lg-6">
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for episode in episode_list %}
-    <div class="col">
-      <div class="card">
-        {% if episode.episode_image %}
-        <img class="card-img-top" src="{{episode.episode_image.url}}" alt="geospatially africa podcast episode cover">
-        {% else %}
-
-        <img class="card-img-top" src="{% static 'img/podcast_art.jpg' %}" alt="Opeyemi">
-
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{episode.title }}</h5>
-          <p class="card-text">{{ episode.summary}}</p>
-          <a href="{% url 'episode_detail' pk=episode.pk %}"><button class="btn btn-outline-secondary">Read
-              more</button></a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-      
-    {% else %}
-    <div class="no-result">
-      <img class="search-img" src="{% static 'img/no_result.png' %}" alt="geospatially africa podcast episode Result not found" style="padding: 30px;">
-      <h3>Well this sucks!</h3>
-      <p style="font-size: 1.2em;">Unfortunately, your search did not match any episodes. Try again!</p>
-      <div class="container col-lg-6">
-        <form action="{% url 'search_results' %}" method="get">
-          <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
-        </form>
-      </div>
-    </div>
-
-    {% endif %}
-
-  </div>
-  <div class="no-result">
-   
-    <a href="{% url 'episode_list' %}"><button type="button" class="btn btn-outline-success">All Episodes</button></a>
   </div>
 </div>
 
+<section style="padding:48px 0;">
+  <div class="container">
+    {% if object_list %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for episode in object_list %}
+      <div class="col">
+        <div class="episode-card">
+          <div class="episode-card-meta">
+            <span class="meta-badge season">S{{ episode.season }}</span>
+            <span class="meta-badge">EP {{ episode.episode }}</span>
+          </div>
+          <div class="episode-card-body">
+            <h4>{{ episode.title }}</h4>
+            <p class="guests-line">{{ episode.host }} · {{ episode.guest }}</p>
+            <p class="summary">{{ episode.summary }}</p>
+            <div class="episode-tags-row">
+              {% for tag in episode.tag.all %}
+              <span class="episode-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-link">
+              Listen <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-result">
+      <i class="bi bi-search" style="font-size:3rem; color:var(--border); display:block; margin-bottom:16px;"></i>
+      <h4 style="color:var(--charcoal);">No results found</h4>
+      <p>Try a different search term or <a href="{% url 'episode_list' %}">browse all episodes</a>.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
 
 {% endblock %}

@@ -21,16 +21,12 @@ import cloudinary.api
 import environ
 
 
-env = environ.Env(
-    DEBUG=(bool, True)
-)
-
-environ.Env.read_env()
-
-
+env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,9 +37,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'herokuapp.com', 'geospatiallyafrica.com', 'geospatiallyafrica.com']
 
 
 # Application definition
@@ -110,21 +103,6 @@ WSGI_APPLICATION = 'geospatiallyafrica.wsgi.application'
 LOGIN_REDIRECT_URL = '/'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'geospatiallyafrica',
-        'USER': 'admin',
-        'PASSWORD': 'geoadmin',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -173,15 +151,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-django_heroku.settings(locals())
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET')
+CLOUDINARY = {
+    "CLOUD_NAME": env("CLOUD_NAME", default=""),
+    "API_KEY": env("API_KEY", default=""),
+    "API_SECRET": env("API_SECRET", default=""),
 }
 
 SITE_ID=1

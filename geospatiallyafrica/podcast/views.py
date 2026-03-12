@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView
 from cloudinary.forms import cl_init_js_callbacks
 from django.contrib.auth.models import User
+from django.db.models import Prefetch
 
 # Create your views here.
 
@@ -24,17 +25,20 @@ def index(request):
     return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
 
 def episode_list(request):
+    episodes_tags = Episode.objects.prefetch_related('tags').all()
+    # Adjust the related name: use 'tags' or 'tag_set' depending on your model
+    tags = Tags.objects.filter(episode__in=episodes_tags).distinct()
     episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'podcast/episodes.html', {'episodes': episode})
+    return render(request, 'podcast/episodes.html', {'episodes': episode, 'tags': tags})
 
 
 def episode_detail(request, slug):
     episode = get_list_or_404(Episode, slug=slug)
     episodes = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     sidebar_eps = Episode.objects.all()[:6]
-    print(sidebar_eps)
+    episodes_tags = Episode.objects.prefetch_related('tags').all()
     host = Hosts.objects.all()
-    tags = Tags.objects.all()
+    tags = Tags.objects.filter(episode__in=episodes_tags).distinct()
     context = {'episode': episode, 'episodes':episodes, 'sidebar_eps':sidebar_eps, 'host':host, 'tags':tags}
     return render(request, 'podcast/episode_detail.html', context)
 
@@ -136,7 +140,7 @@ class SearchResultView(ListView):
         query = self.request.GET.get("q")
         search_list = Episode.objects.filter(Q(title__icontains=query) & Q(published_date__isnull=False) | Q(description__icontains=query) & Q(published_date__isnull=False))
         context = {'search_list':search_list, 'query':query}
-        return search_list
+        return context
 
     template_name = 'podcast/search.html'
 

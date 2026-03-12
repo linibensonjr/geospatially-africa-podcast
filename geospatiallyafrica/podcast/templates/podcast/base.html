@@ -6,278 +6,189 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Geospatially Africa Podcast - The podcast for Africa geospatial community, where we discuss geospatial innovations from drone, mapping, GIS to Machine Learning, and the geospatial people in Africa and beyond">
-  <meta name="description" content="Geospatially Africa Podcast - The podcast for Africa geospatial community">
+  <meta name="title" content="Geospatially Africa Podcast - The podcast for Africa geospatial community">
+  <meta name="description" content="Geospatially Africa Podcast - The podcast for Africa geospatial community, where we discuss geospatial innovations from drone, mapping, GIS to Machine Learning.">
   <meta name="keywords" content="podcast, africa, geospatially, geospatial community, drone, mapping, GIS, geospatial">
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{% block og_title %}{% endblock %}" />
-  <meta property="og:description"
-    content="{% block og_description %}{% endblock %}" />
+  <meta property="og:title" content="{% block og_title %}Geospatially Africa Podcast{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}The podcast for Africa geospatial community{% endblock %}" />
   <meta property="og:url" content="https://geospatiallyafrica.com/" />
   <meta property="og:site_name" content="geospatiallyafrica.com" />
   <link rel="icon" type="image/icon" href="{% static 'img/favicon.ico' %}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display + DM Sans + DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <!-- Pageclip CSS -->
   <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
 
-  <!-- Begin Mailchimp Signup Form -->
-  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7_dtp.css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    #mc_embed_signup {
-      background: #fff;
-      clear: left;
-      font: 14px Helvetica, Arial, sans-serif;
-      width: 100%;
-    }
-
-    .button:hover {
-      background: green
-    }
-  </style>
-  <title>{% block title %} Geospatially Africa - The podcast for the Geospatial community {% endblock %}</title>
+  <title>{% block title %}Geospatially Africa — The podcast for the Geospatial community{% endblock %}</title>
 </head>
-<!-- Google tag (gtag.js) -->
+
+<!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBTL32BKTF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EBTL32BKTF');
 </script>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ===== NAVIGATION ===== -->
   <div class="nav-section">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a href="/" class="align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none navbar-brand">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-0">
+
+          <a href="/" class="navbar-brand me-4">
             <img class="logo" src="{% static 'img/gp.png' %}" alt="Geospatially Africa Podcast"/>
           </a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class=""><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-              <li><a href="{% url 'episode_list' %}" class="nav-link px-2 link-dark">Episodes</a></li>
-              <!-- <li><a href="{% url 'blog' %}" class="nav-link px-2 link-dark">Blog</a></li> -->
-              <li><a href="{% url 'about_us' %}" class="nav-link px-2 link-dark">About</a></li>
-              <li><a href="mailto:gspatially@gmail.com" class="nav-link px-2 link-dark">Contact Us</a></li>
+            <ul class="navbar-nav me-auto gap-1">
+              <li><a href="/" class="nav-link">Home</a></li>
+              <li><a href="{% url 'episode_list' %}" class="nav-link">Episodes</a></li>
+              <li><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+              <li><a href="{% url 'about_us' %}" class="nav-link">About</a></li>
+              <li><a href="mailto:gspatially@gmail.com" class="nav-link">Contact</a></li>
             </ul>
-            <ul class="nav">
-              <li><a href="https://github.com/linibensonjr/geospatially-africa-podcast" class="nav-link px-2 link-secondary"><i class="bi bi-github"
-                    style="font-size: 1.5rem;"></i></a></li>
-              <!-- <li><a href="" class="nav-link px-2 link-dark"><i class="bi bi-youtube"
-                    style="font-size: 1.5rem; color: red;"></i></a></li> -->
-              <li><a href="https://twitter.com/geospatialy" class="nav-link px-2 link-dark"><i class="bi bi-twitter"
-                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-              <li><a href="https://ng.linkedin.com/company/geospatially-africa-podcast" class="nav-link px-2 link-dark"><i class="bi bi-linkedin"
-                    style="font-size: 1.5rem; color: cornflowerblue;"></i></a></li>
-            </ul>
-            {% if user.is_authenticated %}
-            <div class="col-md-4 text-end">
-              <i class="">Hi, {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></i>
-              <a href="{% url 'new_episode'  %}"><button class="btn btn-outline-success btn-sm"><i
-                    class="bi bi-plus-circle" style="color: green;"></i>New</button>
-                <a href="{% url 'episode_draft_list' %}" class="top-menu"><button
-                    class="btn btn-outline-success btn-sm"><i class="bi bi-pencil"
-                      style="color: green;"></i>Draft</button></a>
-                {% else %}
-                <a href="{% url 'support_us' %}"><button type="button" class="btn btn-outline-success">Support
-                    &#128154;</button></a>
-                {% endif %}
+
+            <div class="d-flex align-items-center gap-2">
+              <!-- Social Icons -->
+              <a href="https://twitter.com/geospatialy" class="nav-link px-2" title="Twitter">
+                <i class="bi bi-twitter" style="font-size:1.1rem; color:#1da1f2;"></i>
+              </a>
+              <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" class="nav-link px-2" title="LinkedIn">
+                <i class="bi bi-linkedin" style="font-size:1.1rem; color:#0a66c2;"></i>
+              </a>
+              <a href="https://github.com/linibensonjr/geospatially-africa-podcast" class="nav-link px-2" title="GitHub">
+                <i class="bi bi-github" style="font-size:1.1rem; color:#333;"></i>
+              </a>
+
+              {% if user.is_authenticated %}
+                <span class="mono" style="font-size:0.78rem; color:#888;">Hi, {{ user.username }}</span>
+                <a href="{% url 'new_episode' %}" class="btn btn-sm btn-outline-success">
+                  <i class="bi bi-plus-circle me-1"></i>New
+                </a>
+                <a href="{% url 'episode_draft_list' %}" class="btn btn-sm btn-outline-secondary">
+                  <i class="bi bi-pencil me-1"></i>Drafts
+                </a>
+                <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-danger">Logout</a>
+              {% else %}
+                <a href="{% url 'support_us' %}" class="nav-link nav-support-btn">Support &#128154;</a>
+              {% endif %}
             </div>
           </div>
+
         </div>
       </nav>
     </div>
   </div>
+  <!-- ===== END NAVIGATION ===== -->
 
   <main>
-
-    {% block content %}
-
-    {% endblock %}
-
+    {% block content %}{% endblock %}
   </main>
 
-  <!-- <section class="container">
-    <div class="sponsors">
-      <h3>Our Sponsors</h3><br>
-      <p style="font-size:2em">Your Logo goes here</p>
-    </div>
-    
-  </section> -->
-  
-
-  <div class="card mailchimp text-center">
-    <div class="card-body">
-      <h3 class="card-title">Don't miss our monthly episodes</h5>
-        <p class="card-text">We'll get the latest episode right to you mail. No spam!</p>
-
-
-        <div id="mc_embed_signup">
-          <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2"
-            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-            target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-              <!-- <label for="mce-EMAIL">Don't Miss out monthly episodes. Subscribe</label> -->
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address"
-                required>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                  name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value=""></div>
-              <div class="clear foot">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <span class="section-eyebrow" style="color:rgba(255,255,255,0.5);">Stay in the loop</span>
+          <h2>Don't miss our latest episodes</h2>
+          <p>Get new episodes delivered straight to your inbox. No spam, ever.</p>
+          <div class="newsletter-form">
+            <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+              class="validate d-flex gap-2 w-100" target="_blank" novalidate>
+              <input type="email" name="EMAIL" placeholder="Your email address" required style="flex:1; padding:13px 18px; border:none; border-radius:40px; font-size:0.95rem; outline:none;">
+              <div style="position:absolute;left:-5000px;" aria-hidden="true">
+                <input type="text" name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value="">
               </div>
+              <button type="submit" class="btn-crimson">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1 d-none d-lg-block text-end">
+          <i class="bi bi-headphones" style="font-size:7rem; color:rgba(255,255,255,0.08);"></i>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+
+          <div class="col-lg-4 footer-brand">
+            <img src="{% static 'img/gp.png' %}" alt="Geospatially Africa" style="width:100px; filter:brightness(1.5);">
+            <p>The podcast about everything geospatial — showcasing African talent, innovation, and expertise to the world.</p>
+            <div class="footer-social mt-3">
+              <a href="https://twitter.com/geospatialy" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/linibensonjr/geospatially-africa-podcast" title="GitHub"><i class="bi bi-github"></i></a>
             </div>
-          </form>
-        </div>
-
-        <!--End mc_embed_signup-->
-
-
-    </div>
-  </div>
-
-
-
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Section: Social media -->
-    <section class="container d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>We're Social:</span>
-      </div>
-      <!-- Left -->
-
-      <!-- Right -->
-      <div class="nav">
-        <!-- <a href="#facebook" class="me-4 text-reset">
-          <i class="bi bi-facebook"></i>
-        </a> -->
-        <a href="https://twitter.com/geospatialy" class="me-4 text-reset">
-          <i class="bi bi-twitter" style="color:rgb(65, 140, 253)"></i>
-        </a>
-        <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" class="me-4 text-reset">
-          <i class="bi bi-linkedin" style="color:rgb(62, 62, 161)"></i>
-        </a>
-        <!-- <a href="" class="me-4 text-reset">
-          <i class="bi bi-instagram"></i>
-        </a> -->
-        <!-- <a href="" class="me-4 text-reset">
-          <i class="bi bi-youtube" style="color:rgb(228, 15, 15)"></i>
-        </a> -->
-        <a href="https://github.com/linibensonjr/geospatially-africa-podcast" class="me-4 text-reset">
-          <i class="bi bi-github" style="color:rgb(0, 0, 0)"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              geospatially africa podcast
-            </h6>
-            <p>
-              The podcast about everything geospatial
-            </p>
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Site Map
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="{% url 'episode_list' %}" class="nav-link p-0 text-muted">Episodes</a>
-              </li>
-              <!-- <li class="nav-item mb-2"><a href="{% url 'blog' %}" class="nav-link p-0 text-muted">Blog</a></li> -->
-              <li class="nav-item mb-2"><a href="{% url 'about_us' %}" class="nav-link p-0 text-muted">About Us</a></li>
-              <li class="nav-item mb-2"><a href="mailto:gspatially@gmail.com" class="nav-link p-0 text-muted">Contact Us</a></li>
+          <div class="col-6 col-lg-2 footer-col">
+            <h6>Navigate</h6>
+            <ul class="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="{% url 'episode_list' %}">Episodes</a></li>
+              <li><a href="{% url 'blog' %}">Blog</a></li>
+              <li><a href="{% url 'about_us' %}">About Us</a></li>
+              <li><a href="mailto:gspatially@gmail.com">Contact</a></li>
             </ul>
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Support Us
-            </h6>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="{% url 'support_us' %}" class="nav-link p-0 text-muted">Support
-                  &#x1F499;</a></li>
-              <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank"
-                  class="nav-link p-0 text-muted">Become a guest</a></li>
-              <li class="nav-item mb-2"><a href="https://forms.gle/vst1B3QvV2WH6crT7" class="nav-link p-0 text-muted">Suggestions</a></li>
+          <div class="col-6 col-lg-2 footer-col">
+            <h6>Support</h6>
+            <ul class="footer-links">
+              <li><a href="{% url 'support_us' %}">Support Us &#10084;&#65039;</a></li>
+              <li><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank">Become a Guest</a></li>
+              <li><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank">Suggest a Topic</a></li>
             </ul>
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Contact
-            </h6>
-            <p><i class="bi bi-house-fill"></i>Nigeria. Africa</p>
-            <p><a href="mailto:gspatially@gmail.com">
-              <i class="bi bi-envelope"></i>
-              gsaptially@gmail.com</a>
-            </p>
+          <div class="col-lg-3 footer-col">
+            <h6>Listen On</h6>
+            <ul class="footer-links">
+              <li><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw==" target="_blank">Google Podcasts</a></li>
+              <li><a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank">Apple Podcasts</a></li>
+              <li><a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank">Spotify</a></li>
+              <li><a href="https://anchor.fm/geospatiallyafrica" target="_blank">Anchor</a></li>
+              <li><a href="mailto:gspatially@gmail.com"><i class="bi bi-envelope me-1"></i>gspatially@gmail.com</a></li>
+            </ul>
           </div>
-          <!-- Grid column -->
+
         </div>
-        <!-- Grid row -->
       </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-4 copyright">
-      <p>&copy;
-        <script>document.write(new Date().getFullYear())</script>
-        Geospatially Africa Podcast. All rights reserved.
-      </p>
     </div>
-    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Geospatially Africa Podcast. All rights reserved. &nbsp;·&nbsp; Nigeria, Africa</p>
+      </div>
+    </div>
   </footer>
-  <!-- Footer -->
 
-
-  </footer>
-  </div>
-  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
   <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-
 </body>
-
 </html>

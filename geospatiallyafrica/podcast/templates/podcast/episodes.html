@@ -1,56 +1,70 @@
 {% extends 'podcast/base.html' %}
-
 {% load static %}
-
-{% block title %} Geospatially Africa Podcast - Episodes {% endblock %}
-
+{% block title %}Episodes — Geospatially Africa Podcast{% endblock %}
 
 {% block content %}
 
-<section class="hero-section">
-  <div class="container px-4 py-5">
-    <div class="px-4 py-5 my-5 text-center hero-episode">
-      <h1 class="display-5 fw-bold">Episodes</h1>
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <span class="section-eyebrow">The archive</span>
+  <h1>All Episodes</h1>
+  <p>Conversations with Africa's leading geospatial experts, innovators, and practitioners.</p>
+  <div class="search-bar-container">
+    <form action="{% url 'search_results' %}" method="get">
+      <input name="q" type="search" placeholder="Search episodes by title or topic…">
+      <i class="bi bi-search search-icon"></i>
+    </form>
+  </div>
+</div>
+
+<!-- ===== EPISODES GRID ===== -->
+<section style="padding: 64px 0;">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for episode in episodes %}
+      <div class="col">
+        <div class="episode-card">
+          <div class="episode-card-meta">
+            <span class="meta-badge season">S{{ episode.season }}</span>
+            <span class="meta-badge">EP {{ episode.episode }}</span>
+            <span class="meta-badge">{{ episode.published_date|date:"M Y" }}</span>
+          </div>
+
+          {% if episode.episode_image %}
+          {% load cloudinary %}
+          <img src="{{ episode.episode_image.url }}" alt="{{ episode.title }}" style="width:100%; height:200px; object-fit:cover; margin-top:14px;">
+          {% else %}
+          <div style="margin-top:14px; height:180px; background:linear-gradient(135deg, var(--crimson-dark), var(--crimson)); display:flex; align-items:center; justify-content:center;">
+            <i class="bi bi-mic-fill" style="font-size:3rem; color:rgba(255,255,255,0.2);"></i>
+          </div>
+          {% endif %}
+
+          <div class="episode-card-body">
+            <h4>{{ episode.title }}</h4>
+            <p class="guests-line">
+              <i class="bi bi-mic me-1"></i>{{ episode.host }}{% if episode.cohost %} &amp; {{ episode.cohost }}{% endif %}
+              &nbsp;·&nbsp; <i class="bi bi-person me-1"></i>{{ episode.guest }}
+            </p>
+            <p class="summary">{{ episode.summary }}</p>
+            <div class="episode-tags-row">
+              {% for tag in episode.tag.all %}
+              <a href="{% url 'tags' %}?tag={{ tag }}" class="episode-tag">{{ tag }}</a>
+              {% endfor %}
+            </div>
+            <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-link">
+              Listen &amp; Read <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <i class="bi bi-mic" style="font-size:3rem; color:var(--border);"></i>
+        <p class="mt-3">No episodes found.</p>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
-
-<div class="container col-lg-6">
-  <form action="{% url 'search_results' %}" method="get">
-    <input name="q" type="search" class="form-control rounded" placeholder="Type a search keyword" style="margin: 30px auto; width: 80%;">
-  </form>
-  
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for episode in episodes %}
-    <div class="col">
-      <div class="card episode">
-        
-        {% if episode.episode_image %}
-        {% load cloudinary %}  
-        <img class="card-img-top" src="{{ episode.episode_image.url }}" alt="geospatially africa podcast episode cover Art">
-        {% else %}
-
-
-        <img class="card-img-top" src="{% static 'img/podcast_art.jpg' %}" alt="geospatially africa podcast Art">
-
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{episode.title }}</h5>
-          <p class="card-text">{{ episode.summary}}</p>
-          <a href="{% url 'episode_detail' slug=episode.slug %}"><button class="btn btn-outline-secondary">Read
-              more</button></a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-
-</div>
-
-
-{% endblock %}
-
-{% block sidebar %}
 
 {% endblock %}

@@ -1,44 +1,50 @@
 {% extends 'podcast/base.html' %}
-
 {% load static %}
-
-{% block title %} Geospatially Africa Podcast - Tags {% endblock %}
+{% block title %}Tag: {{ tag }} — Geospatially Africa{% endblock %}
 
 {% block content %}
 
-{% if episode_list %}
+<div class="page-hero" style="padding:48px 0 36px;">
+  <span class="section-eyebrow">Browse by Topic</span>
+  <h1 style="font-size:2.2rem;">Episodes tagged: <span style="color:var(--crimson);">{{ tag }}</span></h1>
+</div>
 
-<section class="hero-section">
-  <div class="container px-4 py-5">
-    <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Episodes Tagged "{{ request.GET.tag }}"</h1>
-    </div>
-  </div>
-</section>
-
-
-<div class="container col-lg-6" style="margin: 30px auto;">
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for episode in episode_list %}
-    <div class="col">
-      <div class="card">
-        {% if episode.episode_image %}
-        <img class="card-img-top" src="{{episode.episode_image.url}}" alt="geospatially africa podcast episode cover">
-        {% else %}
-
-        <img class="card-img-top" src="{% static 'img/podcast_art.jpg' %}" alt="geospatially africa podcast podcast cover">
-
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{episode.title }}</h5>
-          <p class="card-text">{{ episode.summary}}</p>
-          <a href="{% url 'episode_detail' slug=episode.slug %}"><button class="btn btn-outline-secondary">Read
-              more</button></a>
+<section style="padding:48px 0;">
+  <div class="container">
+    {% if episode_list %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for episode in episode_list %}
+      <div class="col">
+        <div class="episode-card">
+          <div class="episode-card-meta">
+            <span class="meta-badge season">S{{ episode.season }}</span>
+            <span class="meta-badge">EP {{ episode.episode }}</span>
+          </div>
+          <div class="episode-card-body">
+            <h4>{{ episode.title }}</h4>
+            <p class="guests-line">{{ episode.host }} · {{ episode.guest }}</p>
+            <p class="summary">{{ episode.summary }}</p>
+            <div class="episode-tags-row">
+              {% for t in episode.tag.all %}
+              <a href="{% url 'tags' %}?tag={{ t }}" class="episode-tag">{{ t }}</a>
+              {% endfor %}
+            </div>
+            <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-link">
+              Listen <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-
+    {% else %}
+    <div class="no-result">
+      <i class="bi bi-tag" style="font-size:3rem; color:var(--border); display:block; margin-bottom:16px;"></i>
+      <p>No episodes found for this tag.</p>
+      <a href="{% url 'episode_list' %}" class="btn-crimson mt-2">Browse All Episodes</a>
+    </div>
     {% endif %}
+  </div>
+</section>
 
 {% endblock %}
