@@ -11,9 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-if os.getenv('ENV') == 'Heroku':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'geospatiallyafrica.settings.production')
-else:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'geospatiallyafrica.settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'geospatiallyafrica.settings.dev')
 
 application = get_wsgi_application()
