@@ -20,10 +20,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts: Playfair Display + DM Sans + DM Mono -->
+  <!-- Google Fonts: DM Sans + DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
   <!-- Pageclip CSS -->
@@ -71,13 +71,13 @@
             <div class="d-flex align-items-center gap-2">
               <!-- Social Icons -->
               <a href="https://twitter.com/geospatialy" class="nav-link px-2" title="Twitter">
-                <i class="bi bi-twitter" style="font-size:1.1rem; color:#1da1f2;"></i>
+                <i class="bi bi-twitter" style="font-size:1rem; color:var(--text-muted);"></i>
               </a>
               <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" class="nav-link px-2" title="LinkedIn">
-                <i class="bi bi-linkedin" style="font-size:1.1rem; color:#0a66c2;"></i>
+                <i class="bi bi-linkedin" style="font-size:1rem; color:var(--text-muted);"></i>
               </a>
               <a href="https://github.com/linibensonjr/geospatially-africa-podcast" class="nav-link px-2" title="GitHub">
-                <i class="bi bi-github" style="font-size:1.1rem; color:#333;"></i>
+                <i class="bi bi-github" style="font-size:1rem; color:var(--text-muted);"></i>
               </a>
 
               {% if user.is_authenticated %}
@@ -109,15 +109,15 @@
   <section class="newsletter-section">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6">
-          <span class="section-eyebrow" style="color:rgba(255,255,255,0.5);">Stay in the loop</span>
+        <div class="col-lg-7">
+          <span class="section-eyebrow" style="color:rgba(255,255,255,0.35);">Stay in the loop</span>
           <h2>Don't miss our latest episodes</h2>
           <p>Get new episodes delivered straight to your inbox. No spam, ever.</p>
           <div class="newsletter-form">
             <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2"
               method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
               class="validate d-flex gap-2 w-100" target="_blank" novalidate>
-              <input type="email" name="EMAIL" placeholder="Your email address" required style="flex:1; padding:13px 18px; border:none; border-radius:40px; font-size:0.95rem; outline:none;">
+              <input type="email" name="EMAIL" placeholder="your@email.com" required>
               <div style="position:absolute;left:-5000px;" aria-hidden="true">
                 <input type="text" name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value="">
               </div>
@@ -125,8 +125,8 @@
             </form>
           </div>
         </div>
-        <div class="col-lg-5 offset-lg-1 d-none d-lg-block text-end">
-          <i class="bi bi-headphones" style="font-size:7rem; color:rgba(255,255,255,0.08);"></i>
+        <div class="col-lg-4 offset-lg-1 d-none d-lg-block text-end">
+          <i class="bi bi-headphones" style="font-size:8rem; color:rgba(255,255,255,0.04);"></i>
         </div>
       </div>
     </div>
