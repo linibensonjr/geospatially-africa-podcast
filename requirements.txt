@@ -10,7 +10,7 @@ colorama==0.4.6
 cookiecutter==2.1.1
 crispy-bootstrap5
 dj-database-url==0.5.0
-Django==3.2.6
+Django==4.2.29
 django-autoslug==1.9.8
 django-browser-reload
 django-ckeditor==6.2.0
