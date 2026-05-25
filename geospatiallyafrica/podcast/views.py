@@ -135,11 +135,22 @@ def tags(request):
 
 class SearchResultView(ListView):
     model = Episode
+    context_object_name = 'search_list'
     
     def get_queryset(self):
         query = self.request.GET.get("q")
-        search_list = Episode.objects.filter(Q(title__icontains=query) & Q(published_date__isnull=False) | Q(description__icontains=query) & Q(published_date__isnull=False))
-        context = {'search_list':search_list, 'query':query}
+        if not query:
+            return Episode.objects.none()
+
+        return Episode.objects.filter(
+            published_date__isnull=False
+        ).filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get("q", "")
         return context
 
     template_name = 'podcast/search.html'
