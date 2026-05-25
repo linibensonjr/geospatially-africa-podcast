@@ -1,11 +1,10 @@
 from .base import *
-import os
 import dj_database_url
 import django_heroku
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    'herokuapp.com', 
+    '.herokuapp.com', 
     'geospatiallyafrica.com',
     'www.geospatiallyafrica.com'
 ]
@@ -17,5 +16,3 @@ DATABASES = {
 }
 # Heroku settings
 django_heroku.settings(locals())
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
