@@ -17,3 +17,5 @@ DATABASES = {
 }
 # Heroku settings
 django_heroku.settings(locals())
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
