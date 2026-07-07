@@ -1,1 +1,11 @@
-<h1 style="text-align: center; margin: auto;">Page not found</h1>
+{% extends 'podcast/base.html' %}
+{% block title %}Page Not Found - Geospatially Africa{% endblock %}
+
+{% block content %}
+<div class="container error-page">
+  <span class="eyebrow">404</span>
+  <h1>Page not <em>found</em></h1>
+  <p>The page you're looking for doesn't exist or may have moved.</p>
+  <a href="{% url 'home' %}" class="link-arrow">Back to homepage <i class="bi bi-arrow-right"></i></a>
+</div>
+{% endblock %}

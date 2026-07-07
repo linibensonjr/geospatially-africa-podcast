@@ -1,317 +1,71 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
 
-{% block og_description %}The Geospatially Africa Podcast - The podcast for Africa geospatial community{% endblock %}
+{% block og_description %}The Geospatially Africa Podcast - The podcast for Africa's geospatial community{% endblock %}
 {% block title %}Geospatially Africa - The podcast for the Geospatial community{% endblock %}
 
 {% block content %}
 
 <!-- ===== HERO ===== -->
 <section class="hero-home">
-  <div class="container" style="position:relative; z-index:1;">
-    <div class="row align-items-center g-5">
-
-      <div class="col-lg-7">
-        <div class="hero-eyebrow">Africa's geospatial flagship</div>
-        <h1 class="hero-title">Geospatially Africa.</h1>
-        <p class="hero-subtitle">Built for people who want to understand the African geospatial ecosystem, discover practical use cases, and stay close to the conversations shaping the continent's spatial future.</p>
-
-        <div class="hero-answer-grid">
-          <div class="hero-answer-card">
-            <span>What is it?</span>
-            <p>A podcast and media platform about geospatial innovation across Africa.</p>
-          </div>
-          <div class="hero-answer-card">
-            <span>Who is it for?</span>
-            <p>Practitioners, students, founders, researchers, policymakers, and curious builders.</p>
-          </div>
-          <div class="hero-answer-card">
-            <span>Why subscribe?</span>
-            <p>To get sharp insights, discover new voices, and stay ahead of Africa's spatial story.</p>
-          </div>
-        </div>
-
-        <div class="hero-cta-group">
-          <a href="#featured-episode" class="btn-primary-custom">
-            <i class="bi bi-play-circle-fill"></i> Featured Episode
-          </a>
-          <a href="{% url 'support_us' %}#guest-nomination" class="btn-secondary-custom">
-            Nominate a Guest <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="{% url 'support_us' %}#sponsor-interest" class="btn-secondary-custom">
-            Sponsor the Show <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-
-        <div class="platform-logos">
-          <span>Listen on</span>
-          <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank" rel="noreferrer">
-            <img src="{% static 'img/applepod.svg' %}" alt="Apple Podcasts">
-          </a>
-          <a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank" rel="noreferrer">
-            <img src="{% static 'img/spotify-podcast.svg' %}" alt="Spotify">
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-5">
-        <div class="hero-rail">
-          <div class="hero-signup-card">
-            <span class="section-eyebrow" style="margin-bottom:10px;">Get new episodes</span>
-            <h2>Join the newsletter above the fold</h2>
-            <p>Podcast drops, guest announcements, and community updates delivered straight to your inbox.</p>
-            <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2" method="post" target="_blank" novalidate class="hero-signup-form">
-              <input type="email" name="EMAIL" placeholder="your@email.com" required>
-              <div style="position:absolute;left:-5000px;" aria-hidden="true">
-                <input type="text" name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value="">
-              </div>
-              <button type="submit" class="btn-crimson">Subscribe</button>
-            </form>
-          </div>
-
-          <div class="hero-graphic hero-graphic-compact d-none d-lg-flex">
-            <div class="hero-vinyl"></div>
-            <div class="hero-label">
-              <i class="bi bi-globe-africa" style="font-size:2rem; color:var(--accent); position:relative; z-index:3;"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== FLAGSHIP CHANNELS ===== -->
-<section class="channel-grid-section">
   <div class="container">
-    <div class="section-header mb-4">
-      <span class="section-eyebrow">The podcast feeds the ecosystem</span>
-      <h2 class="section-title" style="color:var(--text-primary);">One flagship product, five distribution channels</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-4">
-      <div class="col">
-        <div class="channel-card">
-          <i class="bi bi-browser-chrome"></i>
-          <h3>Website</h3>
-          <p>Episode archive, show notes, and discovery for new listeners.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="channel-card">
-          <i class="bi bi-envelope-paper"></i>
-          <h3>Newsletter</h3>
-          <p>Direct distribution for launches, guest highlights, and weekly updates.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="channel-card">
-          <i class="bi bi-linkedin"></i>
-          <h3>LinkedIn</h3>
-          <p>Professional reach for Africa's spatial industry and decision-makers.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="channel-card">
-          <i class="bi bi-youtube"></i>
-          <h3>YouTube</h3>
-          <p>Video-first distribution, clips, and searchable replay content.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="channel-card">
-          <i class="bi bi-people"></i>
-          <h3>Partnerships</h3>
-          <p>Community collaborations with institutions, brands, and networks.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <span class="eyebrow">Africa's geospatial flagship</span>
+    <h1 class="hero-title"><em>Geospatially</em> Africa</h1>
+    <p class="hero-subtitle">A podcast and media platform about geospatial innovation across Africa. Conversations with practitioners, researchers, founders, and policymakers working in GIS, remote sensing, drones, and machine learning.</p>
 
-<!-- ===== FEATURED EPISODE ===== -->
-<section id="featured-episode" class="featured-episode-section">
-  <div class="container">
-    <div class="section-header mb-4">
-      <span class="section-eyebrow">Featured episode</span>
-      <h2 class="section-title" style="color:var(--text-primary);">Start here</h2>
-      <div class="divider"></div>
-    </div>
-
-    {% if featured_episode %}
-    <div class="featured-episode-card">
-      <div class="featured-episode-media">
-        {% if featured_episode.episode_image %}
-        <img src="{{ featured_episode.episode_image.url }}" alt="{{ featured_episode.title }}">
-        {% else %}
-        <div class="featured-episode-placeholder">
-          <i class="bi bi-mic-fill"></i>
-        </div>
-        {% endif %}
-      </div>
-      <div class="featured-episode-content">
-        <span class="blog-category">Latest release</span>
-        <h3>{{ featured_episode.title }}</h3>
-        <p>{{ featured_episode.summary }}</p>
-        <div class="featured-episode-meta">
-          <span>S{{ featured_episode.season }} · EP {{ featured_episode.episode }}</span>
-          <span>{{ featured_episode.host }}{% if featured_episode.cohost %} &amp; {{ featured_episode.cohost }}{% endif %}</span>
-          <span>{{ featured_episode.guest }}</span>
-        </div>
-        <div class="episode-tags-row">
-          {% for tag in featured_episode.tag.all %}
-          <span class="episode-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        <div class="hero-cta-group" style="margin-top:24px; margin-bottom:0;">
-          <a href="{% url 'episode_detail' slug=featured_episode.slug %}" class="btn-primary-custom">
-            Listen now <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="{% url 'episode_list' %}" class="btn-secondary-custom">
-            Browse archive <i class="bi bi-grid"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    {% else %}
-    <div class="featured-episode-empty">
-      <h3>No published episodes yet.</h3>
-      <p>Publish the first release to turn this section into a featured listening experience.</p>
-    </div>
-    {% endif %}
-  </div>
-</section>
-
-<!-- ===== GET INVOLVED ===== -->
-<section class="conversion-section">
-  <div class="container">
-    <div class="section-header mb-4">
-      <span class="section-eyebrow">Get involved</span>
-      <h2 class="section-title" style="color:var(--text-primary);">Guest nominations and sponsorship live on the support page</h2>
-      <div class="divider"></div>
-      <p style="max-width:720px; color:var(--text-secondary);">Move into the support hub for the full guest nomination form, sponsor interest form, and other ways to back the show.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <a class="support-card support-card-link" href="{% url 'support_us' %}#guest-nomination">
-          <div style="font-size:2.5rem; color:var(--accent); margin-bottom:16px;">🎙️</div>
-          <h2>Nominate a guest</h2>
-          <p>Send us the person, project, or organization you want featured on Geospatially Africa.</p>
-          <ul>
-            <li>Community experts</li>
-            <li>Researchers and founders</li>
-            <li>Public sector voices</li>
-          </ul>
-          <span class="support-card-link-text">Go to support page <i class="bi bi-arrow-right ms-1"></i></span>
-        </a>
-      </div>
-      <div class="col-lg-6">
-        <a class="support-card support-card-link" href="{% url 'support_us' %}#sponsor-interest">
-          <div style="font-size:2.5rem; color:var(--accent); margin-bottom:16px;">🤝</div>
-          <h2>Sponsor the show</h2>
-          <p>Explore sponsorship, partnership, and community support options on the support page.</p>
-          <ul>
-            <li>Episode sponsorship</li>
-            <li>Community partnerships</li>
-            <li>Brand collaboration</li>
-          </ul>
-          <span class="support-card-link-text">Go to support page <i class="bi bi-arrow-right ms-1"></i></span>
-        </a>
-      </div>
+    <div class="platform-links hero-platform-row">
+      <a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank" rel="noreferrer">
+        <i class="bi bi-spotify"></i>Spotify
+      </a>
+      <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank" rel="noreferrer">
+        <i class="bi bi-apple"></i>Apple Podcasts
+      </a>
+      <a href="https://www.youtube.com/channel/UCh27HyKTvXvofv1TiPhcSpA" target="_blank" rel="noreferrer">
+        <i class="bi bi-youtube"></i>YouTube
+      </a>
+      <a href="https://anchor.fm/s/4d881ba0/podcast/rss" target="_blank" rel="noreferrer">
+        <i class="bi bi-rss"></i>RSS
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ===== LATEST EPISODES ===== -->
-<section class="latest-episodes-section">
+<section class="section section-border-top">
   <div class="container">
-    <div class="row g-5">
+    <span class="eyebrow">Fresh from the mic</span>
+    <h2 class="section-heading">Latest <em>Episodes</em></h2>
 
-      <!-- Main Episodes List -->
-      <div class="col-lg-8">
-        <div class="section-header mb-4">
-          <span class="section-eyebrow">Fresh from the mic</span>
-          <h2 class="section-title" style="color:var(--text-primary);">Latest Episodes</h2>
-          <div class="divider"></div>
-        </div>
-
-        {% for episode in episodes %}
-        <a href="{% url 'episode_detail' slug=episode.slug %}" style="display:block; text-decoration:none;">
-          <div class="episode-list-card">
-            <div class="ep-number">S{{ episode.season }}<br>E{{ episode.episode }}</div>
-            <div style="flex:1;">
-              <h4>{{ episode.title }}</h4>
-              <div class="ep-meta">
-                {{ episode.host }}{% if episode.cohost %} &amp; {{ episode.cohost }}{% endif %} · {{ episode.guest }}
-                &nbsp;·&nbsp; <time>{{ episode.published_date|date:"M Y" }}</time>
-                &nbsp;·&nbsp;
-                {% for tag in episode.tag.all %}
-                  <span class="episode-tags">{{ tag }}</span>
-                {% endfor %}
-              </div>
-              <p style="font-size:0.88rem; color:var(--text-secondary); margin-top:6px; margin-bottom:0;">{{ episode.summary|truncatechars:120 }}</p>
-            </div>
-            <div class="d-flex align-items-center" style="color:var(--accent);">
-              <i class="bi bi-arrow-right"></i>
-            </div>
-          </div>
-        </a>
-        {% endfor %}
-
-        <div class="text-center mt-4">
-          <a href="{% url 'episode_list' %}" class="btn-outline-crimson">
-            View All Episodes <i class="bi bi-arrow-right ms-2"></i>
-          </a>
-        </div>
+    {% for episode in episodes %}
+    <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-row">
+      <div class="episode-row-meta meta-line">
+        S{{ episode.season }} · E{{ episode.episode }} <span class="sep">·</span> <time>{{ episode.published_date|date:"M j, Y" }}</time>
       </div>
-
-      <!-- Sidebar -->
-      <div class="col-lg-4">
-        <div class="position-sticky" style="top: 88px;">
-
-          <!-- Listen On -->
-          <div class="sidebar-widget">
-            <h5>Listen On</h5>
-            <a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank" class="sidebar-platform-link">
-              <span><i class="bi bi-apple me-2"></i>Apple Podcasts</span>
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-            <a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank" class="sidebar-platform-link">
-              <span><i class="bi bi-spotify me-2"></i>Spotify</span>
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-            <a href="https://anchor.fm/geospatiallyafrica" target="_blank" class="sidebar-platform-link">
-              <span><i class="bi bi-broadcast me-2"></i>Anchor</span>
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/UCh27HyKTvXvofv1TiPhcSpA" target="_blank" class="sidebar-platform-link">
-              <span><i class="bi bi-youtube me-2"></i>YouTube</span>
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-          </div>
-
-          <!-- Tags -->
-          <div class="sidebar-widget">
-            <h5>Browse by Topic</h5>
-            <div class="tags-cloud">
-              {% for tag in tags %}
-              <a class="episode-tags" href="{% url 'tags' %}?tag={{ tag }}">{{ tag }}</a>
-              {% endfor %}
-            </div>
-          </div>
-
-          <!-- Follow -->
-          <div class="sidebar-widget" style="background:var(--navy); border-radius:var(--radius-lg); padding:24px; border:none;">
-            <h5 style="color:white; border-color:rgba(255,255,255,0.15);">Follow Us</h5>
-            <a href="https://twitter.com/geospatialy?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @geospatialy</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
-
-        </div>
+      <span class="episode-row-title">{{ episode.title }}</span>
+      <p class="episode-row-summary">{{ episode.summary|truncatechars:140 }}</p>
+      {% if episode.tag.all %}
+      <div class="episode-row-tags">
+        {% for tag in episode.tag.all %}<span class="tag-link">{{ tag }}</span>{% endfor %}
       </div>
+      {% endif %}
+    </a>
+    {% empty %}
+    <p>No published episodes yet.</p>
+    {% endfor %}
 
+    <div style="margin-top: var(--space-5);">
+      <a href="{% url 'episode_list' %}" class="link-arrow">All episodes <i class="bi bi-arrow-right"></i></a>
     </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT STRIP ===== -->
+<section class="section section-border-top">
+  <div class="container" style="max-width: 720px;">
+    <span class="eyebrow">About the show</span>
+    <h2 class="section-heading">A platform for Africa's geospatial <em>voices</em></h2>
+    <p class="lede">Geospatially Africa is a podcast and media platform showcasing African talent, innovation, and expertise across GIS, remote sensing, drones, and machine learning. Every episode is a free, open resource for the community.</p>
+    <a href="{% url 'about_us' %}" class="link-arrow">More about the show <i class="bi bi-arrow-right"></i></a>
   </div>
 </section>
 

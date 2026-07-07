@@ -3,41 +3,33 @@
 {% block title %}Drafts - Geospatially Africa{% endblock %}
 
 {% block content %}
-<div class="page-hero" style="padding:48px 0 36px;">
-  <span class="section-eyebrow">Admin</span>
-  <h1 style="font-size:2.2rem;">Draft Episodes</h1>
+<div class="container page-hero">
+  <span class="eyebrow">Admin</span>
+  <h1>Draft <em>Episodes</em></h1>
   <p>Episodes pending publication.</p>
 </div>
 
-<section style="padding:48px 0;">
+<section class="section section-border-top">
   <div class="container">
     {% if episodes %}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      {% for episode in episodes %}
-      <div class="col">
-        <div class="episode-card" style="border-left:4px solid var(--text-secondary);">
-          <div class="episode-card-meta">
-            <span class="meta-badge" style="background:#e8e8e8; color:#666;">DRAFT</span>
-            <span class="meta-badge season">S{{ episode.season }}</span>
-            <span class="meta-badge">EP {{ episode.episode }}</span>
-          </div>
-          <div class="episode-card-body">
-            <h4>{{ episode.title }}</h4>
-            <p class="summary">{{ episode.summary|truncatechars:120 }}</p>
-            <div class="d-flex gap-2 mt-3">
-              <a href="{% url 'episode_detail' slug=episode.slug %}" class="btn btn-sm btn-outline-secondary">View</a>
-              <a href="{% url 'episode_edit' slug=episode.slug %}" class="btn btn-sm btn-success">Edit</a>
-              <a href="{% url 'episode_publish' slug=episode.slug %}" class="btn btn-sm btn-primary">Publish</a>
-            </div>
-          </div>
-        </div>
+    {% for episode in episodes %}
+    <div class="episode-row">
+      <div class="episode-row-meta meta-line">
+        DRAFT <span class="sep">·</span> S{{ episode.season }} · E{{ episode.episode }}
       </div>
-      {% endfor %}
+      <span class="episode-row-title">{{ episode.title }}</span>
+      <p class="episode-row-summary">{{ episode.summary|truncatechars:120 }}</p>
+      <div class="d-flex gap-2 mt-3">
+        <a href="{% url 'episode_detail' slug=episode.slug %}" class="btn btn-sm btn-outline-secondary">View</a>
+        <a href="{% url 'episode_edit' slug=episode.slug %}" class="btn btn-sm btn-success">Edit</a>
+        <a href="{% url 'episode_publish' slug=episode.slug %}" class="btn btn-sm btn-primary">Publish</a>
+      </div>
     </div>
+    {% endfor %}
     {% else %}
     <div class="no-result">
-      <i class="bi bi-inbox" style="font-size:3rem; color:var(--border); display:block; margin-bottom:16px;"></i>
-      <p>No draft episodes. <a href="{% url 'new_episode' %}">Create a new one →</a></p>
+      <i class="bi bi-inbox" style="font-size:2.5rem; display:block; margin-bottom:16px;"></i>
+      <p>No draft episodes. <a href="{% url 'new_episode' %}" class="link-arrow">Create a new one <i class="bi bi-arrow-right"></i></a></p>
     </div>
     {% endif %}
   </div>

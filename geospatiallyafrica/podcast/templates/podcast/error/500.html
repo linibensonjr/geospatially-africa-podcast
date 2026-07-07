@@ -1,1 +1,11 @@
-<h1 style="text-align: center; margin: auto;">Server Error</h1>
+{% extends 'podcast/base.html' %}
+{% block title %}Server Error - Geospatially Africa{% endblock %}
+
+{% block content %}
+<div class="container error-page">
+  <span class="eyebrow">500</span>
+  <h1>Something went <em>wrong</em></h1>
+  <p>We hit a server error on our end. Please try again shortly.</p>
+  <a href="{% url 'home' %}" class="link-arrow">Back to homepage <i class="bi bi-arrow-right"></i></a>
+</div>
+{% endblock %}

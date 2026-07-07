@@ -5,33 +5,33 @@
 {% block content %}
 
 <!-- ===== HERO ===== -->
-<div class="page-hero">
-  <span class="section-eyebrow">Help us grow</span>
-  <h1>Support Geospatially Africa</h1>
+<div class="container page-hero">
+  <span class="eyebrow">Help us grow</span>
+  <h1>Support Geospatially <em>Africa</em></h1>
   <p>Back the flagship podcast, nominate guests, and open doors for sponsorships, partnerships, and community collaborations.</p>
 </div>
 
 <!-- ===== SUPPORT SUMMARY ===== -->
-<section style="padding:64px 0; background:var(--white);">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="support-card support-summary-card">
-          <div style="font-size:2rem; color:var(--accent); margin-bottom:14px;">🎧</div>
+<section class="section section-border-top">
+  <div class="container" style="max-width: 800px;">
+    <div class="support-row">
+      <div class="support-item">
+        <span class="support-item-index mono">01</span>
+        <div>
           <h2>Listen, share, subscribe</h2>
           <p>Every episode helps document how spatial technology is shaping Africa's future.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="support-card support-summary-card">
-          <div style="font-size:2rem; color:var(--accent); margin-bottom:14px;">🎙️</div>
+      <div class="support-item">
+        <span class="support-item-index mono">02</span>
+        <div>
           <h2>Nominate great guests</h2>
           <p>Use the guest form below to recommend voices worth hearing in the African geospatial ecosystem.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="support-card support-summary-card">
-          <div style="font-size:2rem; color:var(--accent); margin-bottom:14px;">🤝</div>
+      <div class="support-item">
+        <span class="support-item-index mono">03</span>
+        <div>
           <h2>Explore sponsorship</h2>
           <p>Reach our community through sponsorship, partnerships, and strategic collaborations.</p>
         </div>
@@ -41,12 +41,12 @@
 </section>
 
 <!-- ===== FORMS ===== -->
-<section style="padding:0 0 80px; background:var(--white);">
+<section class="section section-border-top">
   <div class="container">
-    <div class="row g-4 align-items-stretch">
+    <div class="row g-5">
       <div class="col-lg-6" id="guest-nomination">
-        <div class="support-card support-form-card">
-          <span class="section-eyebrow">Community input</span>
+        <div class="support-form-block">
+          <span class="eyebrow">Community input</span>
           <h2>Guest nomination form</h2>
           <p>Recommend a guest, or nominate yourself if you have a story, project, or insight worth sharing.</p>
           <form action="https://send.pageclip.co/lU7Q4qMBmw2ash6xfrCNghkdNvskoCK0/GeospatiallyAfricaPodcast" class="pageclip-form stacked-form" method="post">
@@ -68,16 +68,16 @@
                 <textarea name="details" class="form-control" rows="5" placeholder="Tell us why this guest matters and what perspective they bring." required></textarea>
               </div>
             </div>
-            <button type="submit" class="pageclip-form__submit btn-crimson mt-3">Submit guest nomination</button>
+            <button type="submit" class="pageclip-form__submit btn btn-primary mt-3">Submit guest nomination</button>
           </form>
         </div>
       </div>
 
       <div class="col-lg-6" id="sponsor-interest">
-        <div class="support-card support-form-card">
-          <span class="section-eyebrow">Partnerships</span>
+        <div class="support-form-block">
+          <span class="eyebrow">Partnerships</span>
           <h2>Sponsor interest form</h2>
-          <p>Tell us what kind of sponsorship or partnership you're exploring, and we’ll follow up with the right next step.</p>
+          <p>Tell us what kind of sponsorship or partnership you're exploring, and we'll follow up with the right next step.</p>
           <form action="https://send.pageclip.co/lU7Q4qMBmw2ash6xfrCNghkdNvskoCK0/GeospatiallyAfricaPodcast" class="pageclip-form stacked-form" method="post">
             <input type="hidden" name="form_type" value="sponsor_interest">
             <div class="row g-3">
@@ -97,23 +97,19 @@
                 <textarea name="details" class="form-control" rows="5" placeholder="Share your goals, audience, timing, or any campaign notes." required></textarea>
               </div>
             </div>
-            <button type="submit" class="pageclip-form__submit btn-crimson mt-3">Submit sponsor interest</button>
+            <button type="submit" class="pageclip-form__submit btn btn-primary mt-3">Submit sponsor interest</button>
           </form>
         </div>
       </div>
 
       <div class="col-12">
-        <div class="support-card support-form-card support-extra-card">
-          <span class="section-eyebrow">Other ways to help</span>
+        <div class="support-form-block" style="border-top: 1px solid var(--border); padding-top: var(--space-6);">
+          <span class="eyebrow">Other ways to help</span>
           <h2>Want to support the show another way?</h2>
-          <p>If you want to help with production, distribution, or community reach, we’d still like to hear from you.</p>
-          <div class="hero-cta-group" style="margin-bottom:0;">
-            <a href="mailto:gspatially@gmail.com" class="btn-primary-custom">
-              Email the team <i class="bi bi-envelope ms-1"></i>
-            </a>
-            <a href="{% url 'home' %}" class="btn-secondary-custom" style="color:var(--text-primary); border-color:var(--border);">
-              Back to homepage <i class="bi bi-house ms-1"></i>
-            </a>
+          <p>If you want to help with production, distribution, or community reach, we'd still like to hear from you.</p>
+          <div style="display:flex; gap: var(--space-6); flex-wrap: wrap;">
+            <a href="mailto:gspatially@gmail.com" class="link-arrow">Email the team <i class="bi bi-arrow-right"></i></a>
+            <a href="{% url 'home' %}" class="link-arrow">Back to homepage <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
       </div>
