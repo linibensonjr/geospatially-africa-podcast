@@ -1,1 +1,18 @@
-<h1 style="text-align: center; margin: auto;">Page not found</h1>
+{% extends 'podcast/base.html' %}
+{% load static %}
+{% block title %}Page Not Found - Geospatially Africa{% endblock %}
+
+{% block content %}
+<section class="error-page">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container text-center">
+    <div class="error-page-code">404</div>
+    <h1>Lost signal</h1>
+    <p>The page you're looking for doesn't exist or may have moved. Let's get you back on air.</p>
+    <a href="{% url 'home' %}" class="btn-primary-custom">
+      Back to Homepage <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+</section>
+{% endblock %}

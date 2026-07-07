@@ -21,7 +21,7 @@
       <span>/</span>
       <span>Season {{ ep.season }}, Episode {{ ep.episode }}</span>
     </div>
-    <div class="row">
+    <div class="row align-items-center g-4">
       <div class="col-lg-8">
         <div class="episode-detail-meta">
           <span class="meta-badge season">Season {{ ep.season }}</span>
@@ -32,11 +32,16 @@
           {% endfor %}
         </div>
         <h1 class="episode-detail-title">{{ ep.title }}</h1>
-        <p style="font-size:0.95rem; opacity:0.8;">
+        <p style="font-size:0.95rem; opacity:0.8; position:relative;">
           Hosted by <strong>{{ ep.host }}</strong>{% if ep.cohost %} &amp; <strong>{{ ep.cohost }}</strong>{% endif %}
           &nbsp;·&nbsp; Guest: <strong>{{ ep.guest }}</strong>
         </p>
       </div>
+      {% if ep.episode_image %}
+      <div class="col-lg-4 text-center text-lg-end" style="position:relative;">
+        <img src="{{ ep.episode_image.url }}" alt="{{ ep.title }}" class="episode-detail-cover">
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>

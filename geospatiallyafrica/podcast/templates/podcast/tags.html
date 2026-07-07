@@ -16,6 +16,14 @@
       {% for episode in episode_list %}
       <div class="col">
         <div class="episode-card">
+          <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-media">
+            {% if episode.episode_image %}
+            <img src="{{ episode.episode_image.url }}" alt="{{ episode.title }}">
+            {% else %}
+            <div class="episode-card-media-placeholder"><i class="bi bi-mic-fill"></i></div>
+            {% endif %}
+            <span class="episode-card-play"><i class="bi bi-play-fill"></i></span>
+          </a>
           <div class="episode-card-meta">
             <span class="meta-badge season">S{{ episode.season }}</span>
             <span class="meta-badge">EP {{ episode.episode }}</span>

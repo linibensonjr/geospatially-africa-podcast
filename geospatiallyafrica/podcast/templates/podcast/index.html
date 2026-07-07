@@ -8,6 +8,8 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero-home">
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
   <div class="container" style="position:relative; z-index:1;">
     <div class="row align-items-center g-5">
 
@@ -18,14 +20,17 @@
 
         <div class="hero-answer-grid">
           <div class="hero-answer-card">
+            <i class="bi bi-broadcast"></i>
             <span>What is it?</span>
             <p>A podcast and media platform about geospatial innovation across Africa.</p>
           </div>
           <div class="hero-answer-card">
+            <i class="bi bi-people"></i>
             <span>Who is it for?</span>
             <p>Practitioners, students, founders, researchers, policymakers, and curious builders.</p>
           </div>
           <div class="hero-answer-card">
+            <i class="bi bi-lightbulb"></i>
             <span>Why subscribe?</span>
             <p>To get sharp insights, discover new voices, and stay ahead of Africa's spatial story.</p>
           </div>
@@ -94,7 +99,11 @@
     {% for episode in episodes %}
     <a href="{% url 'episode_detail' slug=episode.slug %}" style="display:block; text-decoration:none;">
       <div class="episode-list-card">
+        {% if episode.episode_image %}
+        <img src="{{ episode.episode_image.url }}" alt="{{ episode.title }}" class="ep-thumb">
+        {% else %}
         <div class="ep-number">S{{ episode.season }}<br>E{{ episode.episode }}</div>
+        {% endif %}
         <div style="flex:1;">
           <h4>{{ episode.title }}</h4>
           <div class="ep-meta">
@@ -107,7 +116,7 @@
           </div>
           <p style="font-size:0.88rem; color:var(--text-secondary); margin-top:6px; margin-bottom:0;">{{ episode.summary|truncatechars:120 }}</p>
         </div>
-        <div class="d-flex align-items-center" style="color:var(--accent);">
+        <div class="ep-arrow">
           <i class="bi bi-arrow-right"></i>
         </div>
       </div>
