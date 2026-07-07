@@ -620,3 +620,16 @@ footer { background: var(--navy); }
 }
 .yt-embed-iframe-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-md); overflow: hidden; }
 .yt-embed-iframe-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* ===== HOMEPAGE: LATEST VIDEOS / TOPICS / ABOUT STRIP (Task 2) ===== */
+.mono { font-family: var(--font-mono); }
+.videos-section { padding: 84px 0; background: var(--surface); }
+.videos-section .ep-meta { font-size: 0.78rem; color: var(--text-muted); }
+.topics-section { padding: 56px 0; background: var(--white); }
+.about-strip-section { padding: 72px 0; background: var(--white); border-top: 1px solid var(--border); }
+.text-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 0.9rem; color: var(--accent);
+  transition: gap var(--transition);
+}
+.text-link:hover { color: var(--accent-dark); gap: 10px; }

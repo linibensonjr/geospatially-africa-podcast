@@ -6,7 +6,6 @@ from .models import Hosts, Tags, Episode, Subscriber
 from .forms import EpisodeForm
 from django.utils import timezone
 from django.http import HttpResponse, JsonResponse
-from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView
 from cloudinary.forms import cl_init_js_callbacks
@@ -22,14 +21,16 @@ import requests
 
 
 def index(request):
-    episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    paginator = Paginator(episode, 4)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    featured_episode = episode.first()
-    # List all tags on sidebar
+    now = timezone.now()
+    published = Episode.objects.filter(published_date__lte=now).order_by('-published_date')
+    episodes = published[:4]
+    latest_videos = published.exclude(youtube__isnull=True).exclude(youtube='')[:2]
     tags = Tags.objects.all()
-    return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags, 'featured_episode': featured_episode})
+    return render(request, 'podcast/index.html', {
+        'episodes': episodes,
+        'latest_videos': latest_videos,
+        'tags': tags,
+    })
 
 def episode_list(request):
     episodes_tags = Episode.objects.prefetch_related('tags').all()
