@@ -4,212 +4,155 @@
 
 {% block content %}
 
-<!-- ===== ABOUT HERO ===== -->
-<div class="about-hero">
-  <span class="section-eyebrow" style="color:rgba(255,255,255,0.35); margin-bottom:16px; display:block; position:relative;">Who we are</span>
-  <h1>About Geospatially Africa</h1>
-  <p>Africa's premier platform for geospatial conversations - from GIS and drones to machine learning and beyond.</p>
-</div>
-
-<!-- ===== MISSION ===== -->
-<section style="padding:80px 0; background:var(--white);">
+<!-- ===== STORY HERO ===== -->
+<section style="padding:100px 0 72px; background:var(--white);">
   <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-5">
-        <span class="section-eyebrow">Our Mission</span>
-        <h2 style="color:var(--text-primary); margin-bottom:20px; font-size:2rem;">Driving the African Geospatial Narrative</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="col-lg-7">
-        <p style="font-size:1.05rem; line-height:1.9; color:var(--text-secondary);">
-          Geospatially Africa started in April 2021 as "Geospatially Podcast" before evolving into what it is today - a dedicated platform for meaningful conversations about the geospatial industry in Africa and around the world.
-        </p>
-        <p style="font-size:1.05rem; line-height:1.9; color:var(--text-secondary); margin-top:16px;">
-          As one of the very few media outlets showcasing Afro-centric geospatial talent, expertise, and innovation on a global stage, we drive the narrative around the immense potential within Africa's geospatial ecosystem - and how it contributes to the continent's individual and collective development.
-        </p>
-      </div>
+    <div class="tags-cloud mb-4">
+      <span class="episode-tags">GIS</span>
+      <span class="episode-tags">Remote Sensing</span>
+      <span class="episode-tags">Drones</span>
+      <span class="episode-tags">Machine Learning</span>
     </div>
+    <span class="section-eyebrow">Who we are</span>
+    <h1 style="font-size:clamp(2.4rem, 5vw, 3.6rem); color:var(--text-primary); max-width:820px; margin-bottom:20px;">
+      A podcast built to carry Africa's geospatial story to the world
+    </h1>
+    <p style="font-size:1.1rem; max-width:640px; margin-bottom:32px;">
+      Geospatially Africa started in April 2021 as "Geospatially Podcast" before evolving into a dedicated platform for meaningful conversations about the geospatial industry in Africa and around the world.
+    </p>
+    <a href="{% url 'episode_list' %}" class="btn-primary-custom">
+      Explore Episodes <i class="bi bi-arrow-right"></i>
+    </a>
   </div>
 </section>
 
-<!-- ===== WHAT WE BELIEVE ===== -->
-<section style="padding:80px 0; background:var(--surface);">
+<!-- ===== WHAT WE DO / OUR APPROACH / OUR MISSION ===== -->
+<section style="padding:16px 0; background:var(--white);">
   <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-eyebrow">What we believe</span>
-      <h2 style="color:var(--text-primary);">Our Values</h2>
-      <div class="divider mx-auto"></div>
-    </div>
-    <div class="about-values">
-      <div class="value-card">
-        <i class="bi bi-globe-americas"></i>
-        <h4>African Voices First</h4>
-        <p>We centre African perspectives in the global geospatial conversation, platforming talent, innovation, and expertise from the continent.</p>
+
+    <div class="story-row">
+      <div class="story-row-media">
+        <img src="{% static 'img/podcast_art.jpg' %}" alt="Geospatially Africa Podcast">
       </div>
-      <div class="value-card">
-        <i class="bi bi-lightbulb"></i>
-        <h4>Knowledge Sharing</h4>
-        <p>Every episode is a free resource. We believe open access to industry knowledge accelerates growth for the entire community.</p>
-      </div>
-      <div class="value-card">
-        <i class="bi bi-people"></i>
-        <h4>Community Driven</h4>
-        <p>Built by the community, for the community. Our guests are nominated by listeners, our topics shaped by what matters most.</p>
+      <div class="story-row-content">
+        <span class="section-eyebrow">What we do</span>
+        <h2 style="color:var(--text-primary);">Conversations that showcase the continent's geospatial talent</h2>
+        <p>We are Africa's premier platform for geospatial conversations - from GIS and drones to machine learning and beyond. As one of the very few media outlets showcasing Afro-centric geospatial talent, expertise, and innovation on a global stage, we drive the narrative around the immense potential within Africa's geospatial ecosystem.</p>
       </div>
     </div>
+
+    <div class="story-row reverse">
+      <div class="story-row-media">
+        <img src="https://res.cloudinary.com/linibenson/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662934329/geospatiallyafricapodcast/static/geospatiallyafrica_countries_e1spac.png" alt="Geospatially Africa Podcast listener map">
+      </div>
+      <div class="story-row-content">
+        <span class="section-eyebrow">Our approach</span>
+        <h2 style="color:var(--text-primary);">African voices first, open to everyone</h2>
+        <p>We centre African perspectives in the global geospatial conversation, platforming talent, innovation, and expertise from the continent. Every episode is a free resource - we believe open access to industry knowledge accelerates growth for the entire community. It's built by the community, for the community: our guests are nominated by listeners, our topics shaped by what matters most.</p>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="story-row-media">
+        <img src="{% static 'img/gp.png' %}" alt="Geospatially Africa" style="background:var(--navy); padding:48px;">
+      </div>
+      <div class="story-row-content">
+        <span class="section-eyebrow">Our mission</span>
+        <h2 style="color:var(--text-primary);">Driving the African geospatial narrative</h2>
+        <p>Geospatially Africa exists to drive the narrative around the immense potential within Africa's geospatial ecosystem - and how it contributes to the continent's individual and collective development, one conversation at a time.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ===== STATS ===== -->
-<section style="padding:80px 0; background:var(--white);">
+<section class="stats-band">
   <div class="container">
-    <div class="row g-4 justify-content-center">
-      <div class="col-6 col-md-3">
-        <div class="stat-block">
-          <i class="bi bi-mic"></i>
-          <h3>{{ count }}+</h3>
-          <p>Episodes</p>
-        </div>
+    <div class="stats-band-grid">
+      <div class="stats-band-item">
+        <div class="num">{{ count }}</div>
+        <div class="label">Episodes Published</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-block">
-          <i class="bi bi-people"></i>
-          <h3>400+</h3>
-          <p>Subscribers</p>
-        </div>
+      <div class="stats-band-item">
+        <div class="num">{{ season_count }}</div>
+        <div class="label">Seasons</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-block">
-          <i class="bi bi-headphones"></i>
-          <h3>2,000+</h3>
-          <p>Listens</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-block">
-          <i class="bi bi-globe-africa"></i>
-          <h3>67+</h3>
-          <p>Countries</p>
-        </div>
+      <div class="stats-band-item">
+        <div class="num">{{ guest_count }}</div>
+        <div class="label">Guests Featured</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== OUR JOURNEY ===== -->
-<section style="padding:80px 0; background:var(--surface);">
+<!-- ===== MEET THE HOSTS ===== -->
+<section style="padding:64px 0 16px; background:var(--white);">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-4">
-        <span class="section-eyebrow">Our Journey</span>
-        <h2 style="color:var(--text-primary); font-size:1.8rem;">From a microphone &amp; an idea to Africa's geospatial voice</h2>
-        <div class="divider"></div>
-        <p style="font-size:0.92rem;">A timeline of key milestones in the Geospatially Africa story.</p>
-      </div>
-      <div class="col-lg-7 offset-lg-1">
-        <div class="about-timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">APR 2021</div>
-            <h4>The First Episode</h4>
-            <p>Launched as "Geospatially Podcast" with a single microphone and a mission to showcase Africa's geospatial community.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">AUG 2021</div>
-            <h4>Rebranded to Geospatially Africa</h4>
-            <p>Pivoted the name and focus to be explicitly Africa-centric, reflecting our core mission of driving the continent's narrative.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2022</div>
-            <h4>Growing the Community</h4>
-            <p>Reached listeners in 50+ countries and welcomed Opeyemi as co-host, bringing expertise in disaster risk reduction and geo-hazard mapping.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2023</div>
-            <h4>67+ Countries &amp; Counting</h4>
-            <p>Expanded to 67+ countries worldwide. Featured guests from organisations across the African and global geospatial ecosystem.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2024 - PRESENT</div>
-            <h4>Still Going Strong</h4>
-            <p>Continuing to amplify African geospatial stories, with {{ count }}+ episodes published and a growing community of listeners, contributors, and sponsors.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== HOSTS ===== -->
-<section style="padding:80px 0; background:var(--white);">
-  <div class="container">
-    <div class="text-center mb-5">
+    <div class="text-center mb-4">
       <span class="section-eyebrow">The people behind the mic</span>
       <h2 style="color:var(--text-primary);">Meet the Hosts</h2>
       <div class="divider mx-auto"></div>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center" style="max-width:760px; margin:0 auto;">
-      <div class="col">
-        <div class="host-card">
-          <img src="https://res.cloudinary.com/linibenson/image/upload/v1735949854/geospatiallyafricapodcast/guest_image/iniobong_mketmx.jpg" alt="Iniobong Benson">
-          <div class="host-card-body">
-            <h5>Iniobong Benson</h5>
-            <p style="font-size:0.82rem; color:var(--accent); font-weight:600; margin-bottom:8px;">Founder & Host</p>
-            <p>Geospatial analyst and earth observation specialist with an MSc from the University of Tartu &amp; ITC, University of Twente. Works at the intersection of remote sensing, hydrological modelling, and spatial data science with a focus on Africa.</p>
-          </div>
-          <div class="host-social">
-            <a href="https://twitter.com/linibenson"><i class="bi bi-twitter"></i></a>
-            <a href="https://github.com/linibensonjr"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/linibenson/"><i class="bi bi-linkedin"></i></a>
+
+    {% for item in hosts %}
+    <div class="host-profile{% cycle '' ' reverse' %}">
+      <div class="host-profile-photo">
+        {% if item.host.image %}
+        <img src="{{ item.host.image.url }}" alt="{{ item.host.name }}">
+        {% elif item.host.name == "Iniobong Benson" %}
+        <img src="{% static 'img/iniobong.jpg' %}" alt="{{ item.host.name }}">
+        {% elif item.host.name == "Opeyemi Kazeem-Jimoh" %}
+        <img src="{% static 'img/ope.jpg' %}" alt="{{ item.host.name }}">
+        {% else %}
+        <img src="{% static 'img/guest-icon.jpg' %}" alt="{{ item.host.name }}">
+        {% endif %}
+      </div>
+      <div class="host-profile-content">
+        <h3 style="color:var(--text-primary); font-size:1.6rem;">{{ item.host.name }}</h3>
+        {% if item.host.location %}
+        <div class="host-profile-location">{{ item.host.location }}</div>
+        {% endif %}
+        <p>{{ item.host.bio|safe }}</p>
+
+        {% if item.host.linkedin or item.host.twitter %}
+        <div class="host-profile-social">
+          {% if item.host.twitter %}
+          <a href="{{ item.host.twitter }}" target="_blank" rel="noreferrer"><i class="bi bi-twitter"></i></a>
+          {% endif %}
+          {% if item.host.linkedin %}
+          <a href="{{ item.host.linkedin }}" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i></a>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if item.episodes %}
+        <div class="mt-3">
+          <span class="section-eyebrow" style="margin-bottom:10px;">Episodes hosted</span>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            {% for ep in item.episodes %}
+            <div class="col">
+              <div class="episode-card">
+                <div class="episode-card-meta">
+                  <span class="meta-badge season">S{{ ep.season }}</span>
+                  <span class="meta-badge">EP {{ ep.episode }}</span>
+                </div>
+                <div class="episode-card-body">
+                  <h4>{{ ep.title }}</h4>
+                  <p class="summary">{{ ep.summary|truncatechars:90 }}</p>
+                  <a href="{% url 'episode_detail' slug=ep.slug %}" class="episode-card-link">
+                    Listen <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="host-card">
-          <img src="{% static 'img/ope.jpg' %}" alt="Opeyemi Kazeem-Jimoh">
-          <div class="host-card-body">
-            <h5>Opeyemi Kazeem-Jimoh</h5>
-            <p style="font-size:0.82rem; color:var(--accent); font-weight:600; margin-bottom:8px;">Co-host</p>
-            <p>Geospatial Data Analyst and Cartographer with interests in disaster risk reduction through geo-hazard mapping, GIS for business, and promoting sustainable futures across Africa.</p>
-          </div>
-          <div class="host-social">
-            <a href="https://twitter.com/oluremi_opeyemi"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
+        {% endif %}
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== REACH MAP ===== -->
-<section style="padding:80px 0; background:var(--surface);">
-  <div class="container text-center">
-    <span class="section-eyebrow">Our Reach</span>
-    <h2 style="color:var(--text-primary); margin-bottom:8px;">Listeners Across the Globe</h2>
-    <div class="divider mx-auto mb-4"></div>
-    <p style="max-width:520px; margin:0 auto 48px; color:var(--text-secondary);">From Lagos to London, Nairobi to New York - our community of geospatial enthusiasts spans 67+ countries.</p>
-    <div class="podcast-countries">
-      <img src="https://res.cloudinary.com/linibenson/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662934329/geospatiallyafricapodcast/static/geospatiallyafrica_countries_e1spac.png" alt="Geospatially Africa Podcast listener map">
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA ===== -->
-<section style="padding:80px 0; background:var(--navy); text-align:center;">
-  <div class="container">
-    <div style="max-width:600px; margin:0 auto;">
-      <span class="section-eyebrow" style="color:rgba(255,255,255,0.35);">Get involved</span>
-      <h2 style="color:var(--white); font-size:2rem; margin-bottom:16px;">Want to be on the show?</h2>
-      <p style="color:rgba(255,255,255,0.5); margin-bottom:32px;">We're always looking for guests with compelling stories from the geospatial industry. If you're doing interesting work in Africa or beyond, we'd love to hear from you.</p>
-      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank" class="btn-primary-custom">
-          Become a Guest <i class="bi bi-arrow-right ms-1"></i>
-        </a>
-        <a href="{% url 'support_us' %}" class="btn-secondary-custom">
-          Support Us <i class="bi bi-heart ms-1"></i>
-        </a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </section>
 

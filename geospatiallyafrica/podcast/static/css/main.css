@@ -699,3 +699,40 @@ footer { background: var(--navy); }
   .detail-row { flex-direction: column; gap: 10px; }
   .detail-row-label { flex: none; }
 }
+
+/* ===== ABOUT PAGE: STORY ROWS, STATS BAND, HOST PROFILES (Task 5) ===== */
+.story-row { display: flex; align-items: center; gap: 56px; padding: 56px 0; border-bottom: 1px solid var(--border); }
+.story-row.reverse { flex-direction: row-reverse; }
+.story-row-media { flex: 0 0 42%; }
+.story-row-media img { width: 100%; height: 280px; border-radius: var(--radius-lg); object-fit: cover; }
+.story-row-content { flex: 1; min-width: 0; }
+.story-row-content h2 { font-size: 1.6rem; margin: 10px 0 14px; }
+.story-row-content p { font-size: 0.98rem; }
+
+.stats-band { padding: 64px 0; background: var(--surface); }
+.stats-band-grid { display: flex; flex-wrap: wrap; gap: 48px; justify-content: center; text-align: center; }
+.stats-band-item .num { font-family: var(--font-mono); font-size: 2.6rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+.stats-band-item .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 8px; }
+
+.host-profile { display: flex; align-items: flex-start; gap: 48px; padding: 56px 0; border-bottom: 1px solid var(--border); }
+.host-profile.reverse { flex-direction: row-reverse; }
+.host-profile-photo { flex: 0 0 240px; }
+.host-profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-lg); }
+.host-profile-content { flex: 1; min-width: 0; }
+.host-profile-location {
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em; margin: 8px 0 16px;
+}
+.host-profile-social { display: flex; gap: 10px; margin: 4px 0 8px; }
+.host-profile-social a {
+  width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--surface);
+  display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all var(--transition);
+}
+.host-profile-social a:hover { background: var(--navy); color: var(--white); }
+
+@media (max-width: 767.98px) {
+  .story-row, .story-row.reverse { flex-direction: column; gap: 24px; }
+  .story-row-media { flex: none; width: 100%; }
+  .host-profile, .host-profile.reverse { flex-direction: column; gap: 24px; }
+  .host-profile-photo { flex: none; width: 180px; }
+}

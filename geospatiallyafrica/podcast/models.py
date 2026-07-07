@@ -63,6 +63,10 @@ class Episode(models.Model):
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
     bio = models.TextField()
+    image = models.ImageField(upload_to='host_image', blank=True)
+    location = models.CharField(max_length=255, blank=True)
+    linkedin = models.URLField(blank=True)
+    twitter = models.URLField(blank=True)
 
     class Meta:
         verbose_name_plural = 'Hosts'

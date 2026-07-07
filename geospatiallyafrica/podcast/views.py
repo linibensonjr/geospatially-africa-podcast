@@ -168,8 +168,25 @@ def blog(request):
 
 
 def about_us(request):
-    epi_count = len(Episode.objects.all())
-    return render(request, 'podcast/about.html', {'count': epi_count})
+    published = Episode.objects.filter(published_date__isnull=False)
+    epi_count = published.count()
+    season_count = published.exclude(season__isnull=True).values('season').distinct().count()
+    guest_count = published.exclude(guest='').values('guest').distinct().count()
+
+    hosts = []
+    for host in Hosts.objects.all():
+        episodes_hosted = published.filter(
+            Q(host=host.name) | Q(cohost=host.name)
+        ).order_by('-published_date')[:3]
+        hosts.append({'host': host, 'episodes': episodes_hosted})
+
+    context = {
+        'count': epi_count,
+        'season_count': season_count,
+        'guest_count': guest_count,
+        'hosts': hosts,
+    }
+    return render(request, 'podcast/about.html', context)
 
 def support(request):
     return render(request, 'podcast/support.html')

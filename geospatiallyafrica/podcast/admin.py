@@ -15,7 +15,7 @@ class EpisodeInline(admin.TabularInline):
     extra = 0
 
 class HostList(admin.ModelAdmin):
-    list_display = ('name', 'bio')
+    list_display = ('name', 'location', 'bio')
     #inlines = [EpisodeInline]
 
 admin.site.register(Hosts, HostList)
