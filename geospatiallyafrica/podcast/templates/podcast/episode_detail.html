@@ -206,7 +206,7 @@
               <div>
                 <div class="person-role">Guest</div>
                 <div class="person-name">{{ ep.guest }}</div>
-                <p class="person-bio">{{ ep.guest_bio }}</p>
+                <p class="person-bio">{{ ep.guest_bio|urlize }}</p>
               </div>
             </div>
           </div>
@@ -215,12 +215,10 @@
           <div class="sidebar-widget">
             <h5>Other Episodes</h5>
             {% for ep_side in sidebar_eps %}
-            <div class="episode-list" style="margin-top:10px; padding-bottom:10px; border-bottom:1px solid var(--border);">
-              <a href="{% url 'episode_detail' slug=ep_side.slug %}" style="font-size:0.88rem; color:var(--text-primary); display:flex; gap:10px; align-items:flex-start;">
-                <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent); background:rgba(232,93,58,0.1); padding:2px 6px; border-radius:3px; flex-shrink:0; margin-top:2px;">E{{ ep_side.episode }}</span>
-                {{ ep_side.title }}
-              </a>
-            </div>
+            <a href="{% url 'episode_detail' slug=ep_side.slug %}" class="other-episode-row">
+              <span class="other-episode-badge">E{{ ep_side.episode }}</span>
+              <span>{{ ep_side.title }}</span>
+            </a>
             {% endfor %}
           </div>
 

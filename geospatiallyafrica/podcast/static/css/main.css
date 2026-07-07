@@ -457,11 +457,28 @@ img.logo:hover { opacity: 0.8; }
 .show-notes h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 18px; }
 .share-row { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-top: 1px solid var(--border); flex-wrap: wrap; }
 .share-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
-.person-card { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light); }
-.person-avatar { width: 52px; height: 52px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0; }
-.person-role { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 2px; }
-.person-name { font-weight: 600; font-size: 0.92rem; color: var(--text-primary); }
-.person-bio { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; margin-top: 6px; }
+.person-card { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border-light); }
+.person-avatar { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--border-light); }
+.person-role { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 4px; }
+.person-name { font-weight: 700; font-size: 1rem; color: var(--text-primary); }
+.person-bio {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 8px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.person-bio a { color: var(--accent); }
+
+.other-episode-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--border-light);
+  font-size: 0.88rem; color: var(--text-primary); transition: color var(--transition);
+}
+.other-episode-row:last-child { border-bottom: none; }
+.other-episode-row:hover { color: var(--accent); }
+.other-episode-badge {
+  font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent);
+  background: var(--accent-soft); padding: 2px 8px; border-radius: var(--radius-sm);
+  flex-shrink: 0; margin-top: 2px;
+}
 
 /* ===== BLOG ===== */
 .blog-hero { background: var(--navy); padding: 80px 0 64px; text-align: center; position: relative; }
