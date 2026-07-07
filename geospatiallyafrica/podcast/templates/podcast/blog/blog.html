@@ -6,7 +6,7 @@
 
 <!-- ===== BLOG HERO ===== -->
 <div class="blog-hero">
-  <span class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Insights & Stories</span>
+  <span class="section-eyebrow">Insights & Stories</span>
   <h1>The Geospatially Blog</h1>
   <p>Deep dives, industry insights, and stories from Africa's geospatial community.</p>
 </div>
@@ -20,8 +20,8 @@
     <div class="blog-featured-card mb-5">
       <div class="blog-featured-img">
         <!-- Placeholder - replace with {{ post.image.url }} when model is set up -->
-        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--navy), var(--navy-light));">
-          <i class="bi bi-map" style="font-size:6rem; color:rgba(255,255,255,0.15);"></i>
+        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--bg-soft);">
+          <i class="bi bi-map" style="font-size:5rem; color:var(--border);"></i>
         </div>
       </div>
       <div class="blog-featured-content">
@@ -182,12 +182,12 @@
         <div style="position:sticky; top:88px;">
 
           <!-- Listen Prompt -->
-          <div class="sidebar-widget" style="background:var(--navy); color:white;">
+          <div class="sidebar-widget" style="background:var(--accent); color:white;">
             <h5 style="color:white; border-color:rgba(255,255,255,0.3);">
               <i class="bi bi-headphones me-2"></i>Listen to the Podcast
             </h5>
-            <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:16px;">Prefer audio? Tune in to the Geospatially Africa Podcast on your favourite platform.</p>
-            <a href="{% url 'episode_list' %}" class="btn-primary-custom" style="background:white; color:var(--navy); font-size:0.88rem;">
+            <p style="color:rgba(255,255,255,0.85); font-size:0.9rem; margin-bottom:16px;">Prefer audio? Tune in to the Geospatially Africa Podcast on your favourite platform.</p>
+            <a href="{% url 'episode_list' %}" class="btn-primary-custom" style="background:white; color:var(--accent); font-size:0.88rem;">
               Browse Episodes <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>

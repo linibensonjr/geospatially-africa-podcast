@@ -8,14 +8,12 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero-home">
-  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-  <div class="container" style="position:relative; z-index:1;">
+  <div class="container">
     <div class="row align-items-center g-5">
 
       <div class="col-lg-7">
         <div class="hero-eyebrow">Africa's geospatial flagship</div>
-        <h1 class="hero-title">Geospatially Africa.</h1>
+        <h1 class="hero-title">More than just a podcast for Africa's <span>geospatial</span> community.</h1>
         <p class="hero-subtitle">Built for people who want to understand the African geospatial ecosystem, discover practical use cases, and stay close to the conversations shaping the continent's spatial future.</p>
 
         <div class="hero-answer-grid">
@@ -38,13 +36,10 @@
 
         <div class="hero-cta-group">
           <a href="{% url 'episode_list' %}" class="btn-primary-custom">
-            <i class="bi bi-play-circle-fill"></i> Browse Episodes
+            Browse Episodes <i class="bi bi-arrow-right"></i>
           </a>
           <a href="{% url 'support_us' %}#guest-nomination" class="btn-secondary-custom">
             Nominate a Guest <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="{% url 'support_us' %}#sponsor-interest" class="btn-secondary-custom">
-            Sponsor the Show <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
@@ -61,9 +56,14 @@
 
       <div class="col-lg-5">
         <div class="hero-rail">
+          <a href="{% url 'episode_list' %}" class="hero-art">
+            <img src="{% static 'img/podcast_art.jpg' %}" alt="Geospatially Africa Podcast cover art">
+            <span class="hero-art-play"><i class="bi bi-play-fill"></i></span>
+          </a>
+
           <div class="hero-signup-card">
             <span class="section-eyebrow" style="margin-bottom:10px;">Get new episodes</span>
-            <h2>Join the newsletter above the fold</h2>
+            <h2>Join the newsletter</h2>
             <p>Podcast drops, guest announcements, and community updates delivered straight to your inbox.</p>
             <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2" method="post" target="_blank" novalidate class="hero-signup-form">
               <input type="email" name="EMAIL" placeholder="your@email.com" required>
@@ -72,13 +72,6 @@
               </div>
               <button type="submit" class="btn-crimson">Subscribe</button>
             </form>
-          </div>
-
-          <div class="hero-graphic hero-graphic-compact d-none d-lg-flex">
-            <div class="hero-vinyl"></div>
-            <div class="hero-label">
-              <i class="bi bi-globe-africa" style="font-size:2rem; color:var(--accent); position:relative; z-index:3;"></i>
-            </div>
           </div>
         </div>
       </div>
