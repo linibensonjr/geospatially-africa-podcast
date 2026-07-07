@@ -161,6 +161,10 @@ CLOUDINARY = {
 
 SITE_ID=1
 
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY', None)
+MAILCHIMP_SERVER_PREFIX = os.environ.get('MAILCHIMP_SERVER_PREFIX', None)
+MAILCHIMP_LIST_ID = os.environ.get('MAILCHIMP_LIST_ID', None)
+
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'

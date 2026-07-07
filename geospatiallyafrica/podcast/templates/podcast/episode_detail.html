@@ -3,6 +3,8 @@
 
 {% block og_title %}{% for episode in episode %}{{ episode.title }}{% endfor %}{% endblock %}
 {% block og_description %}{% for episode in episode %}{{ episode.summary|truncatechars:150 }}{% endfor %}{% endblock %}
+{% block og_url %}{% for episode in episode %}https://geospatiallyafrica.com{% url 'episode_detail' slug=episode.slug %}{% endfor %}{% endblock %}
+{% block og_image %}{% for episode in episode %}{% if episode.episode_image %}{{ episode.episode_image.url }}{% else %}{% static 'img/podcast_art.jpg' %}{% endif %}{% endfor %}{% endblock %}
 {% block title %}{% for episode in episode %}{{ episode.title }} - Geospatially Africa{% endfor %}{% endblock %}
 
 {% block content %}
@@ -75,15 +77,17 @@
             {{ ep.link | safe }}
           </div>
           <div class="platform-buttons">
-            <a href="{{ ep.googlepodcast }}" target="_blank" class="platform-btn">
-              <img src="{% static 'img/googlepod.svg' %}" alt="Google Podcasts"> Google Podcasts
-            </a>
             <a href="{{ ep.applepodcast }}" target="_blank" class="platform-btn">
               <img src="{% static 'img/applepod.svg' %}" alt="Apple Podcasts"> Apple Podcasts
             </a>
             <a href="{{ ep.spotify }}" target="_blank" class="platform-btn">
               <img src="{% static 'img/spotify-podcast.svg' %}" alt="Spotify"> Spotify
             </a>
+            {% if ep.youtube %}
+            <a href="{{ ep.youtube }}" target="_blank" class="platform-btn">
+              <i class="bi bi-youtube"></i> YouTube
+            </a>
+            {% endif %}
           </div>
         </div>
 
@@ -94,6 +98,9 @@
             {{ ep.description | safe }}
           </div>
         </div>
+
+        <!-- Newsletter -->
+        {% include 'podcast/includes/newsletter_form.html' %}
 
         <!-- Share -->
         <div class="share-row">

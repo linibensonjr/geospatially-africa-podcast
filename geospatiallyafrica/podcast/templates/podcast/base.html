@@ -12,7 +12,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{% block og_title %}Geospatially Africa Podcast{% endblock %}" />
   <meta property="og:description" content="{% block og_description %}The podcast for Africa geospatial community{% endblock %}" />
-  <meta property="og:url" content="https://geospatiallyafrica.com/" />
+  <meta property="og:url" content="{% block og_url %}https://geospatiallyafrica.com/{% endblock %}" />
+  <meta property="og:image" content="{% block og_image %}{% static 'img/podcast_art.jpg' %}{% endblock %}" />
   <meta property="og:site_name" content="geospatiallyafrica.com" />
   <link rel="icon" type="image/icon" href="{% static 'img/favicon.ico' %}">
 
@@ -47,7 +48,7 @@
   <!-- ===== NAVIGATION ===== -->
   <div class="nav-section">
     <div class="container">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-md">
         <div class="container-fluid px-0">
 
           <a href="/" class="navbar-brand me-4">
@@ -78,6 +79,9 @@
               </a>
               <a href="https://github.com/linibensonjr/geospatially-africa-podcast" class="nav-link px-2" title="GitHub">
                 <i class="bi bi-github" style="font-size:1rem; color:var(--text-muted);"></i>
+              </a>
+              <a href="https://www.youtube.com/channel/UCh27HyKTvXvofv1TiPhcSpA" class="nav-link px-2" title="YouTube">
+                <i class="bi bi-youtube" style="font-size:1rem; color:var(--text-muted);"></i>
               </a>
 
               {% if user.is_authenticated %}
@@ -113,17 +117,7 @@
           <span class="section-eyebrow" style="color:rgba(255,255,255,0.35);">Stay in the loop</span>
           <h2>Don't miss our latest episodes</h2>
           <p>Get new episodes delivered straight to your inbox. No spam, ever.</p>
-          <div class="newsletter-form">
-            <form action="https://bio.us6.list-manage.com/subscribe/post?u=0edd75b5f18751a2e2f14c55d&amp;id=23e5fbaeb2"
-              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-              class="validate d-flex gap-2 w-100" target="_blank" novalidate>
-              <input type="email" name="EMAIL" placeholder="your@email.com" required>
-              <div style="position:absolute;left:-5000px;" aria-hidden="true">
-                <input type="text" name="b_0edd75b5f18751a2e2f14c55d_23e5fbaeb2" tabindex="-1" value="">
-              </div>
-              <button type="submit" class="btn-crimson">Subscribe</button>
-            </form>
-          </div>
+          {% include 'podcast/includes/newsletter_form.html' %}
         </div>
         <div class="col-lg-4 offset-lg-1 d-none d-lg-block text-end">
           <i class="bi bi-headphones" style="font-size:8rem; color:rgba(255,255,255,0.04);"></i>
@@ -145,6 +139,7 @@
               <a href="https://twitter.com/geospatialy" title="Twitter"><i class="bi bi-twitter"></i></a>
               <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
               <a href="https://github.com/linibensonjr/geospatially-africa-podcast" title="GitHub"><i class="bi bi-github"></i></a>
+              <a href="https://www.youtube.com/channel/UCh27HyKTvXvofv1TiPhcSpA" title="YouTube"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
 
@@ -171,10 +166,10 @@
           <div class="col-lg-3 footer-col">
             <h6>Listen On</h6>
             <ul class="footer-links">
-              <li><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw==" target="_blank">Google Podcasts</a></li>
               <li><a href="https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113" target="_blank">Apple Podcasts</a></li>
               <li><a href="https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v" target="_blank">Spotify</a></li>
               <li><a href="https://anchor.fm/geospatiallyafrica" target="_blank">Anchor</a></li>
+              <li><a href="https://www.youtube.com/channel/UCh27HyKTvXvofv1TiPhcSpA" target="_blank">YouTube</a></li>
               <li><a href="mailto:gspatially@gmail.com"><i class="bi bi-envelope me-1"></i>gspatially@gmail.com</a></li>
             </ul>
           </div>

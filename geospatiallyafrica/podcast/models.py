@@ -1,6 +1,3 @@
-from email.policy import default
-from pyexpat import model
-from tabnanny import verbose
 from django.db import models
 from django.conf import settings
 from datetime import datetime, timezone
@@ -25,8 +22,8 @@ class Episode(models.Model):
     episode = models.IntegerField(null=True)
     title = models.CharField(max_length=200)
     link = models.CharField(max_length=1500, help_text='Provide embed link to episode audio')
-    googlepodcast = models.CharField(max_length=1500, default='https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy80ZDg4MWJhMC9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwjFxoL134D7AhUugc4BHXz1BeQQ9sEGegQIARAC', help_text='Provide link to episode on Google Podcasts')
     applepodcast = models.CharField(max_length=1500, default='https://podcasts.apple.com/us/podcast/geospatially-africa-podcast-the-podcast-for/id1561204113', help_text='Provide link to episode on Apple Podcasts')
+    youtube = models.URLField(max_length=1500, blank=True, null=True, help_text='Link to episode on YouTube')
     spotify = models.CharField(max_length=1500, default='https://open.spotify.com/show/7aqyurtRoF42hTysOqNa9v?si=9779d6cefca74f82', help_text='Provide link to episode on Spotify')
     summary = models.CharField(max_length=1500)
     description = models.TextField()
@@ -64,10 +61,19 @@ class Episode(models.Model):
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
     bio = models.TextField()
-    
+
     class Meta:
         verbose_name_plural = 'Hosts'
 
     def __str__(self):
         return self.name
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.email
 

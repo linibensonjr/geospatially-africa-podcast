@@ -1,0 +1,54 @@
+<div class="newsletter-widget">
+  <form class="newsletter-form" method="post" action="{% url 'newsletter_subscribe' %}" novalidate>
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="your@email.com" required>
+    <div class="newsletter-honeypot" aria-hidden="true">
+      <label for="newsletter-website">Leave this field empty</label>
+      <input type="text" name="website" id="newsletter-website" tabindex="-1" autocomplete="off">
+    </div>
+    <button type="submit" class="btn-crimson">Subscribe</button>
+  </form>
+  <p class="newsletter-message" role="status" aria-live="polite"></p>
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('.newsletter-widget').forEach(function (widget) {
+    if (widget.dataset.bound) return;
+    widget.dataset.bound = 'true';
+
+    var form = widget.querySelector('form');
+    var message = widget.querySelector('.newsletter-message');
+    var button = form.querySelector('button[type="submit"]');
+    var originalLabel = button.textContent;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      button.disabled = true;
+      button.textContent = 'Subscribing…';
+      message.textContent = '';
+      message.classList.remove('success', 'error');
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          message.textContent = data.message;
+          message.classList.add(data.ok ? 'success' : 'error');
+          if (data.ok) form.reset();
+        })
+        .catch(function () {
+          message.textContent = 'Something went wrong. Please try again.';
+          message.classList.add('error');
+        })
+        .finally(function () {
+          button.disabled = false;
+          button.textContent = originalLabel;
+        });
+    });
+  });
+})();
+</script>

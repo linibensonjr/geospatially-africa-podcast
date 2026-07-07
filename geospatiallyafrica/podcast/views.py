@@ -1,16 +1,22 @@
+import hashlib
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Hosts, Tags, Episode
+from .models import Hosts, Tags, Episode, Subscriber
 from .forms import EpisodeForm
 from django.utils import timezone
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView
 from cloudinary.forms import cl_init_js_callbacks
 from django.contrib.auth.models import User
 from django.db.models import Prefetch
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.views.decorators.http import require_POST
+from django.conf import settings
+import requests
 
 # Create your views here.
 
@@ -177,3 +183,35 @@ def page_not_found(request, exception=None):
 def server_error(request, exception=None):
     data = {}
     return render(request, 'podcast/error/500.html', data)
+
+
+@require_POST
+def newsletter_subscribe(request):
+    if request.POST.get('website'):
+        return JsonResponse({'ok': True, 'message': 'Thanks for subscribing!'})
+
+    email = request.POST.get('email', '').strip()
+    try:
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse({'ok': False, 'message': 'Please enter a valid email address.'})
+
+    Subscriber.objects.get_or_create(email=email)
+
+    if settings.MAILCHIMP_API_KEY and settings.MAILCHIMP_SERVER_PREFIX and settings.MAILCHIMP_LIST_ID:
+        try:
+            member_hash = hashlib.md5(email.lower().encode()).hexdigest()
+            url = (
+                f'https://{settings.MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/'
+                f'lists/{settings.MAILCHIMP_LIST_ID}/members/{member_hash}'
+            )
+            requests.put(
+                url,
+                auth=('anystring', settings.MAILCHIMP_API_KEY),
+                json={'email_address': email, 'status_if_new': 'subscribed'},
+                timeout=5,
+            )
+        except requests.RequestException:
+            pass
+
+    return JsonResponse({'ok': True, 'message': "You're subscribed! Check your inbox."})

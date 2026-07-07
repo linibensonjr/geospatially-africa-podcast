@@ -502,6 +502,11 @@ img.logo:hover { opacity: 0.8; }
 .newsletter-form input:focus { border-color: var(--accent); }
 .newsletter-form button { padding: 14px 28px; background: var(--accent); color: var(--white); border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.92rem; cursor: pointer; white-space: nowrap; transition: all var(--transition); }
 .newsletter-form button:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,93,58,0.3); }
+.newsletter-form button:disabled { opacity: 0.7; cursor: default; transform: none; box-shadow: none; }
+.newsletter-honeypot { position: absolute; left: -5000px; }
+.newsletter-message { margin-top: 10px; font-size: 0.85rem; min-height: 1.2em; }
+.newsletter-message.success { color: var(--teal); }
+.newsletter-message.error { color: var(--accent-dark); }
 
 /* ===== SUPPORT ===== */
 .support-card {
