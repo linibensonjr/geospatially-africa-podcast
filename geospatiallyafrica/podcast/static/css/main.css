@@ -633,3 +633,52 @@ footer { background: var(--navy); }
   transition: gap var(--transition);
 }
 .text-link:hover { color: var(--accent-dark); gap: 10px; }
+
+/* ===== EPISODE DETAIL: VIDEO + LABEL-LEFT/CONTENT-RIGHT ROWS (Task 3) ===== */
+.detail-media { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; margin: 24px 0 32px; }
+.prefer-audio-label {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-muted); margin: 20px 0 10px;
+}
+.audio-embed { border-radius: var(--radius-md); overflow: hidden; }
+
+.detail-row { display: flex; gap: 40px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+.detail-row:first-of-type { padding-top: 0; }
+.detail-row-label {
+  flex: 0 0 190px; font-family: var(--font-display); font-weight: 700;
+  font-size: 1.05rem; color: var(--text-primary);
+}
+.detail-row-content { flex: 1; min-width: 0; }
+.detail-row-content p { color: var(--text-secondary); }
+
+.detail-row-content.rich-text h2,
+.detail-row-content.rich-text h3 {
+  font-family: var(--font-display); font-weight: 700; color: var(--text-primary);
+  margin: 28px 0 12px;
+}
+.detail-row-content.rich-text h2:first-child,
+.detail-row-content.rich-text h3:first-child { margin-top: 0; }
+.detail-row-content.rich-text p { margin-bottom: 16px; }
+.detail-row-content.rich-text ul,
+.detail-row-content.rich-text ol { padding-left: 1.3em; margin-bottom: 16px; }
+.detail-row-content.rich-text li { margin-bottom: 8px; color: var(--text-secondary); }
+.detail-row-content.rich-text blockquote {
+  border-left: 3px solid var(--accent); padding-left: 20px; margin: 20px 0;
+  color: var(--text-secondary); font-style: italic;
+}
+
+.chapters-list { list-style: none; padding: 0; margin: 0; }
+.chapters-list li { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border-light); }
+.chapters-list .chapter-time { color: var(--accent); flex-shrink: 0; width: 56px; font-size: 0.85rem; }
+
+.resource-links { list-style: none; padding: 0; margin: 0; }
+.resource-links li { padding: 8px 0; border-bottom: 1px solid var(--border-light); }
+.resource-links a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--accent); }
+.resource-links a:hover { color: var(--accent-dark); }
+
+.platform-buttons-row { padding: 24px 0 0; }
+
+@media (max-width: 767.98px) {
+  .detail-row { flex-direction: column; gap: 10px; }
+  .detail-row-label { flex: none; }
+}

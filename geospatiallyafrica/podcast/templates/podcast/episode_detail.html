@@ -9,6 +9,7 @@
 
 {% block content %}
 {% load social_share %}
+{% load episode_extras %}
 
 {% for ep in episode %}
 
@@ -48,11 +49,6 @@
       <!-- Main Content -->
       <div class="col-lg-8">
 
-        <!-- Summary -->
-        <div class="detail-article mb-4">
-          <p>{{ ep.summary }}</p>
-        </div>
-
         <!-- Admin Actions -->
         {% if user.is_authenticated %}
         <div class="d-flex gap-2 mb-4 p-3" style="background:var(--light-gray); border-radius:var(--radius-md);">
@@ -70,12 +66,66 @@
         </div>
         {% endif %}
 
-        <!-- Audio Player -->
-        <div class="listen-section">
-          <h3><i class="bi bi-play-circle me-2" style="color:var(--accent);"></i>Listen Now</h3>
-          <div style="border-radius:var(--radius-md); overflow:hidden;">
+        <!-- Video / Audio -->
+        <div class="detail-media">
+          {% if ep.youtube %}
+          {% include 'podcast/includes/youtube_embed.html' with youtube_url=ep.youtube title=ep.title %}
+          <p class="prefer-audio-label mono">Prefer audio?</p>
+          {% endif %}
+          <div class="audio-embed">
             {{ ep.link | safe }}
           </div>
+        </div>
+
+        <!-- About this episode -->
+        <div class="detail-row">
+          <div class="detail-row-label">About this episode</div>
+          <div class="detail-row-content">
+            <p>{{ ep.summary }}</p>
+          </div>
+        </div>
+
+        <!-- Show Notes -->
+        <div class="detail-row">
+          <div class="detail-row-label">Show Notes</div>
+          <div class="detail-row-content rich-text">
+            {{ ep.description | safe }}
+          </div>
+        </div>
+
+        <!-- Chapters -->
+        {% if ep.chapters %}
+        <div class="detail-row">
+          <div class="detail-row-label">Chapters</div>
+          <div class="detail-row-content">
+            <ul class="chapters-list">
+              {% for chapter in ep.chapters|parse_chapters %}
+              <li>
+                <span class="chapter-time mono">{{ chapter.time }}</span>
+                <span>{{ chapter.title }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Links & Resources -->
+        {% if ep.links_mentioned %}
+        <div class="detail-row">
+          <div class="detail-row-label">Links &amp; Resources</div>
+          <div class="detail-row-content">
+            <ul class="resource-links">
+              {% for resource in ep.links_mentioned|parse_links %}
+              <li><a href="{{ resource.url }}" target="_blank" rel="noreferrer">{{ resource.label }} <i class="bi bi-arrow-right"></i></a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Platform links -->
+        <div class="platform-buttons-row">
           <div class="platform-buttons">
             <a href="{{ ep.applepodcast }}" target="_blank" class="platform-btn">
               <img src="{% static 'img/applepod.svg' %}" alt="Apple Podcasts"> Apple Podcasts
@@ -88,14 +138,6 @@
               <i class="bi bi-youtube"></i> YouTube
             </a>
             {% endif %}
-          </div>
-        </div>
-
-        <!-- Show Notes -->
-        <div class="show-notes">
-          <h3>Show Notes</h3>
-          <div style="font-size:1rem; line-height:1.85; color:var(--text-primary);">
-            {{ ep.description | safe }}
           </div>
         </div>
 
