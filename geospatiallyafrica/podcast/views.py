@@ -20,9 +20,10 @@ def index(request):
     paginator = Paginator(episode, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    featured_episode = episode.first()
     # List all tags on sidebar
     tags = Tags.objects.all()
-    return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags})
+    return render(request, 'podcast/index.html', {'episodes': page_obj, 'tags':tags, 'featured_episode': featured_episode})
 
 def episode_list(request):
     episodes_tags = Episode.objects.prefetch_related('tags').all()

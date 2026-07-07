@@ -29,7 +29,7 @@
   <!-- Pageclip CSS -->
   <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
 
-  <title>{% block title %}Geospatially Africa — The podcast for the Geospatial community{% endblock %}</title>
+  <title>{% block title %}Geospatially Africa - The podcast for the Geospatial community{% endblock %}</title>
 </head>
 
 <!-- Google tag -->
@@ -140,7 +140,7 @@
 
           <div class="col-lg-4 footer-brand">
             <img src="{% static 'img/gp.png' %}" alt="Geospatially Africa" style="width:100px; filter:brightness(1.5);">
-            <p>The podcast about everything geospatial — showcasing African talent, innovation, and expertise to the world.</p>
+            <p>The podcast about everything geospatial - showcasing African talent, innovation, and expertise to the world.</p>
             <div class="footer-social mt-3">
               <a href="https://twitter.com/geospatialy" title="Twitter"><i class="bi bi-twitter"></i></a>
               <a href="https://ng.linkedin.com/company/geospatially-africa-podcast" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
@@ -163,8 +163,8 @@
             <h6>Support</h6>
             <ul class="footer-links">
               <li><a href="{% url 'support_us' %}">Support Us &#10084;&#65039;</a></li>
-              <li><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank">Become a Guest</a></li>
-              <li><a href="https://forms.gle/vst1B3QvV2WH6crT7" target="_blank">Suggest a Topic</a></li>
+              <li><a href="{% url 'support_us' %}#guest-nomination">Become a Guest</a></li>
+              <li><a href="{% url 'support_us' %}#sponsor-interest">Sponsor the Show</a></li>
             </ul>
           </div>
 
