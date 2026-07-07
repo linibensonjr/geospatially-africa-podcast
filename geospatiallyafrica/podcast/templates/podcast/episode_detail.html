@@ -9,6 +9,7 @@
 
 {% block content %}
 {% load social_share %}
+{% load episode_extras %}
 
 {% for ep in episode %}
 
@@ -77,6 +78,33 @@
               {{ ep.description | safe }}
             </div>
           </div>
+
+          <!-- Chapters -->
+          {% if ep.chapters %}
+          <div class="article-section">
+            <h2>Chapters</h2>
+            <ul class="chapters-list">
+              {% for chapter in ep.chapters|parse_chapters %}
+              <li>
+                <span class="chapter-time mono">{{ chapter.time }}</span>
+                <span>{{ chapter.title }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          <!-- Links & Resources -->
+          {% if ep.links_mentioned %}
+          <div class="article-section">
+            <h2>Links &amp; <em>resources</em></h2>
+            <ul class="resource-links">
+              {% for resource in ep.links_mentioned|parse_links %}
+              <li><a href="{{ resource.url }}" target="_blank" rel="noreferrer" class="link-arrow">{{ resource.label }} <i class="bi bi-arrow-right"></i></a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
 
           <!-- Newsletter -->
           <div class="article-section">

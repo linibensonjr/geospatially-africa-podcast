@@ -45,6 +45,8 @@ class Episode(models.Model):
     created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True, null=True,)
     # date_published = models.DateTimeField(blank=True)
+    chapters = models.TextField(blank=True, null=True, help_text='One per line: 00:00 Segment title')
+    links_mentioned = models.TextField(blank=True, null=True, help_text='One per line: Label | https://url')
 
 
     def publish(self):
