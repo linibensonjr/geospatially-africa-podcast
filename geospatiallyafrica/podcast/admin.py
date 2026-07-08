@@ -1,4 +1,4 @@
-from podcast.models import Episode, Hosts, Tags, Subscriber
+from podcast.models import Episode, Hosts, Tags, Subscriber, BlogPost
 from django.contrib import admin
 
 class TagInline(admin.TabularInline):
@@ -27,4 +27,10 @@ class SubscriberList(admin.ModelAdmin):
     search_fields = ('email',)
 
 admin.site.register(Subscriber, SubscriberList)
+
+class BlogPostList(admin.ModelAdmin):
+    list_display = ('title', 'category', 'author', 'published_date')
+    search_fields = ('title', 'category')
+
+admin.site.register(BlogPost, BlogPostList)
 

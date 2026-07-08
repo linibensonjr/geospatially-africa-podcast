@@ -85,14 +85,20 @@
               </a>
 
               {% if user.is_authenticated %}
-                <span class="mono" style="font-size:0.78rem; color:#888;">Hi, {{ user.username }}</span>
-                <a href="{% url 'new_episode' %}" class="btn btn-sm btn-outline-success">
-                  <i class="bi bi-plus-circle me-1"></i>New
-                </a>
-                <a href="{% url 'episode_draft_list' %}" class="btn btn-sm btn-outline-secondary">
+                <span class="mono" style="font-size:0.78rem; color:var(--ink-muted);">Hi, {{ user.username }}</span>
+                <div class="dropdown">
+                  <button class="btn btn-sm btn-nav-accent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-plus-circle me-1"></i>New
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{% url 'new_episode' %}"><i class="bi bi-mic me-2"></i>New Episode</a></li>
+                    <li><a class="dropdown-item" href="{% url 'new_blog' %}"><i class="bi bi-file-earmark-text me-2"></i>New Blog Post</a></li>
+                  </ul>
+                </div>
+                <a href="{% url 'episode_draft_list' %}" class="btn btn-sm btn-nav-outline">
                   <i class="bi bi-pencil me-1"></i>Drafts
                 </a>
-                <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-danger">Logout</a>
+                <a href="{% url 'logout' %}" class="btn btn-sm btn-nav-outline">Logout</a>
               {% else %}
                 <a href="{% url 'support_us' %}" class="nav-link nav-support-btn">Support</a>
               {% endif %}

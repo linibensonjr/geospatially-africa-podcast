@@ -1,0 +1,106 @@
+{% extends 'podcast/base.html' %}
+{% load static %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.excerpt|default:post.content|striptags|truncatewords:30 }}{% endblock %}
+{% block og_url %}https://geospatiallyafrica.com{% url 'blog_detail' slug=post.slug %}{% endblock %}
+{% block og_image %}{% if post.cover_image %}{{ post.cover_image.url }}{% else %}{% static 'img/podcast_art.jpg' %}{% endif %}{% endblock %}
+{% block title %}{{ post.title }} - Geospatially Africa{% endblock %}
+
+{% block content %}
+{% load social_share %}
+
+<div class="page-hero" style="text-align:left; padding:48px 0 32px;">
+  <div class="container">
+    <div class="breadcrumb-custom" style="margin-bottom:20px;">
+      <a href="{% url 'blog' %}"><i class="bi bi-arrow-left me-1"></i>Blog</a>
+      {% if post.category %}<span>/</span><span>{{ post.category }}</span>{% endif %}
+    </div>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem); max-width:760px;">{{ post.title }}</h1>
+    <p class="mono" style="font-size:0.85rem; color:var(--ink-muted); margin-top:14px;">
+      {{ post.author.get_full_name|default:post.author.username|default:"Geospatially Africa" }}
+      &nbsp;·&nbsp; {{ post.published_date|date:"F j, Y" }}
+      &nbsp;·&nbsp; {{ post.reading_time }} min read
+    </p>
+  </div>
+</div>
+
+<section style="padding:0 0 48px;">
+  <div class="container" style="max-width:760px;">
+
+    {% if user.is_authenticated %}
+    <div class="d-flex gap-2 mb-4 p-3" style="background:var(--bg-soft); border-radius:var(--radius-md);">
+      <a href="{% url 'blog_edit' slug=post.slug %}" class="btn btn-sm btn-success"><i class="bi bi-pencil me-1"></i>Edit</a>
+      <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash me-1"></i>Delete</button>
+      {% if not post.published_date %}
+      <a class="btn btn-sm btn-warning" href="{% url 'blog_publish' slug=post.slug %}"><i class="bi bi-send me-1"></i>Publish</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if post.cover_image %}
+    <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="width:100%; max-height:420px; object-fit:cover; border-radius:var(--radius-lg); margin-bottom:32px;">
+    {% endif %}
+
+    <div class="rich-text">
+      {{ post.content|safe }}
+    </div>
+
+    {% include 'podcast/includes/newsletter_form.html' %}
+
+    <div class="share-row">
+      <span class="share-label">Share this article</span>
+      {% post_to_twitter "New post: {{post.title}}" object_or_url "Twitter" %}
+      {% post_to_linkedin object_or_url "LinkedIn" %}
+      {% post_to_whatsapp object_or_url "WhatsApp" %}
+      {% send_email post.title "Check out this article!" '' "Email" %}
+      {% post_to_reddit "New post: {{post.title}}" "Reddit" %}
+    </div>
+  </div>
+</section>
+
+{% if recent_posts %}
+<section style="background:var(--bg-soft); padding:56px 0;">
+  <div class="container">
+    <h2 class="blog-section-title">More Articles</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      {% for p in recent_posts %}
+      <div class="col">
+        <a href="{% url 'blog_detail' slug=p.slug %}" class="blog-card" style="background:var(--white); text-decoration:none;">
+          <div class="blog-card-img-placeholder">
+            {% if p.cover_image %}
+            <img src="{{ p.cover_image.url }}" alt="{{ p.title }}" style="width:100%; height:100%; object-fit:cover;">
+            {% else %}
+            <i class="bi bi-file-earmark-text"></i>
+            {% endif %}
+          </div>
+          <div class="blog-card-body">
+            <h4>{{ p.title }}</h4>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" tabindex="-1" id="deleteModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this article? This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="{% url 'blog_delete' slug=post.slug %}"><button type="button" class="btn btn-danger">Delete Article</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

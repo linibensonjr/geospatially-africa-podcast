@@ -2,8 +2,8 @@ import hashlib
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Hosts, Tags, Episode, Subscriber
-from .forms import EpisodeForm
+from .models import Hosts, Tags, Episode, Subscriber, BlogPost
+from .forms import EpisodeForm, BlogPostForm
 from django.utils import timezone
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -164,7 +164,61 @@ class SearchResultView(ListView):
     template_name = 'podcast/search.html'
 
 def blog(request):
-    return render(request, 'podcast/blog/blog.html')
+    posts = BlogPost.objects.filter(published_date__isnull=False)
+    featured_post = posts.first()
+    other_posts = posts[1:] if featured_post else posts
+    return render(request, 'podcast/blog/blog.html', {
+        'featured_post': featured_post,
+        'other_posts': other_posts,
+    })
+
+
+def blog_detail(request, slug):
+    post = get_object_or_404(BlogPost, slug=slug)
+    recent_posts = BlogPost.objects.filter(published_date__isnull=False).exclude(slug=slug)[:3]
+    return render(request, 'podcast/blog/blog_detail.html', {'post': post, 'recent_posts': recent_posts})
+
+
+@login_required
+def new_blog(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('blog_detail', slug=post.slug)
+    else:
+        form = BlogPostForm()
+    return render(request, 'podcast/blog/blog_form.html', {'form': form, 'is_new': True})
+
+
+@login_required
+def blog_edit(request, slug):
+    post = get_object_or_404(BlogPost, slug=slug)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('blog_detail', slug=post.slug)
+    else:
+        form = BlogPostForm(instance=post)
+    return render(request, 'podcast/blog/blog_form.html', {'form': form, 'is_new': False, 'post': post})
+
+
+@login_required
+def blog_publish(request, slug):
+    post = get_object_or_404(BlogPost, slug=slug)
+    post.publish()
+    return redirect('blog_detail', slug=slug)
+
+
+@login_required
+def blog_delete(request, slug):
+    BlogPost.objects.filter(slug=slug).delete()
+    return redirect('blog')
 
 
 def about_us(request):

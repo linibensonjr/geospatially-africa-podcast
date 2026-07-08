@@ -83,3 +83,33 @@ class Subscriber(models.Model):
     def __str__(self):
         return self.email
 
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    slug = AutoSlugField(populate_from='title', unique=True)
+    category = models.CharField(max_length=100, blank=True, help_text='e.g. GIS & Technology, Careers, Climate')
+    excerpt = models.CharField(max_length=300, blank=True, help_text='Short summary shown on article cards')
+    content = models.TextField()
+    cover_image = models.ImageField(upload_to='blog_image', blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+    created_date = models.DateTimeField(default=datetime.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        ordering = ['-created_date']
+
+    def publish(self):
+        self.published_date = datetime.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog_detail', kwargs={'slug': self.slug})
+
+    @property
+    def reading_time(self):
+        words = len(self.content.split())
+        return max(1, round(words / 200))
+
