@@ -40,3 +40,12 @@ def parse_links(text):
             label = url = line
         links.append({'label': label, 'url': url})
     return links
+
+
+@register.filter
+def host_lookup(hosts, name):
+    """Find a Hosts record by name from a queryset/list, or None."""
+    for host in hosts:
+        if host.name == name:
+            return host
+    return None

@@ -43,6 +43,13 @@
       </div>
       {% endif %}
     </div>
+
+    <!-- Audio player, front and centre in the header -->
+    {% if ep.link %}
+    <div class="hero-audio-embed">
+      <div class="audio-embed">{{ ep.link | safe }}</div>
+    </div>
+    {% endif %}
   </div>
 </div>
 
@@ -71,17 +78,6 @@
         </div>
         {% endif %}
 
-        <!-- Video / Audio -->
-        <div class="detail-media">
-          {% if ep.youtube %}
-          {% include 'podcast/includes/youtube_embed.html' with youtube_url=ep.youtube title=ep.title %}
-          <p class="prefer-audio-label mono">Prefer audio?</p>
-          {% endif %}
-          <div class="audio-embed">
-            {{ ep.link | safe }}
-          </div>
-        </div>
-
         <!-- About this episode -->
         <div class="detail-row">
           <div class="detail-row-label">About this episode</div>
@@ -89,6 +85,45 @@
             <p>{{ ep.summary }}</p>
           </div>
         </div>
+
+        <!-- Listen on platforms -->
+        <div class="detail-row">
+          <div class="detail-row-label">Listen on</div>
+          <div class="detail-row-content">
+            <div class="platform-icon-row">
+              <a href="{{ ep.applepodcast }}" target="_blank" class="platform-icon-item">
+                <span class="platform-icon"><img src="{% static 'img/applepod.svg' %}" alt=""></span>
+                <span class="platform-icon-label">Apple</span>
+              </a>
+              <a href="{{ ep.spotify }}" target="_blank" class="platform-icon-item">
+                <span class="platform-icon"><img src="{% static 'img/spotify-podcast.svg' %}" alt=""></span>
+                <span class="platform-icon-label">Spotify</span>
+              </a>
+              {% if ep.youtube %}
+              <a href="{{ ep.youtube }}" target="_blank" class="platform-icon-item">
+                <span class="platform-icon"><i class="bi bi-youtube"></i></span>
+                <span class="platform-icon-label">YouTube</span>
+              </a>
+              {% endif %}
+              <a href="https://anchor.fm/geospatiallyafrica" target="_blank" class="platform-icon-item">
+                <span class="platform-icon"><i class="bi bi-rss"></i></span>
+                <span class="platform-icon-label">RSS</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video -->
+        {% if ep.youtube %}
+        <div class="detail-row">
+          <div class="detail-row-label">Watch</div>
+          <div class="detail-row-content">
+            <div class="detail-video-embed">
+              {% include 'podcast/includes/youtube_embed.html' with youtube_url=ep.youtube title=ep.title %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
 
         <!-- Show Notes -->
         <div class="detail-row">
@@ -129,29 +164,12 @@
         </div>
         {% endif %}
 
-        <!-- Platform links -->
-        <div class="platform-buttons-row">
-          <div class="platform-buttons">
-            <a href="{{ ep.applepodcast }}" target="_blank" class="platform-btn">
-              <img src="{% static 'img/applepod.svg' %}" alt="Apple Podcasts"> Apple Podcasts
-            </a>
-            <a href="{{ ep.spotify }}" target="_blank" class="platform-btn">
-              <img src="{% static 'img/spotify-podcast.svg' %}" alt="Spotify"> Spotify
-            </a>
-            {% if ep.youtube %}
-            <a href="{{ ep.youtube }}" target="_blank" class="platform-btn">
-              <i class="bi bi-youtube"></i> YouTube
-            </a>
-            {% endif %}
-          </div>
-        </div>
-
         <!-- Newsletter -->
         {% include 'podcast/includes/newsletter_form.html' %}
 
         <!-- Share -->
         <div class="share-row">
-          <span class="share-label">Share this episode:</span>
+          <span class="share-label">Share this episode</span>
           {% post_to_twitter "New Episode: {{ep.title}}. Check it out!" object_or_url "Twitter" %}
           {% post_to_linkedin object_or_url "LinkedIn" %}
           {% post_to_whatsapp object_or_url "WhatsApp" %}
@@ -170,35 +188,43 @@
             <h5>Featured In This Episode</h5>
 
             <!-- Host -->
+            {% with host_obj=host|host_lookup:ep.host %}
             <div class="person-card">
-              {% if ep.host == "Iniobong Benson" %}
+              {% if host_obj.image %}
+              <img src="{{ host_obj.image.url }}" class="person-avatar" alt="{{ ep.host }}">
+              {% elif ep.host == "Iniobong Benson" %}
               <img src="{% static 'img/iniobong.jpg' %}" class="person-avatar" alt="{{ ep.host }}">
-              {% else %}
+              {% elif ep.host == "Opeyemi Kazeem-Jimoh" %}
               <img src="{% static 'img/ope.jpg' %}" class="person-avatar" alt="{{ ep.host }}">
+              {% else %}
+              <img src="{% static 'img/guest-icon.jpg' %}" class="person-avatar" alt="{{ ep.host }}">
               {% endif %}
               <div>
                 <div class="person-role">Host</div>
                 <div class="person-name">{{ ep.host }}</div>
-                {% for host in host %}
-                {% if host.name == ep.host %}
-                <p class="person-bio">{{ host.bio|safe }}</p>
-                {% endif %}
-                {% endfor %}
+                {% if host_obj.bio %}<p class="person-bio">{{ host_obj.bio|safe }}</p>{% endif %}
               </div>
             </div>
+            {% endwith %}
 
             {% if ep.cohost %}
+            {% with cohost_obj=host|host_lookup:ep.cohost %}
             <div class="person-card">
-              {% if ep.cohost == "Iniobong Benson" %}
+              {% if cohost_obj.image %}
+              <img src="{{ cohost_obj.image.url }}" class="person-avatar" alt="{{ ep.cohost }}">
+              {% elif ep.cohost == "Iniobong Benson" %}
               <img src="{% static 'img/iniobong.jpg' %}" class="person-avatar" alt="{{ ep.cohost }}">
-              {% else %}
+              {% elif ep.cohost == "Opeyemi Kazeem-Jimoh" %}
               <img src="{% static 'img/ope.jpg' %}" class="person-avatar" alt="{{ ep.cohost }}">
+              {% else %}
+              <img src="{% static 'img/guest-icon.jpg' %}" class="person-avatar" alt="{{ ep.cohost }}">
               {% endif %}
               <div>
                 <div class="person-role">Co-host</div>
                 <div class="person-name">{{ ep.cohost }}</div>
               </div>
             </div>
+            {% endwith %}
             {% endif %}
 
             <!-- Guest -->
@@ -217,6 +243,7 @@
           </div>
 
           <!-- Other Episodes -->
+          {% if sidebar_eps %}
           <div class="sidebar-widget">
             <h5>Other Episodes</h5>
             {% for ep_side in sidebar_eps %}
@@ -226,6 +253,7 @@
             </a>
             {% endfor %}
           </div>
+          {% endif %}
 
         </div>
       </div>
@@ -242,7 +270,7 @@
     <div class="row row-cols-1 row-cols-md-3 g-3">
       {% for ep_rel in episodes %}
       <div class="col">
-        <div class="episode-card">
+        <a href="{% url 'episode_detail' slug=ep_rel.slug %}" class="episode-card episode-card-compact">
           <div class="episode-card-meta">
             <span class="meta-badge season">S{{ ep_rel.season }}</span>
             <span class="meta-badge">EP {{ ep_rel.episode }}</span>
@@ -250,16 +278,8 @@
           <div class="episode-card-body">
             <h4>{{ ep_rel.title }}</h4>
             <p class="summary">{{ ep_rel.summary|truncatechars:120 }}</p>
-            <div class="episode-tags-row">
-              {% for tag in ep_rel.tag.all %}
-              <span class="episode-tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <a href="{% url 'episode_detail' slug=ep_rel.slug %}" class="episode-card-link">
-              Listen <i class="bi bi-arrow-right"></i>
-            </a>
           </div>
-        </div>
+        </a>
       </div>
       {% endfor %}
     </div>

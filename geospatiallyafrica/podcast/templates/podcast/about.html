@@ -87,70 +87,69 @@
 </section>
 
 <!-- ===== MEET THE HOSTS ===== -->
-<section style="padding:64px 0 16px; background:var(--white);">
+<section id="hosts" style="padding:64px 0 80px; background:var(--white);">
   <div class="container">
-    <div class="text-center mb-4">
-      <span class="section-eyebrow">The people behind the mic</span>
+    <div class="text-center mb-5">
+      <span class="section-eyebrow" style="justify-content:center;">The people behind the mic</span>
       <h2 style="color:var(--text-primary);">Meet the Hosts</h2>
       <div class="divider mx-auto"></div>
     </div>
 
     {% for item in hosts %}
-    <div class="host-profile{% cycle '' ' reverse' %}">
-      <div class="host-profile-photo">
-        {% if item.host.image %}
-        <img src="{{ item.host.image.url }}" alt="{{ item.host.name }}">
-        {% elif item.host.name == "Iniobong Benson" %}
-        <img src="{% static 'img/iniobong.jpg' %}" alt="{{ item.host.name }}">
-        {% elif item.host.name == "Opeyemi Kazeem-Jimoh" %}
-        <img src="{% static 'img/ope.jpg' %}" alt="{{ item.host.name }}">
-        {% else %}
-        <img src="{% static 'img/guest-icon.jpg' %}" alt="{{ item.host.name }}">
-        {% endif %}
-      </div>
-      <div class="host-profile-content">
-        <h3 style="color:var(--text-primary); font-size:1.6rem;">{{ item.host.name }}</h3>
-        {% if item.host.location %}
-        <div class="host-profile-location">{{ item.host.location }}</div>
-        {% endif %}
-        <p>{{ item.host.bio|safe }}</p>
-
-        {% if item.host.linkedin or item.host.twitter %}
-        <div class="host-profile-social">
-          {% if item.host.twitter %}
-          <a href="{{ item.host.twitter }}" target="_blank" rel="noreferrer"><i class="bi bi-twitter"></i></a>
-          {% endif %}
-          {% if item.host.linkedin %}
-          <a href="{{ item.host.linkedin }}" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i></a>
+    <div class="host-block">
+      <div class="host-card-profile{% cycle '' ' reverse' %}">
+        <div class="host-profile-photo">
+          {% if item.host.image %}
+          <img src="{{ item.host.image.url }}" alt="{{ item.host.name }}">
+          {% elif item.host.name == "Iniobong Benson" %}
+          <img src="{% static 'img/iniobong.jpg' %}" alt="{{ item.host.name }}">
+          {% elif item.host.name == "Opeyemi Kazeem-Jimoh" %}
+          <img src="{% static 'img/ope.jpg' %}" alt="{{ item.host.name }}">
+          {% else %}
+          <img src="{% static 'img/guest-icon.jpg' %}" alt="{{ item.host.name }}">
           {% endif %}
         </div>
-        {% endif %}
+        <div class="host-profile-content">
+          <h3 style="color:var(--text-primary); font-size:1.6rem;">{{ item.host.name }}</h3>
+          {% if item.host.location %}
+          <div class="host-profile-location">{{ item.host.location }}</div>
+          {% endif %}
+          <p>{{ item.host.bio|safe }}</p>
 
-        {% if item.episodes %}
-        <div class="mt-3">
-          <span class="section-eyebrow" style="margin-bottom:10px;">Episodes hosted</span>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-            {% for ep in item.episodes %}
-            <div class="col">
-              <div class="episode-card">
-                <div class="episode-card-meta">
-                  <span class="meta-badge season">S{{ ep.season }}</span>
-                  <span class="meta-badge">EP {{ ep.episode }}</span>
-                </div>
-                <div class="episode-card-body">
-                  <h4>{{ ep.title }}</h4>
-                  <p class="summary">{{ ep.summary|truncatechars:90 }}</p>
-                  <a href="{% url 'episode_detail' slug=ep.slug %}" class="episode-card-link">
-                    Listen <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
+          {% if item.host.linkedin or item.host.twitter %}
+          <div class="host-profile-social">
+            {% if item.host.twitter %}
+            <a href="{{ item.host.twitter }}" target="_blank" rel="noreferrer"><i class="bi bi-twitter"></i></a>
+            {% endif %}
+            {% if item.host.linkedin %}
+            <a href="{{ item.host.linkedin }}" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i></a>
+            {% endif %}
           </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
+
+      {% if item.episodes %}
+      <div class="host-episodes-section">
+        <span class="section-eyebrow">Episodes hosted</span>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+          {% for ep in item.episodes %}
+          <div class="col">
+            <a href="{% url 'episode_detail' slug=ep.slug %}" class="episode-card episode-card-compact">
+              <div class="episode-card-meta">
+                <span class="meta-badge season">S{{ ep.season }}</span>
+                <span class="meta-badge">EP {{ ep.episode }}</span>
+              </div>
+              <div class="episode-card-body">
+                <h4>{{ ep.title }}</h4>
+                <p class="summary">{{ ep.summary|truncatechars:90 }}</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
