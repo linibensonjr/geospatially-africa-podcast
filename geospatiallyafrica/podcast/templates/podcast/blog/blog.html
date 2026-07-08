@@ -1,5 +1,6 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
+{% load episode_extras %}
 {% block title %}Blog - Geospatially Africa Podcast{% endblock %}
 
 {% block content %}
@@ -18,22 +19,27 @@
     <span class="section-eyebrow">Featured</span>
     <h2 class="blog-section-title">Latest Post</h2>
 
-    <a href="{% url 'blog_detail' slug=featured_post.slug %}" class="blog-featured-card mb-5" style="text-decoration:none; display:grid;">
+    <a href="{% url 'blog_detail' slug=featured_post.slug %}" class="blog-featured-card mb-5">
       <div class="blog-featured-img">
         {% if featured_post.cover_image %}
         <img src="{{ featured_post.cover_image.url }}" alt="{{ featured_post.title }}">
         {% else %}
-        <i class="bi bi-map" style="font-size:5rem; color:var(--border);"></i>
+        <i class="bi bi-file-earmark-richtext"></i>
         {% endif %}
       </div>
       <div class="blog-featured-content">
-        {% if featured_post.category %}<span class="blog-category">{{ featured_post.category }}</span>{% endif %}
+        {% if featured_post.category %}
+        <div class="blog-category-row">
+          {% for cat in featured_post.category|split_comma %}<span class="blog-category">{{ cat }}</span>{% endfor %}
+        </div>
+        {% endif %}
         <h2>{{ featured_post.title }}</h2>
         <p>{{ featured_post.excerpt|default:featured_post.content|striptags|truncatewords:30 }}</p>
-        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
           <span class="text-link">Read Article <i class="bi bi-arrow-right"></i></span>
-          <span style="font-size:0.8rem; color:var(--ink-muted);">
-            <i class="bi bi-clock me-1"></i>{{ featured_post.reading_time }} min read &nbsp;·&nbsp; {{ featured_post.published_date|date:"M Y" }}
+          <span class="mono" style="font-size:0.78rem; color:var(--ink-muted);">
+            {{ featured_post.author.get_full_name|default:featured_post.author.username|default:"Geospatially Africa" }}
+            &nbsp;·&nbsp; {{ featured_post.reading_time }} min read &nbsp;·&nbsp; {{ featured_post.published_date|date:"M Y" }}
           </span>
         </div>
       </div>
@@ -54,7 +60,7 @@
         <div class="row row-cols-1 row-cols-md-2 g-4">
           {% for post in other_posts %}
           <div class="col">
-            <a href="{% url 'blog_detail' slug=post.slug %}" class="blog-card" style="background:var(--white); text-decoration:none;">
+            <a href="{% url 'blog_detail' slug=post.slug %}" class="blog-card" style="background:var(--white);">
               <div class="blog-card-img-placeholder">
                 {% if post.cover_image %}
                 <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="width:100%; height:100%; object-fit:cover;">
@@ -63,7 +69,11 @@
                 {% endif %}
               </div>
               <div class="blog-card-body">
-                {% if post.category %}<span class="blog-category">{{ post.category }}</span>{% endif %}
+                {% if post.category %}
+                <div class="blog-category-row">
+                  {% for cat in post.category|split_comma %}<span class="blog-category">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
                 <h4>{{ post.title }}</h4>
                 <p>{{ post.excerpt|default:post.content|striptags|truncatewords:18 }}</p>
               </div>

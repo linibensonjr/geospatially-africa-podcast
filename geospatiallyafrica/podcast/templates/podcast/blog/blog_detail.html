@@ -1,5 +1,6 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
+{% load episode_extras %}
 {% block og_title %}{{ post.title }}{% endblock %}
 {% block og_description %}{{ post.excerpt|default:post.content|striptags|truncatewords:30 }}{% endblock %}
 {% block og_url %}https://geospatiallyafrica.com{% url 'blog_detail' slug=post.slug %}{% endblock %}
@@ -9,23 +10,30 @@
 {% block content %}
 {% load social_share %}
 
-<div class="page-hero" style="text-align:left; padding:48px 0 32px;">
-  <div class="container">
+{% if post.cover_image %}
+<div class="blog-detail-cover">
+  <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
+</div>
+{% endif %}
+
+<section style="padding:{% if post.cover_image %}32px 0 0{% else %}56px 0 0{% endif %};">
+  <div class="container" style="max-width:760px;">
     <div class="breadcrumb-custom" style="margin-bottom:20px;">
       <a href="{% url 'blog' %}"><i class="bi bi-arrow-left me-1"></i>Blog</a>
-      {% if post.category %}<span>/</span><span>{{ post.category }}</span>{% endif %}
     </div>
-    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem); max-width:760px;">{{ post.title }}</h1>
-    <p class="mono" style="font-size:0.85rem; color:var(--ink-muted); margin-top:14px;">
+
+    {% if post.category %}
+    <div class="blog-category-row">
+      {% for cat in post.category|split_comma %}<span class="blog-category">{{ cat }}</span>{% endfor %}
+    </div>
+    {% endif %}
+
+    <h1 class="blog-detail-title">{{ post.title }}</h1>
+    <p class="mono blog-detail-meta">
       {{ post.author.get_full_name|default:post.author.username|default:"Geospatially Africa" }}
       &nbsp;·&nbsp; {{ post.published_date|date:"F j, Y" }}
       &nbsp;·&nbsp; {{ post.reading_time }} min read
     </p>
-  </div>
-</div>
-
-<section style="padding:0 0 48px;">
-  <div class="container" style="max-width:760px;">
 
     {% if user.is_authenticated %}
     <div class="d-flex gap-2 mb-4 p-3" style="background:var(--bg-soft); border-radius:var(--radius-md);">
@@ -37,35 +45,37 @@
     </div>
     {% endif %}
 
-    {% if post.cover_image %}
-    <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="width:100%; max-height:420px; object-fit:cover; border-radius:var(--radius-lg); margin-bottom:32px;">
-    {% endif %}
-
     <div class="rich-text">
       {{ post.content|safe }}
     </div>
 
-    {% include 'podcast/includes/newsletter_form.html' %}
-
     <div class="share-row">
-      <span class="share-label">Share this article</span>
-      {% post_to_twitter "New post: {{post.title}}" object_or_url "Twitter" %}
-      {% post_to_linkedin object_or_url "LinkedIn" %}
-      {% post_to_whatsapp object_or_url "WhatsApp" %}
-      {% send_email post.title "Check out this article!" '' "Email" %}
-      {% post_to_reddit "New post: {{post.title}}" "Reddit" %}
+      <div>
+        <div class="share-row-title">Enjoyed this article?</div>
+        <div class="share-row-subtitle">Share it with your network</div>
+      </div>
+      <div class="share-row-icons">
+        {% post_to_twitter "New post: {{post.title}}" object_or_url "Twitter" %}
+        {% post_to_linkedin object_or_url "LinkedIn" %}
+        {% post_to_whatsapp object_or_url "WhatsApp" %}
+        {% send_email post.title "Check out this article!" '' "Email" %}
+        {% post_to_reddit "New post: {{post.title}}" "Reddit" %}
+        <button type="button" class="share-icon copy-link-btn" data-copy-url="{{ request.build_absolute_uri }}" title="Copy link">
+          <i class="bi bi-link-45deg"></i>
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
 {% if recent_posts %}
-<section style="background:var(--bg-soft); padding:56px 0;">
+<section style="background:var(--bg-soft); padding:56px 0; margin-top:48px;">
   <div class="container">
     <h2 class="blog-section-title">More Articles</h2>
     <div class="row row-cols-1 row-cols-md-3 g-3">
       {% for p in recent_posts %}
       <div class="col">
-        <a href="{% url 'blog_detail' slug=p.slug %}" class="blog-card" style="background:var(--white); text-decoration:none;">
+        <a href="{% url 'blog_detail' slug=p.slug %}" class="blog-card" style="background:var(--white);">
           <div class="blog-card-img-placeholder">
             {% if p.cover_image %}
             <img src="{{ p.cover_image.url }}" alt="{{ p.title }}" style="width:100%; height:100%; object-fit:cover;">

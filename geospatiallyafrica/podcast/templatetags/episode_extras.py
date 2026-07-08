@@ -49,3 +49,11 @@ def host_lookup(hosts, name):
         if host.name == name:
             return host
     return None
+
+
+@register.filter
+def split_comma(value):
+    """'GIS, Technology' -> ['GIS', 'Technology']"""
+    if not value:
+        return []
+    return [v.strip() for v in value.split(',') if v.strip()]

@@ -87,27 +87,23 @@
         </div>
 
         <!-- Listen on platforms -->
-        <div class="detail-row">
+        <div class="detail-row detail-row-tight">
           <div class="detail-row-label">Listen on</div>
           <div class="detail-row-content">
             <div class="platform-icon-row">
-              <a href="{{ ep.applepodcast }}" target="_blank" class="platform-icon-item">
-                <span class="platform-icon"><img src="{% static 'img/applepod.svg' %}" alt=""></span>
-                <span class="platform-icon-label">Apple</span>
+              <a href="{{ ep.applepodcast }}" target="_blank" class="platform-pill">
+                <img src="{% static 'img/applepod.svg' %}" alt=""> Apple Podcasts
               </a>
-              <a href="{{ ep.spotify }}" target="_blank" class="platform-icon-item">
-                <span class="platform-icon"><img src="{% static 'img/spotify-podcast.svg' %}" alt=""></span>
-                <span class="platform-icon-label">Spotify</span>
+              <a href="{{ ep.spotify }}" target="_blank" class="platform-pill">
+                <img src="{% static 'img/spotify-podcast.svg' %}" alt=""> Spotify
               </a>
               {% if ep.youtube %}
-              <a href="{{ ep.youtube }}" target="_blank" class="platform-icon-item">
-                <span class="platform-icon"><i class="bi bi-youtube"></i></span>
-                <span class="platform-icon-label">YouTube</span>
+              <a href="{{ ep.youtube }}" target="_blank" class="platform-pill">
+                <i class="bi bi-youtube"></i> YouTube
               </a>
               {% endif %}
-              <a href="https://anchor.fm/geospatiallyafrica" target="_blank" class="platform-icon-item">
-                <span class="platform-icon"><i class="bi bi-rss"></i></span>
-                <span class="platform-icon-label">RSS</span>
+              <a href="https://anchor.fm/geospatiallyafrica" target="_blank" class="platform-pill">
+                <i class="bi bi-rss"></i> RSS
               </a>
             </div>
           </div>
@@ -164,17 +160,22 @@
         </div>
         {% endif %}
 
-        <!-- Newsletter -->
-        {% include 'podcast/includes/newsletter_form.html' %}
-
         <!-- Share -->
         <div class="share-row">
-          <span class="share-label">Share this episode</span>
-          {% post_to_twitter "New Episode: {{ep.title}}. Check it out!" object_or_url "Twitter" %}
-          {% post_to_linkedin object_or_url "LinkedIn" %}
-          {% post_to_whatsapp object_or_url "WhatsApp" %}
-          {% send_email ep.title "Check out this podcast episode!" '' "Email" %}
-          {% post_to_reddit "New Episode: {{ep.title}}" "Reddit" %}
+          <div>
+            <div class="share-row-title">Enjoyed this episode?</div>
+            <div class="share-row-subtitle">Share it with your network</div>
+          </div>
+          <div class="share-row-icons">
+            {% post_to_twitter "New Episode: {{ep.title}}. Check it out!" object_or_url "Twitter" %}
+            {% post_to_linkedin object_or_url "LinkedIn" %}
+            {% post_to_whatsapp object_or_url "WhatsApp" %}
+            {% send_email ep.title "Check out this podcast episode!" '' "Email" %}
+            {% post_to_reddit "New Episode: {{ep.title}}" "Reddit" %}
+            <button type="button" class="share-icon copy-link-btn" data-copy-url="{{ request.build_absolute_uri }}" title="Copy link">
+              <i class="bi bi-link-45deg"></i>
+            </button>
+          </div>
         </div>
 
       </div>

@@ -62,6 +62,7 @@ class Episode(models.Model):
 
 class Hosts(models.Model):
     name = models.CharField(max_length=255)
+    role = models.CharField(max_length=100, blank=True, help_text='e.g. Founder & Host, Co-host')
     bio = models.TextField()
     image = models.ImageField(upload_to='host_image', blank=True)
     location = models.CharField(max_length=255, blank=True)

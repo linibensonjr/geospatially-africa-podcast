@@ -71,17 +71,26 @@
   <div class="container">
     <div class="stats-band-grid">
       <div class="stats-band-item">
-        <div class="num">{{ count }}</div>
-        <div class="label">Episodes Published</div>
+        <div class="num">21+</div>
+        <div class="label">Episodes</div>
       </div>
       <div class="stats-band-item">
-        <div class="num">{{ season_count }}</div>
-        <div class="label">Seasons</div>
+        <div class="num">400+</div>
+        <div class="label">Subscribers Across Platforms</div>
       </div>
       <div class="stats-band-item">
-        <div class="num">{{ guest_count }}</div>
-        <div class="label">Guests Featured</div>
+        <div class="num">2,000+</div>
+        <div class="label">Listens</div>
       </div>
+      <div class="stats-band-item">
+        <div class="num">67+</div>
+        <div class="label">Countries</div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="{% url 'support_us' %}#guest-nomination" class="btn-primary-custom">
+        Suggest or Become a Guest <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -111,6 +120,9 @@
         </div>
         <div class="host-profile-content">
           <h3 style="color:var(--text-primary); font-size:1.6rem;">{{ item.host.name }}</h3>
+          {% if item.host.role %}
+          <div class="host-profile-role">{{ item.host.role }}</div>
+          {% endif %}
           {% if item.host.location %}
           <div class="host-profile-location">{{ item.host.location }}</div>
           {% endif %}
@@ -136,6 +148,14 @@
           {% for ep in item.episodes %}
           <div class="col">
             <a href="{% url 'episode_detail' slug=ep.slug %}" class="episode-card episode-card-compact">
+              <div class="episode-card-media">
+                {% if ep.episode_image %}
+                <img src="{{ ep.episode_image.url }}" alt="{{ ep.title }}">
+                {% else %}
+                <div class="episode-card-media-placeholder"><i class="bi bi-mic-fill"></i></div>
+                {% endif %}
+                <span class="episode-card-play"><i class="bi bi-play-fill"></i></span>
+              </div>
               <div class="episode-card-meta">
                 <span class="meta-badge season">S{{ ep.season }}</span>
                 <span class="meta-badge">EP {{ ep.episode }}</span>

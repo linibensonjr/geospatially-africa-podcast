@@ -1,5 +1,6 @@
 {% extends 'podcast/base.html' %}
 {% load static %}
+{% load episode_extras %}
 
 {% block og_description %}The Geospatially Africa Podcast - The podcast for Africa geospatial community{% endblock %}
 {% block title %}Geospatially Africa - The podcast for the Geospatial community{% endblock %}
@@ -176,6 +177,7 @@
           <img src="{% static 'img/guest-icon.jpg' %}" alt="{{ host.name }}">
           {% endif %}
           <h5>{{ host.name }}</h5>
+          {% if host.role %}<div class="host-teaser-role">{{ host.role }}</div>{% endif %}
           {% if host.location %}<div class="host-teaser-location mono">{{ host.location }}</div>{% endif %}
           <p>{{ host.bio|striptags|truncatewords:16 }}</p>
         </div>
@@ -212,7 +214,11 @@
             {% endif %}
           </div>
           <div class="blog-card-body">
-            {% if post.category %}<span class="blog-category">{{ post.category }}</span>{% endif %}
+            {% if post.category %}
+            <div class="blog-category-row">
+              {% for cat in post.category|split_comma %}<span class="blog-category">{{ cat }}</span>{% endfor %}
+            </div>
+            {% endif %}
             <h4>{{ post.title }}</h4>
             <p>{{ post.excerpt|default:post.content|striptags|truncatewords:16 }}</p>
           </div>
