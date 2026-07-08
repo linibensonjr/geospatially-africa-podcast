@@ -23,13 +23,17 @@ import requests
 def index(request):
     now = timezone.now()
     published = Episode.objects.filter(published_date__lte=now).order_by('-published_date')
-    episodes = published[:4]
-    latest_videos = published.exclude(youtube__isnull=True).exclude(youtube='')[:2]
+    episodes = published[:6]
+    latest_videos = published.exclude(youtube__isnull=True).exclude(youtube='')[:3]
     tags = Tags.objects.all()
+    hosts = Hosts.objects.all()[:3]
+    latest_posts = BlogPost.objects.filter(published_date__isnull=False)[:3]
     return render(request, 'podcast/index.html', {
         'episodes': episodes,
         'latest_videos': latest_videos,
         'tags': tags,
+        'hosts': hosts,
+        'latest_posts': latest_posts,
     })
 
 def episode_list(request):

@@ -6,7 +6,7 @@
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
-  <span class="section-eyebrow">The archive</span>
+  <span class="section-eyebrow" style="justify-content:center;">The archive</span>
   <h1>All Episodes</h1>
   <p>Conversations with Africa's leading geospatial experts, innovators, and practitioners.</p>
   <div class="search-bar-container">
@@ -20,42 +20,29 @@
 <!-- ===== EPISODES GRID ===== -->
 <section style="padding: 64px 0;">
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
       {% for episode in episodes %}
       <div class="col">
-        <div class="episode-card">
-          <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-media">
+        <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card episode-card-compact">
+          <div class="episode-card-media">
             {% if episode.episode_image %}
             <img src="{{ episode.episode_image.url }}" alt="{{ episode.title }}">
             {% else %}
             <div class="episode-card-media-placeholder"><i class="bi bi-mic-fill"></i></div>
             {% endif %}
             <span class="episode-card-play"><i class="bi bi-play-fill"></i></span>
-          </a>
-
+          </div>
           <div class="episode-card-meta">
             <span class="meta-badge season">S{{ episode.season }}</span>
             <span class="meta-badge">EP {{ episode.episode }}</span>
             <span class="meta-badge">{{ episode.published_date|date:"M Y" }}</span>
           </div>
-
           <div class="episode-card-body">
             <h4>{{ episode.title }}</h4>
-            <p class="guests-line">
-              <i class="bi bi-mic me-1"></i>{{ episode.host }}{% if episode.cohost %} &amp; {{ episode.cohost }}{% endif %}
-              &nbsp;·&nbsp; <i class="bi bi-person me-1"></i>{{ episode.guest }}
-            </p>
-            <p class="summary">{{ episode.summary }}</p>
-            <div class="episode-tags-row">
-              {% for tag in episode.tag.all %}
-              <a href="{% url 'tags' %}?tag={{ tag }}" class="episode-tag">{{ tag }}</a>
-              {% endfor %}
-            </div>
-            <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-link">
-              Listen &amp; Read <i class="bi bi-arrow-right"></i>
-            </a>
+            <p class="guests-line">{{ episode.guest }}</p>
+            <p class="summary">{{ episode.summary|truncatechars:80 }}</p>
           </div>
-        </div>
+        </a>
       </div>
       {% empty %}
       <div class="col-12 text-center py-5">

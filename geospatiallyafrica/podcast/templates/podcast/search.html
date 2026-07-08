@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="page-hero" style="padding:48px 0 36px;">
-  <span class="section-eyebrow">Results</span>
+  <span class="section-eyebrow" style="justify-content:center;">Results</span>
   <h1 style="font-size:2.2rem;">Search Results</h1>
   {% if query %}<p>Showing results for "<strong>{{ query }}</strong>"</p>{% endif %}
   <div class="search-bar-container">
@@ -19,36 +19,28 @@
 <section style="padding:48px 0;">
   <div class="container">
     {% if object_list %}
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
       {% for episode in object_list %}
       <div class="col">
-        <div class="episode-card">
-          <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-media">
+        <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card episode-card-compact">
+          <div class="episode-card-media">
             {% if episode.episode_image %}
             <img src="{{ episode.episode_image.url }}" alt="{{ episode.title }}">
             {% else %}
             <div class="episode-card-media-placeholder"><i class="bi bi-mic-fill"></i></div>
             {% endif %}
             <span class="episode-card-play"><i class="bi bi-play-fill"></i></span>
-          </a>
+          </div>
           <div class="episode-card-meta">
             <span class="meta-badge season">S{{ episode.season }}</span>
             <span class="meta-badge">EP {{ episode.episode }}</span>
           </div>
           <div class="episode-card-body">
             <h4>{{ episode.title }}</h4>
-            <p class="guests-line">{{ episode.host }} · {{ episode.guest }}</p>
-            <p class="summary">{{ episode.summary }}</p>
-            <div class="episode-tags-row">
-              {% for tag in episode.tag.all %}
-              <span class="episode-tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <a href="{% url 'episode_detail' slug=episode.slug %}" class="episode-card-link">
-              Listen <i class="bi bi-arrow-right"></i>
-            </a>
+            <p class="guests-line">{{ episode.guest }}</p>
+            <p class="summary">{{ episode.summary|truncatechars:80 }}</p>
           </div>
-        </div>
+        </a>
       </div>
       {% endfor %}
     </div>

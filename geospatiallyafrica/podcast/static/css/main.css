@@ -221,6 +221,21 @@ img.logo:hover { opacity: 0.8; }
 /* ============================================================
    7. GENERIC SECTION WRAPPERS (homepage: videos / topics / about strip)
    ============================================================ */
+.hero-home-minimal { padding: 88px 0 64px; }
+.platform-logos { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.yt-music-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+.yt-music-badge i { font-size: 1.1rem; color: var(--accent); }
+.about-strip-compact { padding: 48px 0 72px; border-top: none; background: var(--bg); }
+.answers-section { padding: 80px 0; background: var(--bg-soft); }
+.hero-answer-grid-standalone { max-width: 900px; margin: 0 auto; }
+.host-teaser-card { text-align: center; }
+.host-teaser-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; box-shadow: var(--shadow-md); }
+.host-teaser-card h5 { font-size: 1.05rem; margin-bottom: 4px; }
+.host-teaser-location { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.host-teaser-card p { font-size: 0.9rem; }
+.hosts-teaser-section { padding: 80px 0; background: var(--bg); }
+.blog-teaser-section { padding: 80px 0; background: var(--bg-soft); }
+
 .latest-episodes-section { padding: 80px 0; background: var(--bg); }
 .videos-section { padding: 80px 0; background: var(--bg-soft); }
 .videos-section .ep-meta { font-size: 0.78rem; color: var(--ink-muted); }
@@ -260,8 +275,9 @@ img.logo:hover { opacity: 0.8; }
   background: var(--white); border: 1px solid var(--border);
   border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition);
   height: 100%; display: flex; flex-direction: column;
+  color: inherit; text-decoration: none;
 }
-.episode-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--border); }
+.episode-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--border); color: inherit; }
 .episode-card-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink-900); }
 .episode-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
 .episode-card:hover .episode-card-media img { transform: scale(1.04); }
@@ -294,6 +310,14 @@ img.logo:hover { opacity: 0.8; }
 .episode-tag:hover { background: var(--accent); color: var(--white); }
 .episode-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-weight: 600; font-size: 0.85rem; color: var(--accent); transition: all var(--transition); }
 .episode-card:hover .episode-card-link { gap: 10px; }
+
+/* Compact variant: episodes / search / tags grids */
+.episode-card-compact .episode-card-meta { padding: 14px 16px 0; gap: 6px; }
+.episode-card-compact .meta-badge { font-size: 0.64rem; padding: 3px 8px; }
+.episode-card-compact .episode-card-body { padding: 10px 16px 16px; }
+.episode-card-compact .episode-card-body h4 { font-size: 0.96rem; margin-bottom: 4px; }
+.episode-card-compact .guests-line { font-size: 0.76rem; margin-bottom: 6px; }
+.episode-card-compact .summary { font-size: 0.82rem; line-height: 1.5; }
 
 /* ============================================================
    10. SIDEBAR
@@ -451,9 +475,11 @@ img.logo:hover { opacity: 0.8; }
    15. NEWSLETTER (light teal-tinted panel — the site's one accent block)
    ============================================================ */
 .newsletter-section { background: var(--accent-soft); padding: 72px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+.newsletter-inner { max-width: 520px; margin: 0 auto; text-align: center; }
 .newsletter-section h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.1rem); color: var(--ink); margin-bottom: 10px; }
 .newsletter-section p { color: var(--ink-secondary); font-size: 1rem; margin-bottom: 28px; }
-.newsletter-form { display: flex; gap: 10px; max-width: 460px; }
+.newsletter-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+.newsletter-widget .newsletter-message { text-align: center; }
 .newsletter-form input { flex: 1; padding: 14px 18px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 0.95rem; font-family: var(--font-body); outline: none; background: var(--white); color: var(--ink); }
 .newsletter-form input::placeholder { color: var(--ink-muted); }
 .newsletter-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(42,157,143,0.15); }
