@@ -391,6 +391,15 @@ img.logo:hover { opacity: 0.8; }
 .host-profile-social a:hover { background: var(--accent); color: var(--white); }
 .host-episodes-section { padding: 28px 8px 0; }
 .host-episodes-section .section-eyebrow { margin-bottom: 16px; }
+.host-episode-mini {
+  display: block; height: 100%; padding: 16px 18px; border: 1px solid var(--border);
+  border-radius: var(--radius-md); background: var(--white); color: inherit; text-decoration: none;
+  transition: all var(--transition);
+}
+.host-episode-mini:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); color: inherit; transform: translateY(-2px); }
+.host-episode-mini-badge { display: block; font-size: 0.68rem; color: var(--accent); margin-bottom: 6px; letter-spacing: 0.04em; }
+.host-episode-mini h4 { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+.host-episode-mini p { font-size: 0.8rem; color: var(--ink-secondary); margin-bottom: 0; line-height: 1.5; }
 
 /* ============================================================
    13. EPISODE DETAIL
@@ -406,19 +415,31 @@ img.logo:hover { opacity: 0.8; }
 .detail-article p { color: var(--ink-secondary); }
 .detail-media { background: var(--bg-soft); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; margin: 24px 0 32px; }
 .prefer-audio-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin: 20px 0 10px; }
-.audio-embed { border-radius: var(--radius-md); overflow: hidden; }
+.audio-embed { border-radius: var(--radius-md); overflow: hidden; width: 100%; }
+.audio-embed iframe { width: 100% !important; height: 102px; border: 0; display: block; }
 .hero-audio-embed {
   background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 16px; margin: 28px auto 0; box-shadow: var(--shadow-sm);
-  max-width: 640px;
+  padding: 20px; margin: 28px auto 0; box-shadow: var(--shadow-md);
+  max-width: 640px; position: relative; overflow: hidden;
 }
+.hero-audio-embed::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+.hero-audio-embed-label {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+}
+.hero-audio-embed-label i { font-size: 0.85rem; }
 .detail-video-embed { max-width: 520px; }
 
-.detail-row { display: flex; gap: 40px; padding: 32px 0; border-bottom: 1px solid var(--border-light); }
+.detail-row { display: flex; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border-light); }
 .detail-row:first-of-type { padding-top: 0; }
-.detail-row-label { flex: 0 0 190px; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--ink); display: flex; align-items: flex-start; gap: 10px; padding-top: 3px; }
-.detail-row-label::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
-.detail-row-content { flex: 1; min-width: 0; font-size: 1.05rem; line-height: 1.8; }
+.detail-row-label { flex: 0 0 180px; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); display: flex; align-items: flex-start; gap: 12px; }
+.detail-row-icon {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent-soft); color: var(--accent);
+  display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+}
+.detail-row-content { flex: 1; min-width: 0; font-size: 1.05rem; line-height: 1.8; padding-top: 3px; }
 .detail-row-content p { color: var(--ink-secondary); font-size: 1.05rem; line-height: 1.8; }
 
 .rich-text { font-size: 1.05rem; line-height: 1.9; }
@@ -579,21 +600,21 @@ img.logo:hover { opacity: 0.8; }
    17. FOOTER (the one dark closing band)
    ============================================================ */
 footer { background: var(--ink-900); }
-.footer-top { padding: 64px 0 40px; border-bottom: 1px solid var(--on-dark-border); }
-.footer-brand p { font-size: 0.9rem; line-height: 1.7; color: var(--on-dark-muted); margin-top: 16px; max-width: 280px; }
-.footer-col h6 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--on-dark-muted); margin-bottom: 18px; }
+.footer-top { padding: 40px 0 24px; border-bottom: 1px solid var(--on-dark-border); }
+.footer-brand p { font-size: 0.84rem; line-height: 1.6; color: var(--on-dark-muted); margin-top: 10px; max-width: 280px; }
+.footer-col h6 { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--on-dark-muted); margin-bottom: 12px; }
 .footer-links { list-style: none; padding: 0; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { font-size: 0.88rem; color: var(--on-dark-muted); transition: color var(--transition); }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: 0.84rem; color: var(--on-dark-muted); transition: color var(--transition); }
 .footer-links a:hover { color: var(--on-dark); }
-.footer-social { display: flex; gap: 8px; margin-top: 12px; }
+.footer-social { display: flex; gap: 6px; margin-top: 8px; }
 .footer-social a {
-  width: 36px; height: 36px; background: rgba(255,255,255,0.06); border-radius: var(--radius-sm);
+  width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: var(--radius-sm);
   display: flex; align-items: center; justify-content: center;
-  color: var(--on-dark-muted); font-size: 0.95rem; transition: all var(--transition);
+  color: var(--on-dark-muted); font-size: 0.85rem; transition: all var(--transition);
 }
 .footer-social a:hover { background: var(--accent); color: var(--white); }
-.footer-bottom { padding: 18px 0; text-align: center; font-size: 0.8rem; color: var(--on-dark-muted); }
+.footer-bottom { padding: 14px 0; text-align: center; font-size: 0.76rem; color: var(--on-dark-muted); }
 
 /* ============================================================
    18. YOUTUBE CLICK-TO-LOAD EMBED
@@ -644,6 +665,15 @@ footer { background: var(--ink-900); }
 .episode-tags:hover { background-color: var(--accent); color: var(--white); }
 .tag-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 500; color: var(--ink); transition: all var(--transition); }
 .tag-link:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+.episode-filter-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 28px 0 0; }
+.tag-filter-pill {
+  display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 999px;
+  border: 1.5px solid var(--border); background: var(--white); color: var(--ink-secondary);
+  font-size: 0.85rem; font-weight: 600; transition: all var(--transition);
+}
+.tag-filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+.tag-filter-pill.active { background: var(--accent); border-color: var(--accent); color: var(--white); }
 .episode-list { margin-top: 15px; }
 .episode-list a { color: var(--ink-secondary); font-size: 0.9rem; }
 .episode-list a:hover { color: var(--accent); }

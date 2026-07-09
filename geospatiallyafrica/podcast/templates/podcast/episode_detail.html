@@ -47,6 +47,7 @@
     <!-- Audio player, front and centre in the header -->
     {% if ep.link %}
     <div class="hero-audio-embed">
+      <div class="hero-audio-embed-label"><i class="bi bi-soundwave"></i> Listen now</div>
       <div class="audio-embed">{{ ep.link | safe }}</div>
     </div>
     {% endif %}
@@ -80,7 +81,7 @@
 
         <!-- About this episode -->
         <div class="detail-row">
-          <div class="detail-row-label">About this episode</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-info-lg"></i></span>About this episode</div>
           <div class="detail-row-content">
             <p>{{ ep.summary }}</p>
           </div>
@@ -88,7 +89,7 @@
 
         <!-- Listen on platforms -->
         <div class="detail-row detail-row-tight">
-          <div class="detail-row-label">Listen on</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-headphones"></i></span>Listen on</div>
           <div class="detail-row-content">
             <div class="platform-icon-row">
               <a href="{{ ep.applepodcast }}" target="_blank" class="platform-pill">
@@ -112,7 +113,7 @@
         <!-- Video -->
         {% if ep.youtube %}
         <div class="detail-row">
-          <div class="detail-row-label">Watch</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-play-btn"></i></span>Watch</div>
           <div class="detail-row-content">
             <div class="detail-video-embed">
               {% include 'podcast/includes/youtube_embed.html' with youtube_url=ep.youtube title=ep.title %}
@@ -123,7 +124,7 @@
 
         <!-- Show Notes -->
         <div class="detail-row">
-          <div class="detail-row-label">Show Notes</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-journal-text"></i></span>Show Notes</div>
           <div class="detail-row-content rich-text">
             {{ ep.description | safe }}
           </div>
@@ -132,7 +133,7 @@
         <!-- Chapters -->
         {% if ep.chapters %}
         <div class="detail-row">
-          <div class="detail-row-label">Chapters</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-list-ol"></i></span>Chapters</div>
           <div class="detail-row-content">
             <ul class="chapters-list">
               {% for chapter in ep.chapters|parse_chapters %}
@@ -149,7 +150,7 @@
         <!-- Links & Resources -->
         {% if ep.links_mentioned %}
         <div class="detail-row">
-          <div class="detail-row-label">Links &amp; Resources</div>
+          <div class="detail-row-label"><span class="detail-row-icon"><i class="bi bi-link-45deg"></i></span>Links &amp; Resources</div>
           <div class="detail-row-content">
             <ul class="resource-links">
               {% for resource in ep.links_mentioned|parse_links %}
@@ -265,9 +266,10 @@
 
 <!-- More Like This -->
 {% if episodes %}
-<section style="background:var(--light-gray); padding:48px 0;">
+<section style="background:var(--bg-soft); padding:56px 0;">
   <div class="container">
-    <h2 style="font-family:var(--font-body); font-size:1.6rem; font-weight:700; color:var(--text-primary); margin-bottom:28px;">More Episodes</h2>
+    <span class="section-eyebrow">Keep listening</span>
+    <h2 class="section-title" style="color:var(--ink); margin-bottom:28px;">More Episodes</h2>
     <div class="row row-cols-1 row-cols-md-3 g-3">
       {% for ep_rel in episodes %}
       <div class="col">

@@ -37,11 +37,16 @@ def index(request):
     })
 
 def episode_list(request):
-    episodes_tags = Episode.objects.prefetch_related('tags').all()
-    # Adjust the related name: use 'tags' or 'tag_set' depending on your model
-    tags = Tags.objects.filter(episode__in=episodes_tags).distinct()
-    episode = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'podcast/episodes.html', {'episodes': episode, 'tags': tags})
+    published = Episode.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    tags = Tags.objects.filter(episode__in=published).distinct()
+    active_tag = request.GET.get('tag', '').strip()
+    if active_tag:
+        published = published.filter(tag__tags=active_tag)
+    return render(request, 'podcast/episodes.html', {
+        'episodes': published,
+        'tags': tags,
+        'active_tag': active_tag,
+    })
 
 
 def episode_detail(request, slug):
