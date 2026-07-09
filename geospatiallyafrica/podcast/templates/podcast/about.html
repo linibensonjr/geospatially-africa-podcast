@@ -147,10 +147,23 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
           {% for ep in item.episodes %}
           <div class="col">
-            <a href="{% url 'episode_detail' slug=ep.slug %}" class="host-episode-mini">
-              <span class="host-episode-mini-badge mono">S{{ ep.season }} · E{{ ep.episode }}</span>
-              <h4>{{ ep.title }}</h4>
-              <p>{{ ep.summary|truncatechars:70 }}</p>
+            <a href="{% url 'episode_detail' slug=ep.slug %}" class="episode-card episode-card-compact">
+              <div class="episode-card-media">
+                {% if ep.episode_image %}
+                <img src="{{ ep.episode_image.url }}" alt="{{ ep.title }}">
+                {% else %}
+                <div class="episode-card-media-placeholder"><i class="bi bi-mic-fill"></i></div>
+                {% endif %}
+                <span class="episode-card-play"><i class="bi bi-play-fill"></i></span>
+              </div>
+              <div class="episode-card-meta">
+                <span class="meta-badge season">S{{ ep.season }}</span>
+                <span class="meta-badge">EP {{ ep.episode }}</span>
+              </div>
+              <div class="episode-card-body">
+                <h4>{{ ep.title }}</h4>
+                <p class="summary">{{ ep.summary|truncatechars:90 }}</p>
+              </div>
             </a>
           </div>
           {% endfor %}
