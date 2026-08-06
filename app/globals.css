@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky header height, so anchor jumps are not hidden behind it. */
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #14171c;
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display serif for headings, matching the editorial voice of the brand. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+
+a,
+button,
+input,
+select,
+summary {
+  border-radius: 8px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #e85d3a;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: #0c1e32;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+::selection {
+  background: rgba(232, 93, 58, 0.16);
+  color: #14171c;
+}
+
+.episode-card:focus-within {
+  outline: 2px solid #e85d3a;
+  outline-offset: 3px;
+}
+
+.episode-card a:focus-visible {
+  outline: none;
+}
+
+/* Small uppercase mono label used for eyebrows and metadata. */
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Volume slider inside the audio player: a thin track with a small round thumb. */
+.audio-volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: #0c1e32;
+  cursor: pointer;
+}
+
+.audio-volume::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: #0c1e32;
+  cursor: pointer;
+}
+
+.audio-embed {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.audio-embed iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  border: 0;
+}
+
+.rich-text {
+  max-width: 70ch;
+  color: #5b6472;
+  font-size: 1.03rem;
+  line-height: 1.8;
+}
+
+.rich-text h2,
+.rich-text h3 {
+  color: #14171c;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rich-text h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.55rem;
+}
+
+.rich-text h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.rich-text > :first-child {
+  margin-top: 0;
+}
+
+.rich-text p,
+.rich-text ul,
+.rich-text ol {
+  margin-bottom: 1.25rem;
+}
+
+.rich-text p:empty,
+.rich-text p:has(> br:only-child) {
+  display: none;
+}
+
+.rich-text ul,
+.rich-text ol {
+  padding-left: 1.5rem;
+}
+
+.rich-text ul {
+  list-style: disc;
+}
+
+.rich-text ol {
+  list-style: decimal;
+}
+
+.rich-text li {
+  margin-bottom: 0.55rem;
+}
+
+.rich-text li::marker {
+  color: #e85d3a;
+}
+
+.rich-text blockquote {
+  margin: 1.75rem 0;
+  border-left: 3px solid #e85d3a;
+  background: #fff0eb;
+  padding: 1.1rem 1.4rem;
+  color: #14171c;
+}
+
+.rich-text a {
+  color: #c9472a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rich-text img {
+  margin: 1.5rem 0;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,35 +1,27 @@
-# Python
-*.pyc
-*~
-__pycache__
+# Dependencies and Next.js output
+node_modules/
+.next/
+out/
 
-# Env
+# Local and production secrets
 .env
-myvenv/
-venv
-../gapvenv/
+.env.*
+!.env.local.example
+*.env
+*.dump
+*.sql.gz
+latest.dump
+connection-strings*
 
-# Database
-db.sqlite3
-
-# Static folder at project root
-/static/
-/staticfiles/
-/geospatiallyafrica/media/
-
-# macOS
-._*
+# Logs and system files
+*.log
+*.tsbuildinfo
 .DS_Store
-.fseventsd
-.Spotlight-V100
 
-# Windows
-Thumbs.db*
-ehthumbs*.db
-[Dd]esktop.ini
-$RECYCLE.BIN/
+# Python migration environment
+.venv/
+__pycache__/
+*.py[cod]
 
-# Visual Studio
-.vscode/
-.history/
-*.code-workspace
+# Netlify local state
+.netlify/
