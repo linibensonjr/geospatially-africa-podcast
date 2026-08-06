@@ -30,7 +30,7 @@ MarkupSafe
 Pillow
 pipreqs
 # psycopg2==2.9.1
-psycopg2-binary
+# psycopg2-binary
 python-dateutil
 python-slugify
 pytz

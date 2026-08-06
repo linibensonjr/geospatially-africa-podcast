@@ -7,6 +7,7 @@ __pycache__
 .env
 myvenv/
 venv
+../gapvenv/
 
 # Database
 db.sqlite3
